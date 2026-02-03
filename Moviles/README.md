@@ -16,8 +16,6 @@ Apartado en el que se irán exponiendo los avances semanales en el desarrollo de
 
 ## Cronoligía del proyecto
 
-La cronología comienza en la fecha que comienza ya que se estaba trabajando en otro proyecto que ha tenido que pasar a un segundo plano, consideremos el período anterior a la primera fecha que figura como etapa de investigación.
-
 ### 02/02 - 08/02
 
 Creación de la actividad de inicio de sesion.
