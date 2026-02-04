@@ -9,6 +9,10 @@ En cada subproyecto se encuentra un readme informativo que se irá actualizando 
 
 La cronología comienza en la fecha que comienza ya que se estaba trabajando en otro proyecto que ha tenido que pasar a un segundo plano, consideremos el período anterior a la primera fecha que figura como etapa de investigación.
 
+## Modelo de datos
+
+El modelo de datos se ha diseñado siguiendo un enfoque minimalista, incluyendo únicamente las entidades necesarias para garantizar el correcto funcionamiento de la aplicación y facilitar su escalabilidad.
+
 ## Enlaces a los subproyectos
 
 [Móvil](./Moviles)
