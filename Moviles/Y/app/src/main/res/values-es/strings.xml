@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Y</string>
+    <string name="feed_update">Hay nuevas publicaciones que todavía no has visto</string>
+</resources>

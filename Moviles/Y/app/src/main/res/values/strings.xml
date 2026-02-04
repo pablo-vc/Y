@@ -1,9 +1,12 @@
 <resources>
-    <string name="app_name">Y</string>
+    <string name="app_name" translatable="false">Y</string>
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
     <string name="no_user_error">Username is required</string>
     <string name="no_password_error">Password is required</string>
     <string name="no_email_error">Email is required</string>
+    <string name="feed_update">New posts to see on your feed</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

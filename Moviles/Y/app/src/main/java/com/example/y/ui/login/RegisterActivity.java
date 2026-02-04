@@ -12,7 +12,7 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
-import com.example.y.MainActivity;
+import com.example.y.ui.MainActivity;
 import com.example.y.R;
 
 public class RegisterActivity extends AppCompatActivity {
