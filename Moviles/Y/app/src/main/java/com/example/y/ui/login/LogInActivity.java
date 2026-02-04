@@ -2,7 +2,6 @@ package com.example.y.ui.login;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -13,9 +12,9 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
-import com.example.y.MainActivity;
+import com.example.y.ApiRest;
+import com.example.y.ui.MainActivity;
 import com.example.y.R;
-import com.example.y.databinding.FragmentHomeBinding;
 
 public class LogInActivity extends AppCompatActivity {
     EditText etUser, etPassword;
