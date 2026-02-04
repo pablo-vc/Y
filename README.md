@@ -1,6 +1,6 @@
 <h1><img align="center" alt="SQL" width="40px" src="https://github.com/user-attachments/assets/a5eb8b3d-f6b5-41b8-acf2-ccdbe884fc05" /> - Red social multiplataforma</h1>
 
- "Y" es una aplicación multiplataforma en la que los usuarios podrán compartir publicaciones sus opiniones e inquietudes mediante publicaciones de texto que todo el mundo podrá ver en su feed.
+ "Y" es una aplicación multiplataforma en la que los usuarios podrán compartir sus opiniones e inquietudes mediante publicaciones de texto que todo el mundo podrá ver en su feed.
 
 
 ## Estado de la app
