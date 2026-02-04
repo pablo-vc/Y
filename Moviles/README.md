@@ -23,3 +23,5 @@ Creación de la actividad de inicio de sesion.
 Implementación de bottomNavigationView y fragments para la gestión de la navegación una vez dentro de la aplicación.
 
 Creación de los modelos de datos principales de la aplicación.
+
+Investigación sobre la gestión de notificaciones, las notificaciones se muestran mediante un RecyclerView, utilizando un Adapter personalizado que adapta el contenido de cada notificación en función de su tipo (seguimiento o nuevo post).
