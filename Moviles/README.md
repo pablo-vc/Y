@@ -14,6 +14,27 @@ Apartado en el que se irán exponiendo los avances semanales en el desarrollo de
  - [View Model](https://developer.android.com/topic/libraries/architecture/viewmodel?hl=es-419#java)
  - [ViewPager](https://developer.android.com/guide/navigation/navigation-swipe-view-2?hl=es-419)
 
+<hr>
+
+## Arquitectura del proyecto
+
+El proyecto se organiza a partir de una carpeta raíz que separa las distintas responsabilidades de la aplicación en tres paquetes principales: ui, data y adapters, fuera de los cuales se encuentran los modelos de datos, para fácil acceso desde cualquier parte de la aplicación. Esta división permite mantener una arquitectura clara, modular y fácil de mantener.
+
+### 📁 ui
+Contiene todos los componentes relacionados con la interfaz de usuario.  
+Esta carpeta se ha organizado en subcarpetas independientes para cada apartado de la aplicación.
+
+### 📁 data
+Incluye la clase Api, la cual contiene las funciones que se encargarán de la recogida y volcado de datos a la base de datos.
+
+### 📁 adapters
+Contiene los adaptadores utilizados para conectar los datos con componentes visuales como `RecyclerView` o `ViewPager`.  
+Al tratarse de clases reutilizables por distintas pantallas, se mantienen fuera de la capa de interfaz de usuario.
+
+### Justificación
+Esta organización sigue el principio de separación de responsabilidades, facilitando la escalabilidad del proyecto y mejorando la localización, legibilidad y mantenimiento del código.
+
+<hr>
 
 ## Cronoligía del proyecto
 
@@ -23,10 +44,26 @@ Creación de la actividad de inicio de sesion.
 
 Implementación de bottomNavigationView y fragments para la gestión de la navegación una vez dentro de la aplicación. Cada fragment utiliza un layout XML independiente que define su estructura visual, mientras que los elementos individuales de listas se representan mediante layouts reutilizables.
 
-Creación de los modelos de datos principales de la aplicación.
+Creación de los modelos de datos de la aplicación.
 
 Investigación sobre la gestión de notificaciones, se mostrarán mediante un RecyclerView, utilizando un Adapter personalizado que adapta el contenido de cada notificación en función de su tipo (seguimiento o nuevo post).
 
 Investigación sobre viewPager y TabLayout para la gestión del feed para mostrar diferentes vistas del contenido.
 
 Primeros pasos en la gestión de la comunicación con la Api.
+
+### 09/02 - 15/02
+
+Definición y retocado de algunas funciones de la clase Api.
+
+Grandes avances en la mayoría de la lógica interna de la aplicación (adapters y activities principales, muestran datos externos a la base de datos)
+
+Validación de datos en las activities de registro e inicio de sesión;
+
+Diseño y creación de "CreatePostActivity" terminado, sin comunicación con la base de datos todavía.
+
+Diseño general de la aplicación mejorado, implementación de una paleta de colores completa y estilos para inputs y botones.
+
+ViewPager y TabLayout añadidos y funcionando en "FeedFragment".
+
+PostAdapter adaptado para identificar publicaciones propias del usuario de la sesión y permitir eliminarlas en la pagina de perfil, la cual aún está en desarrollo.
