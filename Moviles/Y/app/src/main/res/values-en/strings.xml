@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="notifications">Notifications</string>
+    <string name="feed">Feed</string>
+    <string name="profile">Profile</string>
+    <string name="Username">Username</string>
+    <string name="Password">Password</string>
+    <string name="Repeat_password">Repeat password</string>
+    <string name="LogIn">Log In</string>
+    <string name="forgot_password">Forgot your password?</string>
+    <string name="Register_text">Don\'t have an account? Register</string>
+    <string name="Register">Register</string>
+    <string name="Post">Post</string>
+    <string name="New_post_text">What are you thinking about?</string>
+</resources>

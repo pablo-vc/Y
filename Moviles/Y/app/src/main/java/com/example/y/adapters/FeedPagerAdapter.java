@@ -4,6 +4,9 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
 
+import com.example.y.ui.feed.FollowingFeedFragment;
+import com.example.y.ui.feed.GlobalFeedFragment;
+
 public class FeedPagerAdapter extends FragmentStateAdapter {
 
     public FeedPagerAdapter(@NonNull Fragment fragment) {

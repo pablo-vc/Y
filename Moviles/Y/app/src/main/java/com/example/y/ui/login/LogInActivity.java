@@ -12,38 +12,33 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
-import com.example.y.ApiRest;
-import com.example.y.ui.MainActivity;
 import com.example.y.R;
+import com.example.y.databinding.ActivityLogInBinding;
+import com.example.y.ui.MainActivity;
 
 public class LogInActivity extends AppCompatActivity {
+
     EditText etUser, etPassword;
     Button btnLogin;
     TextView tvRegister, tvForgotPassword;
-
+    ActivityLogInBinding binding;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
-        setContentView(R.layout.activity_log_in);
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
-            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
-            initUI();
-            setUpListeners();
-            return insets;
-
-        });
+        binding = ActivityLogInBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
+        initUI();
+        setUpListeners();
     }
 
     private void initUI() {
-        btnLogin = findViewById(R.id.btnLogin);
-        etUser=findViewById(R.id.etUser);
-        etPassword=findViewById(R.id.etPassword);
-        tvForgotPassword = findViewById(R.id.tvForgotPassword);
-        tvRegister = findViewById(R.id.tvRegister);
+        btnLogin = binding.btnLogin;
+        etUser=binding.etUser;
+        etPassword=binding.etPassword;
+        tvForgotPassword = binding.tvForgotPassword;
+        tvRegister = binding.tvRegister;
     }
-
     private void setUpListeners() {
         btnLogin.setOnClickListener(v -> {
             loginManagement();
@@ -57,7 +52,6 @@ public class LogInActivity extends AppCompatActivity {
     }
 
     private void loginManagement() {
-        Boolean valid = false;
         if (validation()) {
             Intent intent = new Intent(LogInActivity.this, MainActivity.class);
             startActivity(intent);
@@ -78,5 +72,4 @@ public class LogInActivity extends AppCompatActivity {
         }
         return true;
     }
-
 }

@@ -5,6 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
     tools:context=".ui.login.RegisterActivity">
 
     <LinearLayout
@@ -20,57 +21,79 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
-            android:layout_width="180dp"
-            android:layout_height="60dp"
+            android:layout_width="110dp"
+            android:layout_height="110dp"
             android:layout_marginBottom="40dp"
-            android:scaleType="fitCenter" />
+            android:background="@drawable/rounded_image"
+            android:clipToOutline="true"
+            android:scaleType="centerCrop"
+            android:src="@drawable/bluelogo" />
 
         <EditText
             android:id="@+id/etUser"
             android:layout_width="match_parent"
             android:layout_height="44dp"
-            android:hint="Username"
+            android:background="@drawable/bg_input_selector"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:hint="@string/Username"
             android:padding="12dp"
+            android:textColorHint="#B31DA1F2"
             android:textSize="14sp" />
+
         <EditText
             android:id="@+id/etEmail"
             android:layout_width="match_parent"
             android:layout_height="44dp"
-            android:hint="Email"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/bg_input_selector"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:hint="@string/Email"
             android:inputType="textEmailAddress"
             android:padding="12dp"
+            android:textColorHint="#B31DA1F2"
             android:textSize="14sp" />
 
         <EditText
             android:id="@+id/etPassword"
             android:layout_width="match_parent"
             android:layout_height="44dp"
-            android:layout_marginTop="12dp"
-            android:hint="Contraseña"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/bg_input_selector"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:hint="@string/Password"
             android:inputType="textPassword"
             android:padding="12dp"
+            android:textColorHint="#B31DA1F2"
             android:textSize="14sp" />
 
         <EditText
             android:id="@+id/etPassword2"
             android:layout_width="match_parent"
             android:layout_height="44dp"
-            android:layout_marginTop="12dp"
-            android:hint="Contraseña"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/bg_input_selector"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:hint="@string/Repeat_password"
             android:inputType="textPassword"
             android:padding="12dp"
+            android:textColorHint="#B31DA1F2"
             android:textSize="14sp" />
 
         <Button
             android:id="@+id/btnRegister"
             android:layout_width="match_parent"
-            android:layout_height="44dp"
-            android:layout_marginTop="20dp"
-            android:text="Iniciar sesión"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            android:text="@string/Register"
             android:textAllCaps="false"
             android:textColor="#FFFFFF"
             android:textStyle="bold" />
 
 
     </LinearLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
