@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/linearLayout2"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true">
+
+    <EditText
+        android:id="@+id/etPostContent"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:layout_marginHorizontal="15dp"
+        android:hint="@string/New_post_text"
+        android:inputType="textMultiLine"
+        android:maxLength="280"
+        android:minLines="4"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvCounter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginStart="5dp"
+        android:text="0 / 280"
+        app:layout_constraintStart_toStartOf="@id/etPostContent"
+        app:layout_constraintTop_toBottomOf="@+id/etPostContent" />
+
+    <Button
+        android:id="@+id/btnPost"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/Post"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@id/etPostContent"
+        app:layout_constraintStart_toStartOf="@+id/etPostContent"
+        app:layout_constraintTop_toBottomOf="@+id/tvCounter" />
+</androidx.constraintlayout.widget.ConstraintLayout>

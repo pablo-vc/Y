@@ -1,68 +1,77 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.login.LogInActivity"
-    android:background="#FFFFFF"
-    android:padding="24dp">
+    android:padding="24dp"
+    android:fitsSystemWindows="true"
+    tools:context=".ui.login.LogInActivity">
 
     <LinearLayout
         android:id="@+id/container"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
         android:gravity="center_horizontal"
+        android:orientation="vertical"
         android:padding="32dp"
-        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
+        app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
-            android:layout_width="180dp"
-            android:layout_height="60dp"
-            android:scaleType="fitCenter"
-            android:layout_marginBottom="40dp"/>
+            android:layout_width="110dp"
+            android:layout_height="110dp"
+            android:layout_marginBottom="40dp"
+            android:background="@drawable/rounded_image"
+            android:clipToOutline="true"
+            android:scaleType="centerCrop"
+            android:src="@drawable/bluelogo" />
 
         <EditText
             android:id="@+id/etUser"
             android:layout_width="match_parent"
             android:layout_height="44dp"
-            android:hint="Username"
+            android:background="@drawable/bg_input_selector"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:hint="@string/Username"
             android:padding="12dp"
-            android:textSize="14sp"/>
+            android:textColorHint="#B31DA1F2"
+            android:textSize="14sp" />
 
         <EditText
             android:id="@+id/etPassword"
             android:layout_width="match_parent"
             android:layout_height="44dp"
-            android:hint="Contraseña"
+            android:layout_marginTop="12dp"
+            android:background="@drawable/bg_input_selector"
+            android:hint="@string/Password"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
             android:inputType="textPassword"
             android:padding="12dp"
-            android:layout_marginTop="12dp"
-            android:textSize="14sp"/>
+            android:textColorHint="#B31DA1F2"
+            android:textSize="14sp" />
 
         <Button
             android:id="@+id/btnLogin"
             android:layout_width="match_parent"
-            android:layout_height="44dp"
-            android:text="Iniciar sesión"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="@string/LogIn"
             android:textAllCaps="false"
-            android:textStyle="bold"
             android:textColor="#FFFFFF"
-            android:layout_marginTop="20dp"/>
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/tvForgotPassword"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            android:text="¿Olvidaste tu contraseña?"
-            android:textColor="#00376B"
+            android:text="@string/forgot_password"
             android:textSize="12sp" />
 
     </LinearLayout>
@@ -72,13 +81,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="24dp"
-        android:text="¿No tienes cuenta? Regístrate"
-        android:textColor="#262626"
+        android:text="@string/Register_text"
         android:textSize="13sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
-
-
-
 </androidx.constraintlayout.widget.ConstraintLayout>

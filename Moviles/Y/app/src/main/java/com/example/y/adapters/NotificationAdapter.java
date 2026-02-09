@@ -15,8 +15,7 @@ import com.example.y.R;
 
 import java.util.List;
 
-public class NotificationAdapter
-        extends RecyclerView.Adapter<NotificationAdapter.NotificationViewHolder> {
+public class NotificationAdapter extends RecyclerView.Adapter<NotificationAdapter.NotificationViewHolder> {
 
     private List<Notification> notificationList;
     private Context context;
@@ -28,8 +27,7 @@ public class NotificationAdapter
 
     @NonNull
     @Override
-    public NotificationViewHolder onCreateViewHolder(
-            @NonNull ViewGroup parent, int viewType) {
+    public NotificationViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 
         View view = LayoutInflater.from(context).inflate(R.layout.item_notification, parent, false);
 
@@ -42,7 +40,7 @@ public class NotificationAdapter
         Notification notification = notificationList.get(position);
 
         if (notification.getType().equals("POST")) {
-            holder.textMessage.setText(notification.getFromUsername() + " ha compartido una publicación.");
+            holder.textMessage.setText(notification.getFromUsername() + " ha compartido una publicación: \"" + notification.getContent() + "\"");
         } else {
             holder.textMessage.setText(notification.getFromUsername() + " ha empezado a seguirte");
         }
@@ -51,6 +49,7 @@ public class NotificationAdapter
 
         if (!notification.isRead()) {
             holder.textMessage.setTypeface(null, Typeface.BOLD);
+            notification.setRead(true);
         }
     }
 
@@ -61,11 +60,11 @@ public class NotificationAdapter
 
     static class NotificationViewHolder extends RecyclerView.ViewHolder {
 
-        TextView textMessage;
-        TextView textDate;
+        TextView textMessage, textDate;
 
         public NotificationViewHolder(@NonNull View itemView) {
             super(itemView);
+
             textMessage = itemView.findViewById(R.id.tvMessage);
             textDate = itemView.findViewById(R.id.tvDate);
         }

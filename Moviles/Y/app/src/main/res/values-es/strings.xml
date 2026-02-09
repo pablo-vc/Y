@@ -1,5 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Y</string>
-    <string name="feed_update">Hay nuevas publicaciones que todavía no has visto</string>
+    <string name="notifications">Notificaciones</string>
+    <string name="feed">Muro</string>
+    <string name="profile">Perfil</string>
+    <string name="Username">Nombre de usuario</string>
+    <string name="Password">Contraseña</string>
+    <string name="Repeat_password">Repetir contraseña</string>
+    <string name="LogIn">Iniciar sesión</string>
+    <string name="forgot_password">¿Olvidaste tu contraseña?</string>
+    <string name="Register_text">¿No tienes cuenta? Regístrate</string>
+    <string name="Register">Registrarse</string>
+    <string name="Post">Publicar</string>
+    <string name="New_post_text">¿Qué estás pensando?</string>
 </resources>

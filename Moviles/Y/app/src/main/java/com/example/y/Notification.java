@@ -2,20 +2,20 @@ package com.example.y;
 
 public class Notification {
     private int id;
-    private String type;            // "POST" o "FOLLOW"
-    private String fromUsername;    // quién genera la notificación
-    private String content;     // opcional
+    private String type;
+    private String fromUsername;
+    private String content;
     private String createdAt;
     private boolean read;
 
     public Notification(int id, String type, String fromUsername,
-                        String postContent, String createdAt, boolean read) {
+                        String postContent, String createdAt) {
         this.id = id;
         this.type = type;
         this.fromUsername = fromUsername;
         this.content = postContent;
         this.createdAt = createdAt;
-        this.read = read;
+        this.read = false;
     }
 
     public int getId() {
