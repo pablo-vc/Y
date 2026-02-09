@@ -13,6 +13,8 @@ Apartado en el que se irán exponiendo los avances semanales en el desarrollo de
  - [Fragments](https://developer.android.com/reference/kotlin/androidx/fragment/app/Fragment?hl=en)
  - [View Model](https://developer.android.com/topic/libraries/architecture/viewmodel?hl=es-419#java)
  - [ViewPager](https://developer.android.com/guide/navigation/navigation-swipe-view-2?hl=es-419)
+ - [Coordinator Layout y collapsing toolbar](https://www.youtube.com/watch?v=0qIHSn7NslE)
+ - [Coordinator Layout Custom Behaviours](https://www.youtube.com/watch?v=P84O-lT2p1M)
 
 <hr>
 
@@ -67,3 +69,5 @@ Diseño general de la aplicación mejorado, implementación de una paleta de col
 ViewPager y TabLayout añadidos y funcionando en "FeedFragment".
 
 PostAdapter adaptado para identificar publicaciones propias del usuario de la sesión y permitir eliminarlas en la pagina de perfil, la cual aún está en desarrollo.
+
+Gran avance en el diseño de la página de perfil, uso de CoordinatorLayout, CollapsingToolbarLayout y AppBarLayout para ocultar la parte de arriba del perfil al deslizar hacia abajo y que se muestren solo las publicaciones y el tabLayout.
