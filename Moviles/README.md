@@ -71,3 +71,15 @@ ViewPager y TabLayout añadidos y funcionando en "FeedFragment".
 PostAdapter adaptado para identificar publicaciones propias del usuario de la sesión y permitir eliminarlas en la pagina de perfil, la cual aún está en desarrollo.
 
 Gran avance en el diseño de la página de perfil, uso de CoordinatorLayout, CollapsingToolbarLayout y AppBarLayout para ocultar la parte de arriba del perfil al deslizar hacia abajo y que se muestren solo las publicaciones y el tabLayout.
+
+
+
+## Video Demo
+
+
+
+
+https://github.com/user-attachments/assets/0213fc2f-cde1-42af-82cd-a3a2b6ca468d
+
+
+
