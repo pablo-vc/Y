@@ -15,7 +15,7 @@
         <item name="colorOnPrimary">@color/twitterWhite</item>
         <item name="colorOnSurface">@color/twitterBlack</item>
         <item name="colorOnPrimaryContainer">@color/twitterWhite</item>
-        <item name="colorOnBackground">@color/twitterWhite</item>
+        <item name="colorOnBackground">@color/twitterBlack</item>
 
         <!-- Status bar -->
         <item name="android:statusBarColor">@color/twitterWhite</item>
@@ -25,7 +25,6 @@
 
 
 
-        <item name="android:textColor">@color/white</item>
 
         <item name="materialAlertDialogTheme">@style/ThemeOverlay.Y.Dialog</item>
 
