@@ -12,7 +12,7 @@
 
         <com.google.android.material.appbar.CollapsingToolbarLayout
             android:layout_width="match_parent"
-            android:layout_height="300dp"
+            android:layout_height="350dp"
             android:fitsSystemWindows="true"
             app:layout_scrollFlags="scroll|exitUntilCollapsed">
 
@@ -41,42 +41,64 @@
 
                     <com.google.android.material.floatingactionbutton.FloatingActionButton
                         android:id="@+id/fabProfile"
-                        android:layout_width="72dp"
-                        android:layout_height="72dp"
-                        android:src="@drawable/ic_profile"
-                        android:scaleType="center"
                         style="@style/Widget.MaterialComponents.FloatingActionButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:scaleType="center"
+                        android:src="@drawable/ic_profile"
+                        app:backgroundTint="#909CA5"
+                        app:fabCustomSize="72dp"
                         app:fabSize="normal" />
 
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:orientation="horizontal"
+                    android:layout_height="wrap_content">
                     <TextView
                         android:id="@+id/tvUsername"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="16dp"
                         android:text="NombreUsuario"
+                        android:layout_weight="1"
                         android:textSize="20sp"
                         android:textStyle="bold" />
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Edit Profile" />
                 </LinearLayout>
-
-                <TextView
-                    android:id="@+id/tvBio"
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
                     android:layout_marginTop="14dp"
-                    android:text="Descripción del usuario" />
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/tvBio"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Descripción del usuario" />
+
+
+                </LinearLayout>
             </LinearLayout>
 
 
         </com.google.android.material.appbar.CollapsingToolbarLayout>
-            <com.google.android.material.tabs.TabLayout
-                android:id="@+id/tabLayout"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:layout_collapseMode="pin"
-                app:tabIndicatorColor="@color/twitterBlue"
-                app:tabSelectedTextColor="@color/twitterBlue"
-                app:tabTextColor="@android:color/darker_gray"
-                android:layout_gravity="bottom"/>
+
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tabLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            app:layout_collapseMode="pin"
+            app:tabIndicatorColor="@color/twitterBlue"
+            app:tabSelectedTextColor="@color/twitterBlue"
+            app:tabTextColor="@android:color/darker_gray" />
     </com.google.android.material.appbar.AppBarLayout>
 
     <androidx.recyclerview.widget.RecyclerView
