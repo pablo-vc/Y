@@ -15,6 +15,7 @@ Apartado en el que se irán exponiendo los avances semanales en el desarrollo de
  - [ViewPager](https://developer.android.com/guide/navigation/navigation-swipe-view-2?hl=es-419)
  - [Coordinator Layout y collapsing toolbar](https://www.youtube.com/watch?v=0qIHSn7NslE)
  - [Coordinator Layout Custom Behaviours](https://www.youtube.com/watch?v=P84O-lT2p1M)
+ - [Navigation Drawer y Bottom Sheet Dialog](https://www.youtube.com/watch?v=ahNruIZX130)
 
 <hr>
 
