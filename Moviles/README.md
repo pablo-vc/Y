@@ -16,6 +16,8 @@ Apartado en el que se irán exponiendo los avances semanales en el desarrollo de
  - [Coordinator Layout y collapsing toolbar](https://www.youtube.com/watch?v=0qIHSn7NslE)
  - [Coordinator Layout Custom Behaviours](https://www.youtube.com/watch?v=P84O-lT2p1M)
  - [Navigation Drawer y Bottom Sheet Dialog](https://www.youtube.com/watch?v=ahNruIZX130)
+ - [Diálogo personalizado 1](https://www.youtube.com/watch?v=qBlYUVdYQL8)
+ - [Diálogo personalizado 2](https://www.youtube.com/watch?v=I66WdS8U2hY)
 
 <hr>
 
