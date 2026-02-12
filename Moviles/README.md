@@ -75,6 +75,8 @@ PostAdapter adaptado para identificar publicaciones propias del usuario de la se
 
 Gran avance en el diseño de la página de perfil, uso de CoordinatorLayout, CollapsingToolbarLayout y AppBarLayout para ocultar la parte de arriba del perfil al deslizar hacia abajo y que se muestren solo las publicaciones y el tabLayout.
 
+Implementación de un cuadro de diálogo personalizado para editar la información de perfil. 
+
 
 
 ## Video Demo
