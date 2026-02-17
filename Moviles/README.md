@@ -77,6 +77,13 @@ Gran avance en el diseño de la página de perfil, uso de CoordinatorLayout, Col
 
 Implementación de un cuadro de diálogo personalizado para editar la información de perfil. 
 
+### 16/02 - 22/02
+
+### Últimos retoques en la interfaz gráfica de la aplicación 
+
+Activity con el perfil de un usuario al pulsar en su publicación, con opción de seguirlo.
+
+Opción de eliminar cuenta en el apartado de editar perfil.
 
 
 ## Video Demo
