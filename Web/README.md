@@ -15,3 +15,15 @@ Definición y estructuración de la arquitectura de carpetas y archivos, asignan
 
 Página de inicio de sesión/registro terminada.
 
+
+### 09/02 - 15/02
+
+Creación del proyecto laravel.
+
+Layout con barra de navegación y hoja de estilos css para implementar en las diferentes vistas una vez iniciada la sesión.
+
+Avances en el diseño de la interfaz general de la app, principalmente la feed.
+
+### 16/02 - 22/02
+
+Trabajo en la comunicación con la api, creacion de controladores y rutas.
