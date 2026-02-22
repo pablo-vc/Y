@@ -26,4 +26,8 @@ Avances en el diseño de la interfaz general de la app, principalmente la feed.
 
 ### 16/02 - 22/02
 
+Diseño e implementación de la estructura del esquema relacional utilizando el sistema de migraciones del framework Laravel.
+Migraciones aplicadas exitosamente a la base de datos mediante el comando php artisan migrate, verificando la correcta creación de las tablas.
+
 Trabajo en la comunicación con la api, creacion de controladores y rutas.
+
