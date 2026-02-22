@@ -31,3 +31,4 @@ Migraciones aplicadas exitosamente a la base de datos mediante el comando php ar
 
 Trabajo en la comunicación con la api, creacion de controladores y rutas.
 
+Api funcionando con las tablas creadas desde laravel, gestión de usuarios funcional, registro, inicio de sesión y borrado.
