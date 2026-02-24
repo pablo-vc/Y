@@ -15,3 +15,32 @@ Definición y estructuración de la arquitectura de carpetas y archivos, asignan
 
 Página de inicio de sesión/registro terminada.
 
+
+### 09/02 - 15/02
+
+Creación del proyecto laravel.
+
+Layout con barra de navegación y hoja de estilos css para implementar en las diferentes vistas una vez iniciada la sesión.
+
+Avances en el diseño de la interfaz general de la app, principalmente la feed.
+
+### 16/02 - 22/02
+
+Diseño e implementación de la estructura del esquema relacional utilizando el sistema de migraciones del framework Laravel.
+Migraciones aplicadas exitosamente a la base de datos mediante el comando php artisan migrate, verificando la correcta creación de las tablas.
+
+Trabajo en la comunicación con la api, creacion de controladores y rutas.
+
+Api funcionando con las tablas creadas desde laravel, gestión de usuarios funcional, registro, inicio de sesión y borrado.
+
+Barra de navegación con acceso a todas las partes de la app y opcion de publicar y cerrar sesión funcionales.
+
+Página de perfil terminada, información general(nombre de usuario, descripcion y contador de seguidores y seguidos), boton de editar perfil que abre un formulario donde se puede editar la información y eliminar la cuenta, opción de eliminar publicaciones con efecto inmediato.
+
+Opción de publicar y eliminar publicación con comunicación a la Api y efecto en el feed de otros usuarios.
+
+Feed con apartados de aplicaciónes globales y aplicaciones de gente a la que sigues.
+
+
+
+Aplicación terminada.

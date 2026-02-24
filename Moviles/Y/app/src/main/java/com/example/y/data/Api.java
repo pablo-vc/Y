@@ -5,8 +5,10 @@ import android.net.Uri;
 import android.util.Base64;
 import android.util.Log;
 
+import com.example.y.Notification;
 import com.example.y.Post;
 import com.example.y.User;
+
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -23,254 +25,495 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Api {
-    public static User getUserData(String username) {
-        try {
-            URL url = new URL("http://10.0.2.2:8080/" + username);  // TODO Revisar ruta
+    static String ip1 = "192.168.1.20";
+    static String ip2 = "10.0.2.2";
+    private static final String BASE_URL = "http://10.0.2.2:8080/yapi/rest/";
 
-            HttpURLConnection con = (HttpURLConnection) url.openConnection();
-            con.setRequestMethod("GET");
-            con.setRequestProperty("Accept", "application/json");
+    public static User login(String email, String password) {
+        HttpURLConnection con = null;
+        try {
+            URL url = new URL(BASE_URL + "users/login");
+            con = (HttpURLConnection) url.openConnection();
+            con.setRequestMethod("POST");
+            con.setRequestProperty("Content-Type", "application/json; charset=UTF-8");
+            con.setDoOutput(true);
+
+            JSONObject body = new JSONObject();
+            body.put("email", email);
+            body.put("password", password);
+
+            try (OutputStream os = con.getOutputStream()) {
+                os.write(body.toString().getBytes(StandardCharsets.UTF_8));
+            }
 
             int code = con.getResponseCode();
-            System.out.println("Código HTTP: " + code);
-
-            InputStream stream = con.getInputStream();
+            InputStream stream = (code >= 200 && code < 300) ? con.getInputStream() : con.getErrorStream();
 
             BufferedReader reader = new BufferedReader(new InputStreamReader(stream, StandardCharsets.UTF_8));
+            StringBuilder response = new StringBuilder();
+            String line;
+            while ((line = reader.readLine()) != null) response.append(line.trim());
 
+            Log.d("API", "Login HTTP code: " + code + ", response: " + response);
+
+            if (code == 200) {
+                JSONObject obj = new JSONObject(response.toString());
+                return new User(
+                        obj.getInt("id"),
+                        obj.getString("username"),
+                        obj.getString("email"),
+                        obj.getString("bio"),
+                        obj.getString("created_at")
+                );
+            } else {
+                Log.e("API", "Login failed: HTTP " + code + " - " + response);
+                return null;
+            }
+
+        } catch (Exception e) {
+            Log.e("API", "Login exception", e);
+            return null;
+        } finally {
+            if (con != null) con.disconnect();
+        }
+    }
+
+    public static String register(String username, String email, String password) {
+        HttpURLConnection con = null;
+        try {
+            URL url = new URL(BASE_URL + "users/register");
+            con = (HttpURLConnection) url.openConnection();
+            con.setRequestMethod("POST");
+            con.setRequestProperty("Content-Type", "application/json; charset=UTF-8");
+            con.setDoOutput(true);
+
+            JSONObject body = new JSONObject();
+            body.put("username", username);
+            body.put("email", email);
+            body.put("password", password);
+
+            try (OutputStream os = con.getOutputStream()) {
+                os.write(body.toString().getBytes(StandardCharsets.UTF_8));
+            }
+
+            int code = con.getResponseCode();
+            InputStream stream = (code >= 200 && code < 300) ? con.getInputStream() : con.getErrorStream();
+
+            BufferedReader reader = new BufferedReader(new InputStreamReader(stream, StandardCharsets.UTF_8));
+            StringBuilder response = new StringBuilder();
+            String line;
+            while ((line = reader.readLine()) != null) response.append(line.trim());
+
+            Log.d("API", "Register HTTP code: " + code + ", response: " + response);
+
+            if (code == 201) {
+                return "success";
+            } else if (code == 409) {
+                return response.toString();
+            } else {
+                return "Error: " + response.toString();
+            }
+
+        } catch (Exception e) {
+            Log.e("API", "Register exception", e);
+            return "Exception: " + e.getMessage();
+        } finally {
+            if (con != null) con.disconnect();
+        }
+    }
+
+    public static List<Post> getPosts() {
+        List<Post> postList = new ArrayList<>();
+        HttpURLConnection con = null;
+        try {
+            URL url = new URL(BASE_URL + "posts");
+            con = (HttpURLConnection) url.openConnection();
+            con.setRequestMethod("GET");
+            con.setRequestProperty("Content-Type", "application/json; charset=UTF-8");
+
+            int code = con.getResponseCode();
+            InputStream stream = (code >= 200 && code < 300) ? con.getInputStream() : con.getErrorStream();
+
+            BufferedReader reader = new BufferedReader(new InputStreamReader(stream, StandardCharsets.UTF_8));
+            StringBuilder response = new StringBuilder();
+            String line;
+            while ((line = reader.readLine()) != null) response.append(line.trim());
+
+            Log.d("API", "GetPosts HTTP code: " + code + ", response: " + response);
+
+            if (code == 200) {
+                JSONArray postsArray = new JSONArray(response.toString());
+                for (int i = 0; i < postsArray.length(); i++) {
+                    JSONObject postObj = postsArray.getJSONObject(i);
+                    int postId = postObj.getInt("id");
+                    int userId = postObj.getInt("id_user");
+                    String username = postObj.getString("username");
+                    String content = postObj.getString("content");
+                    String createdAt = postObj.getString("created_at");
+
+                    Post post = new Post(postId, userId, username, content, createdAt);
+                    postList.add(post);
+                }
+            } else {
+                Log.e("API", "Failed to load posts. HTTP code: " + code);
+            }
+        } catch (Exception e) {
+            Log.e("API", "GetPosts exception", e);
+        } finally {
+            if (con != null) con.disconnect();
+        }
+        return postList;
+    }
+
+    public static List<Post> getFollowingPosts(int id) {
+        List<Post> postList = new ArrayList<>();
+        HttpURLConnection con = null;
+        try {
+            URL url = new URL(BASE_URL + "posts/following/"+id);
+            con = (HttpURLConnection) url.openConnection();
+            con.setRequestMethod("GET");
+            con.setRequestProperty("Content-Type", "application/json; charset=UTF-8");
+
+            int code = con.getResponseCode();
+            InputStream stream = (code >= 200 && code < 300) ? con.getInputStream() : con.getErrorStream();
+
+            BufferedReader reader = new BufferedReader(new InputStreamReader(stream, StandardCharsets.UTF_8));
+            StringBuilder response = new StringBuilder();
+            String line;
+            while ((line = reader.readLine()) != null) response.append(line.trim());
+
+            Log.d("API", "GetPosts HTTP code: " + code + ", response: " + response);
+
+            if (code == 200) {
+                JSONArray postsArray = new JSONArray(response.toString());
+                for (int i = 0; i < postsArray.length(); i++) {
+                    JSONObject postObj = postsArray.getJSONObject(i);
+                    int postId = postObj.getInt("id");
+                    int userId = postObj.getInt("id_user");
+                    String username = postObj.getString("username");
+                    String content = postObj.getString("content");
+                    String createdAt = postObj.getString("created_at");
+
+                    Post post = new Post(postId, userId, username, content, createdAt);
+                    postList.add(post);
+                }
+            } else {
+                Log.e("API", "Failed to load posts. HTTP code: " + code);
+            }
+        } catch (Exception e) {
+            Log.e("API", "GetPosts exception", e);
+        } finally {
+            if (con != null) con.disconnect();
+        }
+        return postList;
+    }
+
+    public static User getUserById(int userId) {
+        HttpURLConnection con = null;
+        try {
+            // Hacer la solicitud GET a la API para obtener el usuario
+            URL url = new URL(BASE_URL + "users/" + userId);
+            con = (HttpURLConnection) url.openConnection();
+            con.setRequestMethod("GET");
+            con.setRequestProperty("Content-Type", "application/json; charset=UTF-8");
+
+            // Obtener el código de respuesta y el flujo de entrada
+            int code = con.getResponseCode();
+            InputStream stream = (code >= 200 && code < 300) ? con.getInputStream() : con.getErrorStream();
+
+            // Leer la respuesta
+            BufferedReader reader = new BufferedReader(new InputStreamReader(stream, StandardCharsets.UTF_8));
             StringBuilder response = new StringBuilder();
             String line;
             while ((line = reader.readLine()) != null) {
                 response.append(line.trim());
             }
 
+            Log.d("API", "GetUserById HTTP code: " + code + ", response: " + response);
+
+            // Si la respuesta es exitosa, parsear el JSON y devolver el usuario
             if (code == 200) {
                 JSONObject obj = new JSONObject(response.toString());
-
-                int id = obj.getInt("id");
-                String name = obj.getString("username");
-                String email = obj.getString("email");
-
-                return new User(id, name, email);
+                return new User(
+                        obj.getInt("id"),
+                        obj.getString("username"),
+                        obj.getString("email"),
+                        obj.getString("bio"),
+                        obj.getString("created_at")
+                );
+            } else {
+                Log.e("API", "Failed to load user. HTTP code: " + code);
+                return null;
             }
 
         } catch (Exception e) {
-            e.printStackTrace();
+            Log.e("API", "GetUserById exception", e);
+            return null;
+        } finally {
+            if (con != null) con.disconnect();
         }
-
-        return null; // si hay error
     }
 
-    public static void uploadUser(String username, String email, String password) {
-        new Thread(() -> {  //Creamos un nuevo hilo para que se ejecute en segundo plano
-            try {
-                URL url = new URL("http://10.0.2.2:8080/"); //Para emulador 10.0.2.2 sino ipordenador 192.168.1.138  // TODO Revisar ruta
-                HttpURLConnection con = (HttpURLConnection) url.openConnection();  //Abrir Conexion
-                con.setRequestMethod("POST");
-                con.setRequestProperty("Content-Type", "application/json");
-                con.setDoOutput(true); //"Voy a escribir el body"
+    public static List<Post> getUserPosts(int userId) {
+        List<Post> postList = new ArrayList<>();
+        HttpURLConnection con = null;
+        try {
+            // Hacer la solicitud GET a la API para obtener las publicaciones del usuario
+            URL url = new URL(BASE_URL + "posts/" + userId);
+            con = (HttpURLConnection) url.openConnection();
+            con.setRequestMethod("GET");
+            con.setRequestProperty("Content-Type", "application/json; charset=UTF-8");
 
-                JSONObject json = new JSONObject(); //Creamos el Json del body
-                json.put("username", username);
-                json.put("email", email);
-                json.put("password", password);
-                try (OutputStream os = con.getOutputStream()) {  //Enviar body
-                    os.write(json.toString().getBytes(StandardCharsets.UTF_8));
-                }
-                int code = con.getResponseCode();
-                Log.i("API", "Código respuesta: " + code);
-            } catch (Exception e) {
-                Log.e("Error", "Error al subir deportista");
+            // Obtener el código de respuesta y el flujo de entrada
+            int code = con.getResponseCode();
+            InputStream stream = (code >= 200 && code < 300) ? con.getInputStream() : con.getErrorStream();
+
+            // Leer la respuesta
+            BufferedReader reader = new BufferedReader(new InputStreamReader(stream, StandardCharsets.UTF_8));
+            StringBuilder response = new StringBuilder();
+            String line;
+            while ((line = reader.readLine()) != null) {
+                response.append(line.trim());
             }
 
-        }).start();
+            Log.d("API", "GetUserPosts HTTP code: " + code + ", response: " + response);
+
+            // Si la respuesta es exitosa, parsear el JSON y agregar los posts a la lista
+            if (code == 200) {
+                JSONArray postsArray = new JSONArray(response.toString());
+                for (int i = 0; i < postsArray.length(); i++) {
+                    JSONObject postObj = postsArray.getJSONObject(i);
+                    int postId = postObj.getInt("id");
+                    int postUserId = postObj.getInt("id_user");
+                    String username = postObj.getString("username");
+                    String content = postObj.getString("content");
+                    String createdAt = postObj.getString("created_at");
+
+                    Post post = new Post(postId, postUserId, username, content, createdAt);
+                    postList.add(post);
+                }
+            } else {
+                Log.e("API", "Failed to load user posts. HTTP code: " + code);
+            }
+        } catch (Exception e) {
+            Log.e("API", "GetUserPosts exception", e);
+        } finally {
+            if (con != null) con.disconnect();
+        }
+        return postList;
     }
 
-    public static List<String> getAllUsernames() {
 
-        List<String> usernames = new ArrayList<>();
 
+
+    public static boolean isFollowing(int currentUserId, int targetUserId) {
+        boolean isFollowing = false;
         try {
-            URL url = new URL("http://10.0.2.2:8080/" // TODO Revisar ruta
-            );
+            String urlString = BASE_URL + "followers/isFollowing/" + currentUserId + "/" + targetUserId;
+            URL url = new URL(urlString);
+            HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+            connection.setRequestMethod("GET");
 
-            HttpURLConnection conn = (HttpURLConnection) url.openConnection();
-            conn.setRequestMethod("GET");
-            conn.setRequestProperty("Accept", "application/json");
+            BufferedReader reader = new BufferedReader(new InputStreamReader(connection.getInputStream()));
+            StringBuilder response = new StringBuilder();
+            String line;
+            while ((line = reader.readLine()) != null) {
+                response.append(line);
+            }
+            reader.close();
+            isFollowing = Boolean.parseBoolean(response.toString());
+        } catch (Exception e) {
+            Log.e("Api", "Error checking follow status", e);
+        }
+        Log.i("API",isFollowing+"");
+        return isFollowing;
+    }
 
-            int code = conn.getResponseCode();
-            System.out.println("Código HTTP: " + code);
+    public static String followUser(int currentUserId, int targetUserId) {
+        try {
+            String urlString = BASE_URL + "followers/" + currentUserId + "/follow/" + targetUserId;
+            URL url = new URL(urlString);
+            HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+            connection.setRequestMethod("POST");
+            connection.setRequestProperty("Content-Type", "application/json; charset=UTF-8");
+            connection.setDoOutput(true);
+
+            // enviamos un body vacío "{}"
+            try (OutputStream os = connection.getOutputStream()) {
+                os.write("{}".getBytes(StandardCharsets.UTF_8));
+            }
+
+            int responseCode = connection.getResponseCode();
+            Log.d("FOLLOW_CODE", "Code: " + responseCode);
+            if (responseCode == 200) {
+                return "success";
+            } else {
+                return "error";
+            }
+        } catch (Exception e) {
+            Log.e("Api", "Error following user", e);
+            return "error";
+        }
+    }
+
+    public static String unfollowUser(int currentUserId, int targetUserId) {
+        try {
+            String urlString = BASE_URL + "followers/" + currentUserId + "/unfollow/" + targetUserId;
+            URL url = new URL(urlString);
+            HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+            connection.setRequestMethod("DELETE");
+            connection.connect();
+
+            int responseCode = connection.getResponseCode();
+            if (responseCode == 200) {
+                return "success";
+            } else {
+                return "error";
+            }
+        } catch (Exception e) {
+            Log.e("Api", "Error unfollowing user", e);
+            return "error";
+        }
+    }
+
+
+    public static List<Notification> getNotifications(int id_user) {
+        List<Notification> notifications = new ArrayList<>();
+        HttpURLConnection con = null;
+        try {
+            URL url = new URL(BASE_URL + "notifications/"+id_user);
+            con = (HttpURLConnection) url.openConnection();
+            con.setRequestMethod("GET");
+            con.setRequestProperty("Content-Type", "application/json; charset=UTF-8");
+
+            int code = con.getResponseCode();
+            InputStream stream = (code >= 200 && code < 300) ? con.getInputStream() : con.getErrorStream();
+
+            BufferedReader reader = new BufferedReader(new InputStreamReader(stream, StandardCharsets.UTF_8));
+            StringBuilder response = new StringBuilder();
+            String line;
+            while ((line = reader.readLine()) != null) response.append(line.trim());
+
+            Log.d("API", "GetPosts HTTP code: " + code + ", response: " + response);
 
             if (code == 200) {
+                JSONArray postsArray = new JSONArray(response.toString());
+                for (int i = 0; i < postsArray.length(); i++) {
+                    JSONObject postObj = postsArray.getJSONObject(i);
+                    int notificationId = postObj.getInt("id");
+                    int userId = postObj.getInt("id_user");
+                    int followerId = postObj.getInt("id_follower");
+                    String username = postObj.getString("username");
+                    String createdAt = postObj.getString("created_at");
 
-                BufferedReader reader = new BufferedReader(new InputStreamReader(conn.getInputStream(), StandardCharsets.UTF_8));
-
-                StringBuilder response = new StringBuilder();
-                String line;
-                while ((line = reader.readLine()) != null) {
-                    response.append(line.trim());
+                    Notification notification = new Notification(notificationId, userId,followerId, username, createdAt);
+                    notifications.add(notification);
                 }
-
-                JSONArray array = new JSONArray(response.toString());
-
-                for (int i = 0; i < array.length(); i++) {
-                    JSONObject obj = array.getJSONObject(i);
-
-                    String username = obj.getString("username");
-
-                    usernames.add(username);
-                }
+            } else {
+                Log.e("API", "Failed to load notifications. HTTP code: " + code);
             }
-
         } catch (Exception e) {
-            e.printStackTrace();
+            Log.e("API", "GetNotifications exception", e);
+        } finally {
+            if (con != null) con.disconnect();
         }
-
-        return usernames; // lista vacía si hay error
+        return notifications;
     }
 
-    public static List<String> getAllEmails() {
-
-        List<String> emails = new ArrayList<>();
-
+    public static boolean createPost(int userId, String content) {
         try {
-            URL url = new URL("http://10.0.2.2:8080/" // TODO Revisar ruta
-            );
+            URL url = new URL(BASE_URL + "posts/create");
+            HttpURLConnection connection = (HttpURLConnection) url.openConnection();
 
-            HttpURLConnection conn = (HttpURLConnection) url.openConnection();
-            conn.setRequestMethod("GET");
-            conn.setRequestProperty("Accept", "application/json");
+            connection.setRequestMethod("POST");
+            connection.setRequestProperty("Content-Type", "application/json; charset=UTF-8");
+            connection.setDoOutput(true);
 
-            int code = conn.getResponseCode();
-            System.out.println("Código HTTP: " + code);
+            JSONObject json = new JSONObject();
+            json.put("id_user", userId);
+            json.put("content", content);
 
-            if (code == 200) {
+            OutputStream os = connection.getOutputStream();
+            os.write(json.toString().getBytes(StandardCharsets.UTF_8));
+            os.close();
 
-                BufferedReader reader = new BufferedReader(new InputStreamReader(conn.getInputStream(), StandardCharsets.UTF_8));
+            int responseCode = connection.getResponseCode();
+            Log.d("Api", "CreatePost response: " + responseCode);
 
-                StringBuilder response = new StringBuilder();
-                String line;
-                while ((line = reader.readLine()) != null) {
-                    response.append(line.trim());
-                }
-
-                JSONArray array = new JSONArray(response.toString());
-
-                for (int i = 0; i < array.length(); i++) {
-                    JSONObject obj = array.getJSONObject(i);
-
-                    String email = obj.getString("email");
-
-                    emails.add(email);
-                }
-            }
+            return responseCode >= 200 && responseCode < 300;
 
         } catch (Exception e) {
-            e.printStackTrace();
+            Log.e("Api", "Error creating post", e);
+            return false;
         }
-
-        return emails; // lista vacía si hay error
     }
 
-    /**
-     * Gathers Posts from a database
-     *
-     * @param n         Number of posts gathered
-     * @param following If true only
-     * @param id        User logged id
-     * @return An arraylist with all the posts gathered
-     */
-    public static List<Post> getPosts(int n, Boolean following, int id) {
-
-        List<Post> posts = new ArrayList<>();
-
+    public static boolean deletePost(int postId) {
         try {
-            String route = following ? "/posts/following" : "/posts"; // TODO Revisar ruta
-            URL url = new URL("http://10.0.2.2:8080/" + route);
+            URL url = new URL(BASE_URL + "posts/delete/" + postId);
+            HttpURLConnection connection = (HttpURLConnection) url.openConnection();
 
-            HttpURLConnection conn = (HttpURLConnection) url.openConnection();
-            conn.setRequestMethod("GET");
-            conn.setRequestProperty("Accept", "application/json");
+            connection.setRequestMethod("DELETE");
 
-            int code = conn.getResponseCode();
-            System.out.println("Código HTTP: " + code);
+            int responseCode = connection.getResponseCode();
+            Log.d("Api", "DeletePost response: " + responseCode);
 
-            if (code == 200) {
-
-                BufferedReader reader = new BufferedReader(new InputStreamReader(conn.getInputStream(), StandardCharsets.UTF_8));
-
-                StringBuilder response = new StringBuilder();
-                String line;
-                while ((line = reader.readLine()) != null) {
-                    response.append(line.trim());
-                }
-
-                JSONArray array = new JSONArray(response.toString());
-
-                for (int i = 0; i < array.length(); i++) {
-                    JSONObject obj = array.getJSONObject(i);
-
-                    Post post = new Post(obj.getInt("id"), obj.getInt("userId"), obj.getString("username"), obj.getString("content"), obj.getString("createdAt"));
-
-                    posts.add(post);
-                }
-            }
+            return responseCode >= 200 && responseCode < 300;
 
         } catch (Exception e) {
-            e.printStackTrace();
+            Log.e("Api", "Error deleting post", e);
+            return false;
         }
+    }
 
-        return posts; // lista vacía si hay error
+    public static boolean deleteUser(int userId) {
+        try {
+            URL url = new URL(BASE_URL + "users/delete/" + userId);
+            HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+
+            connection.setRequestMethod("DELETE");
+            connection.setRequestProperty("Content-Type", "application/json; charset=UTF-8");
+
+            int responseCode = connection.getResponseCode();
+            Log.d("Api", "DeleteUser response: " + responseCode);
+
+            return responseCode >= 200 && responseCode < 300;
+
+        } catch (Exception e) {
+            Log.e("Api", "Error deleting user", e);
+            return false;
+        }
     }
 
 
-    public static void subirImagen(Uri imageUri, Context context, String nombre) {
-        new Thread(() -> {
-            try {
-                // Leer la imagen
-                InputStream is = context.getContentResolver().openInputStream(imageUri);
-                if (is == null) {
-                    Log.e("UPLOAD", "InputStream nulo");
-                    return;
-                }
-                ByteArrayOutputStream baos = new ByteArrayOutputStream();
-                byte[] buffer = new byte[4096];
-                int bytesRead;
-                while ((bytesRead = is.read(buffer)) != -1) {
-                    baos.write(buffer, 0, bytesRead);
-                }
-                is.close();
-                String base64Imagen = Base64.encodeToString(baos.toByteArray(), Base64.NO_WRAP);
-                // Crear JSON
-                JSONObject json = new JSONObject();
-                json.put("nombre", nombre);
-                json.put("imagen", base64Imagen);
-                // Conexión HTTP
-                URL url = new URL("http://172.16.0.79:8080/"); // TODO Revisar ruta
-                HttpURLConnection con = (HttpURLConnection) url.openConnection();
-                con.setRequestMethod("POST");
-                con.setDoOutput(true);
-                con.setDoInput(true);
-                con.setConnectTimeout(15000);
-                con.setReadTimeout(15000);
-                con.setRequestProperty("Content-Type", "application/json; charset=UTF-8");
-                con.connect();
-                System.out.println("1");
+    public static boolean updateUser(int userId, String username, String bio) {
+        try {
+            URL url = new URL(BASE_URL + "users/update/" + userId);
+            HttpURLConnection connection = (HttpURLConnection) url.openConnection();
 
-// Enviar JSON
-                try (OutputStream os = con.getOutputStream()) {
-                    byte[] input = json.toString().getBytes(StandardCharsets.UTF_8);
-                    os.write(input);
-                    os.flush();
-                }
-                System.out.println("2");
+            connection.setRequestMethod("PUT");
+            connection.setRequestProperty("Content-Type", "application/json; charset=UTF-8");
+            connection.setDoOutput(true);
 
-                // Leer respuesta
-                int code = con.getResponseCode();
-                Log.i("API", "Código respuesta: " + code);
-            } catch (Exception e) {
-                Log.e("UPLOAD", "Error al subir imagen", e);
-            }
-        }).start();
+            JSONObject json = new JSONObject();
+            json.put("username", username);
+            json.put("bio", bio);
+
+            OutputStream os = connection.getOutputStream();
+            os.write(json.toString().getBytes(StandardCharsets.UTF_8));
+            os.close();
+
+            int responseCode = connection.getResponseCode();
+            Log.d("Api", "UpdateUser response: " + responseCode);
+
+            return responseCode >= 200 && responseCode < 300;
+
+        } catch (Exception e) {
+            Log.e("Api", "Error updating user", e);
+            return false;
+        }
     }
+
+
+
 }

@@ -39,18 +39,10 @@ public class NotificationAdapter extends RecyclerView.Adapter<NotificationAdapte
 
         Notification notification = notificationList.get(position);
 
-        if (notification.getType().equals("POST")) {
-            holder.textMessage.setText(notification.getFromUsername() + " ha compartido una publicación: \"" + notification.getContent() + "\"");
-        } else {
-            holder.textMessage.setText(notification.getFromUsername() + " ha empezado a seguirte");
-        }
+        holder.textMessage.setText(notification.getFromUsername() + " ha empezado a seguirte");
 
         holder.textDate.setText(notification.getCreatedAt());
 
-        if (!notification.isRead()) {
-            holder.textMessage.setTypeface(null, Typeface.BOLD);
-            notification.setRead(true);
-        }
     }
 
     @Override

@@ -5,8 +5,8 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="24dp"
     android:fitsSystemWindows="true"
+    android:padding="24dp"
     tools:context=".ui.login.LogInActivity">
 
     <LinearLayout
@@ -31,14 +31,15 @@
             android:src="@drawable/bluelogo" />
 
         <EditText
-            android:id="@+id/etUser"
+            android:id="@+id/etEmailLogin"
             android:layout_width="match_parent"
             android:layout_height="44dp"
             android:background="@drawable/bg_input_selector"
             android:focusable="true"
             android:focusableInTouchMode="true"
-            android:hint="@string/Username"
+            android:hint="Email"
             android:padding="12dp"
+            android:textColor="@color/twitterBlack"
             android:textColorHint="#B31DA1F2"
             android:textSize="14sp" />
 
@@ -48,11 +49,12 @@
             android:layout_height="44dp"
             android:layout_marginTop="12dp"
             android:background="@drawable/bg_input_selector"
-            android:hint="@string/Password"
             android:focusable="true"
             android:focusableInTouchMode="true"
+            android:hint="@string/Password"
             android:inputType="textPassword"
             android:padding="12dp"
+            android:textColor="@color/twitterBlack"
             android:textColorHint="#B31DA1F2"
             android:textSize="14sp" />
 
@@ -66,22 +68,15 @@
             android:textColor="#FFFFFF"
             android:textStyle="bold" />
 
-        <TextView
-            android:id="@+id/tvForgotPassword"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:text="@string/forgot_password"
-            android:textSize="12sp" />
-
     </LinearLayout>
 
     <TextView
         android:id="@+id/tvRegister"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="24dp"
+        android:layout_marginBottom="10dp"
         android:text="@string/Register_text"
+        android:textColor="@color/twitterBlue"
         android:textSize="13sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

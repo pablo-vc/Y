@@ -4,14 +4,17 @@
         <!-- Branding -->
         <item name="colorPrimary">@color/twitterBlue</item>
         <item name="colorSecondary">@color/twitterBlue</item>
+        <item name="colorPrimaryContainer">@color/twitterBlue</item>
 
         <!-- Fondo-->
-        <item name="colorOnBackground">@color/colorBlack</item>
-        <item name="colorSurface">@color/colorBlack</item>
+        <item name="colorSurface">@color/twitterBlack</item>
+        <item name="android:colorBackground">@color/colorBlack</item>
+        <item name="android:windowBackground">@color/colorBlack</item>
 
         <!-- Texto -->
         <item name="colorOnPrimary">@color/colorWhite</item>
-        <item name="colorOnSurface">@color/colorWhitesmoke</item>
+        <item name="colorOnSurface">@color/twitterBlue</item>
+        <item name="colorOnBackground">@color/twitterBlue</item>
 
         <!-- Status bar -->
         <item name="android:statusBarColor">@color/colorBlack</item>

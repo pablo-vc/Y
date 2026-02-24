@@ -30,7 +30,7 @@
             android:src="@drawable/bluelogo" />
 
         <EditText
-            android:id="@+id/etUser"
+            android:id="@+id/etUsername"
             android:layout_width="match_parent"
             android:layout_height="44dp"
             android:background="@drawable/bg_input_selector"
@@ -38,6 +38,7 @@
             android:focusableInTouchMode="true"
             android:hint="@string/Username"
             android:padding="12dp"
+            android:textColor="@color/twitterBlack"
             android:textColorHint="#B31DA1F2"
             android:textSize="14sp" />
 
@@ -52,6 +53,7 @@
             android:hint="@string/Email"
             android:inputType="textEmailAddress"
             android:padding="12dp"
+            android:textColor="@color/twitterBlack"
             android:textColorHint="#B31DA1F2"
             android:textSize="14sp" />
 
@@ -66,6 +68,7 @@
             android:hint="@string/Password"
             android:inputType="textPassword"
             android:padding="12dp"
+            android:textColor="@color/twitterBlack"
             android:textColorHint="#B31DA1F2"
             android:textSize="14sp" />
 
@@ -80,6 +83,7 @@
             android:hint="@string/Repeat_password"
             android:inputType="textPassword"
             android:padding="12dp"
+            android:textColor="@color/twitterBlack"
             android:textColorHint="#B31DA1F2"
             android:textSize="14sp" />
 

@@ -13,6 +13,7 @@ import android.view.ViewGroup;
 import com.example.y.Post;
 import com.example.y.R;
 import com.example.y.adapters.PostAdapter;
+import com.example.y.data.Api;
 import com.example.y.databinding.FragmentGlobalFeedBinding;
 
 import java.util.ArrayList;
@@ -27,6 +28,7 @@ public class GlobalFeedFragment extends Fragment {
     private List<Post> postList = new ArrayList<>();
 
     public GlobalFeedFragment() {
+        loadPosts();
     }
 
     @Override
@@ -38,20 +40,25 @@ public class GlobalFeedFragment extends Fragment {
     }
 
     private void loadPosts() {
-        postList.clear();
+        new Thread(() -> {
+            try {
+                List<Post> posts = Api.getPosts();
 
-        postList.add(new Post(1, 1, "juan", "Hola mundo", "2 min"));
+                postList.clear();
+                postList.addAll(posts);
 
-        postList.add(new Post(2, 2, "ana", "Primera publicación", "10 min"));
-
-        adapter.notifyDataSetChanged();
+                getActivity().runOnUiThread(() -> adapter.notifyDataSetChanged());
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }).start();
     }
 
     private void initUI() {
         rv = binding.rvGlobal;
         rv.setLayoutManager(new LinearLayoutManager(getContext()));
 
-        adapter = new PostAdapter(getContext(), postList,false);
+        adapter = new PostAdapter(getContext(), postList, false);
         rv.setAdapter(adapter);
     }
 }

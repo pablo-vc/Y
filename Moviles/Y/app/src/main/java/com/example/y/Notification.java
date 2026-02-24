@@ -2,20 +2,19 @@ package com.example.y;
 
 public class Notification {
     private int id;
-    private String type;
+    private int fromUserId;
+    private int  toUserId;
     private String fromUsername;
-    private String content;
     private String createdAt;
-    private boolean read;
 
-    public Notification(int id, String type, String fromUsername,
-                        String postContent, String createdAt) {
+    public Notification(int id, int fromUserId, int toUserId, String fromUsername, String createdAt) {
         this.id = id;
-        this.type = type;
+        this.fromUserId = fromUserId;
+        this.toUserId = toUserId;
+
         this.fromUsername = fromUsername;
-        this.content = postContent;
         this.createdAt = createdAt;
-        this.read = false;
+
     }
 
     public int getId() {
@@ -26,29 +25,6 @@ public class Notification {
         this.id = id;
     }
 
-    public String getType() {
-        return type;
-    }
-
-    public void setType(String type) {
-        this.type = type;
-    }
-
-    public String getContent() {
-        return content;
-    }
-
-    public void setContent(String content) {
-        this.content = content;
-    }
-
-    public boolean isRead() {
-        return read;
-    }
-
-    public void setRead(boolean read) {
-        this.read = read;
-    }
 
     public String getCreatedAt() {
         return createdAt;
@@ -64,5 +40,21 @@ public class Notification {
 
     public void setFromUsername(String fromUsername) {
         this.fromUsername = fromUsername;
+    }
+
+    public int getFromUserId() {
+        return fromUserId;
+    }
+
+    public void setFromUserId(int fromUserId) {
+        this.fromUserId = fromUserId;
+    }
+
+    public int getToUserId() {
+        return toUserId;
+    }
+
+    public void setToUserId(int toUserId) {
+        this.toUserId = toUserId;
     }
 }
