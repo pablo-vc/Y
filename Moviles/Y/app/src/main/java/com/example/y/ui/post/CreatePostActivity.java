@@ -6,25 +6,27 @@ import android.text.Editable;
 import android.text.TextWatcher;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 
-import com.example.y.R;
+import com.example.y.Session;
+import com.example.y.data.Api;
 import com.example.y.databinding.ActivityCreatePostBinding;
 
 public class CreatePostActivity extends AppCompatActivity {
 
     ActivityCreatePostBinding binding;
-
     private EditText etPostContent;
     private TextView tvCounter;
     private Button btnPost;
+    private ImageButton btnBack;
     String username;
+    String content;
+    int currentUserId = Session.getInstance().getUserId();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,15 +49,30 @@ public class CreatePostActivity extends AppCompatActivity {
 
     private void initUI() {
         btnPost = binding.btnPost;
+        btnBack = binding.btnBack;
         tvCounter = binding.tvCounter;
         etPostContent = binding.etPostContent;
     }
 
     private void setUpListeners() {
+        btnBack.setOnClickListener(v -> {
+            finish();
+        });
         btnPost.setOnClickListener(v -> {
             if (validation()) {
+                new Thread(() -> {
+                    boolean success = Api.createPost(currentUserId, content);
 
-                finish();
+                    runOnUiThread(() -> {
+                        if (success) {
+                            Toast.makeText(this, "Publicado correctamente", Toast.LENGTH_SHORT).show();
+                            finish(); // vuelve al feed
+                        } else {
+                            Toast.makeText(this, "Error al publicar", Toast.LENGTH_SHORT).show();
+                        }
+                    });
+                    finish();
+                }).start();
             }
         });
         etPostContent.addTextChangedListener(new TextWatcher() {
@@ -75,7 +92,8 @@ public class CreatePostActivity extends AppCompatActivity {
     }
 
     private Boolean validation() {
-        if (etPostContent.getText() != null && etPostContent.getText().toString().trim().length() == 0) {
+        content = etPostContent.getText() != null ? etPostContent.getText().toString().trim() : "";
+        if (content.isEmpty()) {
             etPostContent.setError("Text cannot be empty");
             etPostContent.requestFocus();
             return false;

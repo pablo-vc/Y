@@ -48,6 +48,7 @@
                         android:src="@drawable/ic_profile"
                         app:backgroundTint="#909CA5"
                         app:fabCustomSize="72dp"
+                        android:clickable="false"
                         app:fabSize="normal" />
 
 
@@ -66,6 +67,7 @@
                         android:textSize="20sp"
                         android:textStyle="bold" />
                     <Button
+                        android:id="@+id/btnEditProfile"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Edit Profile" />

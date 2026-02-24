@@ -6,14 +6,17 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.y.Post;
 import com.example.y.R;
+import com.example.y.Session;
 import com.example.y.adapters.FeedPagerAdapter;
 import com.example.y.adapters.PostAdapter;
+import com.example.y.data.Api;
 import com.example.y.databinding.FragmentFollowingFeedBinding;
 import com.google.android.material.tabs.TabLayoutMediator;
 
@@ -37,22 +40,21 @@ public class FollowingFeedFragment extends Fragment {
     }
 
     private void loadPosts() {
-        postList.clear();
+        // Obtener el ID del usuario logueado desde la clase Session
+        int userId = Session.getInstance().getUserId();
 
-        postList.add(new Post(1, 1, "juan", "Hola mundo", "2 min"));
+        if (userId != -1) {
+            new Thread(() -> {
+                List<Post> posts = Api.getFollowingPosts(userId);
 
-        postList.add(new Post(2, 2, "ana", "Primera publicación", "10 min"));
-        postList.add(new Post(1, 1, "juan", "Hola mundo", "2 min"));
+                postList.clear();
+                postList.addAll(posts);
 
-        postList.add(new Post(2, 2, "ana", "Primera publicación", "10 min"));
-        postList.add(new Post(1, 1, "juan", "Hola mundo", "2 min"));
-
-        postList.add(new Post(2, 2, "ana", "Primera publicación", "10 min"));
-        postList.add(new Post(1, 1, "juan", "Hola mundo", "2 min"));
-
-        postList.add(new Post(2, 2, "ana", "Primera publicación", "10 min"));
-
-        adapter.notifyDataSetChanged();
+                getActivity().runOnUiThread(() -> adapter.notifyDataSetChanged());
+            }).start();
+        } else {
+            Log.e("FollowingFeedFragment", "User ID is not set.");
+        }
     }
 
     private void initUI() {

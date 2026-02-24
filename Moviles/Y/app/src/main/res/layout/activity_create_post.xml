@@ -7,11 +7,23 @@
     android:layout_height="match_parent"
     android:fitsSystemWindows="true">
 
+    <ImageButton
+        android:id="@+id/btnBack"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#00FFFFFF"
+        android:foregroundTint="@color/twitterBlue"
+        android:src="@drawable/ic_arrow_back"
+        app:tint="@color/twitterBlue"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="8dp"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <EditText
         android:id="@+id/etPostContent"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="10dp"
         android:layout_marginHorizontal="15dp"
         android:hint="@string/New_post_text"
         android:inputType="textMultiLine"
@@ -19,7 +31,7 @@
         android:minLines="4"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@id/btnBack" />
 
     <TextView
         android:id="@+id/tvCounter"

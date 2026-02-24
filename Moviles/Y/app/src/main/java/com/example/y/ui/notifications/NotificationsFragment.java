@@ -11,8 +11,11 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.y.Notification;
+import com.example.y.Post;
 import com.example.y.R;
+import com.example.y.Session;
 import com.example.y.adapters.NotificationAdapter;
+import com.example.y.data.Api;
 import com.example.y.databinding.FragmentNotificationsBinding;
 
 import java.util.ArrayList;
@@ -24,13 +27,28 @@ public class NotificationsFragment extends Fragment {
     FragmentNotificationsBinding binding;
     List<Notification> notificationList;
 
+    int currentUserId = Session.getInstance().getUser().getId();
+
+
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         binding = FragmentNotificationsBinding.inflate(getLayoutInflater());
         rv = binding.rvNotifications;
         initUI();
+        loadNotifications();
         return binding.getRoot();
+    }
+
+    private void loadNotifications() {
+            new Thread(() -> {
+                List<Notification> notifications = Api.getNotifications(currentUserId);
+                getActivity().runOnUiThread(() -> {
+                    notificationList.clear();
+                    notificationList.addAll(notifications);
+                    adapter.notifyDataSetChanged();
+                });
+            }).start();
+
     }
 
     private void initUI() {
@@ -38,14 +56,6 @@ public class NotificationsFragment extends Fragment {
 
         notificationList = new ArrayList<>();
 
-        // Datos de ejemplo (simulan la API)
-        notificationList.add(new Notification(
-                1, "POST", "juan",
-                "Hoy es un gran día", "Hace 5 min"));
-
-        notificationList.add(new Notification(
-                2, "FOLLOW", "ana",
-                null, "Hace 1 h"));
 
         adapter = new NotificationAdapter(getContext(), notificationList);
         rv.setAdapter(adapter);

@@ -7,15 +7,15 @@
         <item name="colorPrimaryContainer">@color/twitterBlue</item>
 
         <!-- Fondo -->
-        <item name="colorSurface">@color/twitterWhite</item>
+        <item name="colorSurface">@color/colorWhitesmoke</item>
         <item name="android:colorBackground">@color/twitterWhite</item>
         <item name="android:windowBackground">@color/twitterWhite</item>
 
         <!-- Texto -->
         <item name="colorOnPrimary">@color/twitterWhite</item>
-        <item name="colorOnSurface">@color/twitterBlack</item>
+        <item name="colorOnSurface">@color/twitterBlue</item>
         <item name="colorOnPrimaryContainer">@color/twitterWhite</item>
-        <item name="colorOnBackground">@color/twitterBlack</item>
+        <item name="colorOnBackground">@color/twitterBlue</item>
 
         <!-- Status bar -->
         <item name="android:statusBarColor">@color/twitterWhite</item>

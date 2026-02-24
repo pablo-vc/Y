@@ -12,4 +12,7 @@
     <string name="Register">Registrarse</string>
     <string name="Post">Publicar</string>
     <string name="New_post_text">¿Qué estás pensando?</string>
+    <string name="edit_profile">Editar perfil</string>
+    <string name="Cancel">Cancelar</string>
+    <string name="Save">Guardar</string>
 </resources>

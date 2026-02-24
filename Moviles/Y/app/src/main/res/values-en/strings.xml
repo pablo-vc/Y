@@ -12,4 +12,7 @@
     <string name="Register">Register</string>
     <string name="Post">Post</string>
     <string name="New_post_text">What are you thinking about?</string>
+    <string name="edit_profile">Edit profile</string>
+    <string name="Cancel">Cancel</string>
+    <string name="Save">Save</string>
 </resources>

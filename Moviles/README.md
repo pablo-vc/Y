@@ -15,6 +15,9 @@ Apartado en el que se irán exponiendo los avances semanales en el desarrollo de
  - [ViewPager](https://developer.android.com/guide/navigation/navigation-swipe-view-2?hl=es-419)
  - [Coordinator Layout y collapsing toolbar](https://www.youtube.com/watch?v=0qIHSn7NslE)
  - [Coordinator Layout Custom Behaviours](https://www.youtube.com/watch?v=P84O-lT2p1M)
+ - [Navigation Drawer y Bottom Sheet Dialog](https://www.youtube.com/watch?v=ahNruIZX130)
+ - [Diálogo personalizado 1](https://www.youtube.com/watch?v=qBlYUVdYQL8)
+ - [Diálogo personalizado 2](https://www.youtube.com/watch?v=I66WdS8U2hY)
 
 <hr>
 
@@ -71,3 +74,39 @@ ViewPager y TabLayout añadidos y funcionando en "FeedFragment".
 PostAdapter adaptado para identificar publicaciones propias del usuario de la sesión y permitir eliminarlas en la pagina de perfil, la cual aún está en desarrollo.
 
 Gran avance en el diseño de la página de perfil, uso de CoordinatorLayout, CollapsingToolbarLayout y AppBarLayout para ocultar la parte de arriba del perfil al deslizar hacia abajo y que se muestren solo las publicaciones y el tabLayout.
+
+Implementación de un cuadro de diálogo personalizado para editar la información de perfil. 
+
+### 16/02 - 22/02
+
+### Últimos retoques en la interfaz gráfica de la aplicación 
+
+Activity con el perfil de un usuario al pulsar en su publicación, con opción de seguirlo.
+
+Opción de eliminar cuenta en el apartado de editar perfil.
+
+### Comunicación con la Api
+
+Login y registro funcionando con comunicacion a la Api.
+
+Feed enlazado con la Api.
+
+Perfil de otros usuarios enlazado con la Api.
+
+Notificaciones enlazadas con la Api.
+
+Edición de usuario funcional.
+
+Función de elimincar usuario funcional.
+
+Aplicación terminada.
+
+## Video Demo
+
+
+
+
+https://github.com/user-attachments/assets/0213fc2f-cde1-42af-82cd-a3a2b6ca468d
+
+
+
