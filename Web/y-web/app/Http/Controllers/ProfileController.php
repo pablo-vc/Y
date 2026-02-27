@@ -33,6 +33,9 @@ class ProfileController extends Controller
     public function update(Request $request)
     {
         $userId = session('user_id');
+        session([
+            'username' => $request['username']
+        ]);
 
         $this->api->updateProfile($userId, [
             'username' => $request->username,
