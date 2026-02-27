@@ -27,7 +27,7 @@ import java.util.List;
 public class Api {
     static String ip1 = "192.168.1.20";
     static String ip2 = "10.0.2.2";
-    private static final String BASE_URL = "http://10.0.2.2:8080/yapi/rest/";
+    private static final String BASE_URL = "http://192.168.1.17:8080/yapi/rest/";
 
     public static User login(String email, String password) {
         HttpURLConnection con = null;

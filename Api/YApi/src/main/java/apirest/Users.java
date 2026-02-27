@@ -198,7 +198,7 @@ public class Users {
         try {
             Class.forName("org.mariadb.jdbc.Driver");
             try (Connection conexion = DriverManager.getConnection(URL, user, pass)) {
-                PreparedStatement check2 = conexion.prepareStatement("SELECT id FROM users WHERE username=?");
+                PreparedStatement check2 = conexion.prepareStatement("SELECT id FROM users WHERE username=? and id!=id");
                 check2.setString(1, update.getUsername());
                 ResultSet rs2 = check2.executeQuery();
 
