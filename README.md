@@ -1,25 +1,115 @@
-<h1><img align="center" alt="SQL" width="40px" src="https://github.com/user-attachments/assets/a5eb8b3d-f6b5-41b8-acf2-ccdbe884fc05" /> - Red social multiplataforma</h1>
+# Y - Microblogging Multiplatform Application
 
- "Y" es una aplicación multiplataforma en la que los usuarios podrán compartir sus opiniones e inquietudes mediante publicaciones de texto que todo el mundo podrá ver en su feed.
- 
- *\*Cualquier posible parecido con Twitter o "X" es mera casualidad o fruto de una gran imaginación\**
+This repository contains the development process, technical documentation and resources for **Y**, a cross-platform microblogging application inspired by Twitter.
+
+The app focuses on text-based posts and minimalistic interaction, providing a space where users can share their thoughts and interests.
+
+## Languages
+
+- 🇬🇧 English 
+- 🇪🇸 Español → [README.es.md](README.es.md)
+
+## Features
+
+- Global feed with posts from all users
+- Personalized feed with posts from followed users
+- Possibility to follow other users
+- User profiles with editable information
+- Post management (create and delete posts)
+- Notification system for new followers
+
+## Screenshots
+
+### Web Application
+
+<p align="center">
+  <img src="docs/resources/web/feed.jpg" alt="no images available at the moment" width="30%">
+  <img src="docs/resources/web/profile.jpg" alt="no images available at the moment" width="30%">
+  <img src="docs/resources/web/notifications.jpg" alt="no images available at the moment" width="30%">
+</p>
+
+### Mobile Application
+
+<p align="center">
+  <img src="docs/resources/mobile/feed.jpg" alt="no images available at the moment" width="30%">
+  <img src="docs/resources/mobile/profile.jpg" alt="no images available at the moment" width="30%">
+  <img src="docs/resources/mobile/notifications.jpg" alt="no images available at the moment" width="30%">
+</p>
+
+### Desktop Application
+
+<p align="center">
+  <img src="docs/resources/desktop/feed.jpg" alt="no images available at the moment" width="30%">
+  <img src="docs/resources/desktop/profile.jpg" alt="no images available at the moment" width="30%">
+  <img src="docs/resources/desktop/notifications.jpg" alt="no images available at the moment" width="30%">
+</p>
+
+## Architecture
+
+The project consists of a backend REST API and three client applications:
+
+- Web application
+- Mobile application
+- Desktop application
+
+All clients communicate with the same backend service.
+
+## Project Structure
+
+```
+.
+├ apps
+│  ├ web             
+│  │   ├ readme
+│  │   └ app         Web Client 
+│  │
+│  ├ mobile          
+│  │   ├ readme
+│  │   └ app        Mobile Client
+│  │ 
+│  └ desktop        
+│      ├ readme
+│      └ app        Desktop Client
+│
+├ backend           
+│   ├ readme 
+│   └ api           REST API server
+│
+└ docs              Documentation and resources
+   ├resources       
+   │
+   ├ en 
+   │  ├ proyect memory
+   │  └ technical documetation
+   │
+   └ es
+      ├ memoria de proyecto
+      └ documentación técnica
 
 
-## Estado de la app
+```
 
-En cada subproyecto se encuentra un readme informativo que se irá actualizando conforme avance el proyecto, esto permite ver más claramente los avances en cada apartado y disponer de la información de cada uno de ellos en conjunto y bien diferenciada.
+## Platforms and Backend
 
-La cronología comienza en la fecha que comienza ya que se estaba trabajando en otro proyecto que ha tenido que pasar a un segundo plano, consideremos el período anterior a la primera fecha que figura como etapa de investigación.
+Each subproject has its own documentation and development log:
 
-## Modelo de datos
+- [Web](apps/web/README.md)
+- [Mbile](apps/mobile/README.md)
+- [Desktop](apps/desktop/README.md)
+- [API](backend/README.md)
 
-El modelo de datos se ha diseñado siguiendo un enfoque minimalista, incluyendo únicamente las entidades necesarias para garantizar el correcto funcionamiento de la aplicación y facilitar su escalabilidad.
+## System Architecture
 
-## Enlaces a los subproyectos
+Clients
+ ├ Web
+ ├ Mobile
+ └ Desktop
+        │
+        │ 
+        ▼
+     API REST
+        │
+        ▼
+    Database
 
-[Móvil](./Moviles)
-
-[Web](./Web)
-
-[Escritorio](./Escritorio)
-
+All clients communicate with the same backend service.
