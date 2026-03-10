@@ -23,9 +23,9 @@ La aplicación se centra en publicaciones de texto e interacción minimalistas, 
 ### Aplicación Web
 
 <p align="center">
-  <img src="docs/screenshots/web/feed.png" width="30%">
-  <img src="docs/screenshots/web/profile.png" width="30%">
-  <img src="docs/screenshots/web/notifications.png" width="30%">
+  <img src="https://github.com/pablo-vc/Y/blob/main/docs/resources/web/notifications.JPG" width="30%">
+  <img src="https://github.com/pablo-vc/Y/blob/main/docs/resources/web/feed.JPG" width="30%">
+  <img src="https://github.com/pablo-vc/Y/blob/main/docs/resources/web/profile.JPG" width="30%">
 </p>
 
 ### Aplicación Móvil
@@ -99,7 +99,7 @@ Cada subproyecto tiene su propia documentation junto con su registro de desarrol
 - [API](backend/README.es.md)
 
 ## Arquitectura de la aplicación
-
+```
 Clientes
  ├ Web
  ├ Móvil
@@ -111,5 +111,5 @@ Clientes
         │
         ▼
    Base de datos
-
+```
 Los clientes se comunican independientemente con la misma API.

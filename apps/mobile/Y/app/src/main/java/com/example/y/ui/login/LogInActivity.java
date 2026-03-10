@@ -10,8 +10,8 @@ import android.widget.Toast;
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.y.Session;
-import com.example.y.User;
+import com.example.y.data.models.Session;
+import com.example.y.data.models.User;
 import com.example.y.data.Api;
 import com.example.y.databinding.ActivityLogInBinding;
 import com.example.y.ui.MainActivity;

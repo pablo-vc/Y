@@ -1,4 +1,4 @@
-package com.example.y;
+package com.example.y.data.models;
 
 public class Session {
     private static Session instance;

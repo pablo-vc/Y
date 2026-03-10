@@ -23,25 +23,25 @@ The app focuses on text-based posts and minimalistic interaction, providing a sp
 ### Web Application
 
 <p align="center">
-  <img src="docs/resources/web/feed.jpg" alt="no images available at the moment" width="30%">
-  <img src="docs/resources/web/profile.jpg" alt="no images available at the moment" width="30%">
-  <img src="docs/resources/web/notifications.jpg" alt="no images available at the moment" width="30%">
+  <img src="https://github.com/pablo-vc/Y/blob/main/docs/resources/web/notifications.JPG" width="30%">
+  <img src="https://github.com/pablo-vc/Y/blob/main/docs/resources/web/feed.JPG" width="30%">
+  <img src="https://github.com/pablo-vc/Y/blob/main/docs/resources/web/profile.JPG" width="30%">
 </p>
 
 ### Mobile Application
 
 <p align="center">
-  <img src="docs/resources/mobile/feed.jpg" alt="no images available at the moment" width="30%">
-  <img src="docs/resources/mobile/profile.jpg" alt="no images available at the moment" width="30%">
-  <img src="docs/resources/mobile/notifications.jpg" alt="no images available at the moment" width="30%">
+  <img src="docs/resources/mobile/feed.jpg" width="30%">
+  <img src="docs/resources/mobile/profile.jpg" width="30%">
+  <img src="docs/resources/mobile/notifications.jpg" width="30%">
 </p>
 
 ### Desktop Application
 
 <p align="center">
-  <img src="docs/resources/desktop/feed.jpg" alt="no images available at the moment" width="30%">
-  <img src="docs/resources/desktop/profile.jpg" alt="no images available at the moment" width="30%">
-  <img src="docs/resources/desktop/notifications.jpg" alt="no images available at the moment" width="30%">
+  <img src="docs/resources/desktop/feed.jpg" width="30%">
+  <img src="docs/resources/desktop/profile.jpg" width="30%">
+  <img src="docs/resources/desktop/notifications.jpg" width="30%">
 </p>
 
 ## Architecture
@@ -99,7 +99,7 @@ Each subproject has its own documentation and development log:
 - [API](backend/README.md)
 
 ## System Architecture
-
+```
 Clients
  ├ Web
  ├ Mobile
@@ -111,5 +111,5 @@ Clients
         │
         ▼
     Database
-
+```
 All clients communicate with the same backend service.

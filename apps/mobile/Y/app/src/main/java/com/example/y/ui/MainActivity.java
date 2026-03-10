@@ -43,7 +43,6 @@ public class MainActivity extends AppCompatActivity {
     private void setUpListeners() {
         btnNewPost.setOnClickListener(v -> {
             Intent intent = new Intent(MainActivity.this, CreatePostActivity.class);
-            intent.putExtra("username", "dsad");
             startActivity(intent);
         });
     }

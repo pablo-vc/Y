@@ -24,6 +24,7 @@ The web client allows users to interact with the app through a browser.
 - HTML
 - CSS
 - PHP
+- JavaScript
 - Laravel
 
 ## Research Areas
@@ -71,12 +72,19 @@ The following resources were used during the research phase of the project:
   - Posts from followed users.
 
 
-### After project presentation
-
-- Design improvements
-  - Better general aplication look
-
-
 ### Final Result
 
 The web client was completed with all core functionalities integrated with the backend API.
+
+
+## After Project Presentation
+
+- Design improvements
+  - Better general aplication look
+    - Minor changes to borders, shadows, placeholders, margins and paddings
+  - Scroll bug fixed when there is a considerable number of posts/notifications, now the main interface stands still
+  - Completely responsive app
+  - Access to followers profiles from notification page
+  - Publish date added to posts
+- Code improvements
+  - Style re-organization and unification, general styles defined in `app.blade.php` with derivatives in each page files

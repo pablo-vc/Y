@@ -11,14 +11,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.y.Post;
-import com.example.y.R;
-import com.example.y.Session;
-import com.example.y.adapters.FeedPagerAdapter;
+import com.example.y.data.models.Post;
+import com.example.y.data.models.Session;
 import com.example.y.adapters.PostAdapter;
 import com.example.y.data.Api;
 import com.example.y.databinding.FragmentFollowingFeedBinding;
-import com.google.android.material.tabs.TabLayoutMediator;
 
 import java.util.ArrayList;
 import java.util.List;

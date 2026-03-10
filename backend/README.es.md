@@ -1,4 +1,4 @@
-# Y Backend API
+# Y - Backend API
 
 Este proyecto contiene la API encargada de la persistencia de datos en la app.
 

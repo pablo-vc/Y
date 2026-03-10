@@ -7,7 +7,6 @@ import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -15,13 +14,11 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.y.Post;
+import com.example.y.data.models.Post;
 import com.example.y.R;
-import com.example.y.Session;
+import com.example.y.data.models.Session;
 import com.example.y.data.Api;
 import com.example.y.ui.otherprofile.OtherProfileActivity;
-import com.example.y.ui.profile.ProfileFragment;
-import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 
 import java.util.List;
 
@@ -59,29 +56,23 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.PostViewHolder
             holder.btnDelete.setVisibility(View.VISIBLE);
 
             holder.btnDelete.setOnClickListener(v -> {
-                new AlertDialog.Builder(v.getContext())
-                        .setTitle("Eliminar post")
-                        .setMessage("¿Seguro que quieres eliminar este post?")
-                        .setCancelable(true)
-                        .setPositiveButton("Eliminar", (dialog, which) -> {
+                new AlertDialog.Builder(v.getContext()).setTitle("Eliminar post").setMessage("¿Seguro que quieres eliminar este post?").setCancelable(true).setPositiveButton("Eliminar", (dialog, which) -> {
 
 
-                            new Thread(() -> {
-                                boolean success = Api.deletePost(post.getId());
-                                ((Activity) context).runOnUiThread(() -> {
-                                    if (success) {
-                                        postList.remove(position);
-                                        notifyItemRemoved(position);
-                                        Toast.makeText(context, "Post eliminado", Toast.LENGTH_SHORT).show();
-                                    } else {
-                                        Toast.makeText(context, "Error al eliminar", Toast.LENGTH_SHORT).show();
-                                    }
-                                });
-                            }).start();
+                    new Thread(() -> {
+                        boolean success = Api.deletePost(post.getId());
+                        ((Activity) context).runOnUiThread(() -> {
+                            if (success) {
+                                postList.remove(position);
+                                notifyItemRemoved(position);
+                                Toast.makeText(context, "Post eliminado", Toast.LENGTH_SHORT).show();
+                            } else {
+                                Toast.makeText(context, "Error al eliminar", Toast.LENGTH_SHORT).show();
+                            }
+                        });
+                    }).start();
 
-                        })
-                        .setNegativeButton("Cancelar", (dialog, which) -> dialog.dismiss())
-                        .show();
+                }).setNegativeButton("Cancelar", (dialog, which) -> dialog.dismiss()).show();
             });
 
         } else {

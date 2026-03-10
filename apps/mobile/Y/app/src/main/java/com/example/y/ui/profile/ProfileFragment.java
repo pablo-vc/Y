@@ -19,16 +19,14 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.y.Post;
+import com.example.y.data.models.Post;
 import com.example.y.R;
-import com.example.y.Session;
-import com.example.y.User;
+import com.example.y.data.models.Session;
+import com.example.y.data.models.User;
 import com.example.y.adapters.PostAdapter;
 import com.example.y.data.Api;
 import com.example.y.databinding.FragmentProfileBinding;
-import com.example.y.ui.MainActivity;
 import com.example.y.ui.login.LogInActivity;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.tabs.TabLayout;
 
 import java.util.ArrayList;

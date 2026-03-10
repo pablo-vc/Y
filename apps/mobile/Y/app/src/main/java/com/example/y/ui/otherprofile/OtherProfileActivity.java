@@ -12,10 +12,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.y.Post;
+import com.example.y.data.models.Post;
 import com.example.y.R;
-import com.example.y.Session;
-import com.example.y.User;
+import com.example.y.data.models.Session;
+import com.example.y.data.models.User;
 import com.example.y.adapters.PostAdapter;
 import com.example.y.data.Api;
 import com.example.y.databinding.ActivityOtherProfileBinding;

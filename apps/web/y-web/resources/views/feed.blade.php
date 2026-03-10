@@ -1,6 +1,49 @@
 @extends('layouts.app')
 <title>Y | Feed</title>
+<style>
+    .tabs {
+        display: flex;
+        border-bottom: 1px solid #ddd;
+    }
 
+    .tab {
+        flex: 1;
+        text-align: center;
+        padding: 15px;
+        cursor: pointer;
+        font-weight: bold;
+    }
+
+    .tab.active {
+        border-bottom: 3px solid #1da1f2;
+        color: #1da1f2;
+    }
+
+    .username {
+        display: flex;
+        margin-bottom: 5px;
+        align-items: center;
+    }
+
+    .username>img {
+        width: 20px;
+        height: 20px;
+        margin-right: 2px;
+    }
+
+    .username-text {
+        text-decoration: none;
+        color: #1da1f2;
+    }
+
+    .username-text:hover {
+        color: black;
+    }
+
+    .content {
+        margin: 0 0 5px 4px;
+    }
+</style>
 @section('content')
     <div class="fixed">
         <div class="tabs">
@@ -13,11 +56,14 @@
                 @forelse($allPosts ?? [] as $post)
                     <div class="card">
                         <div class="username">
-                            <a href="{{ url('/profile/' . $post['id_user']) }}" style="text-decoration:none; color:black;">
+                            <img src="{{ asset('images/image.png') }}" alt="">
+                            <a href="{{ url('/profile/' . $post['id_user']) }}" class="username-text">
                                 {{ $post['username'] }}
                             </a>
                         </div>
-                        <div>{{ $post['content'] }}</div>
+                        <div class="content">{{ $post['content'] }}</div>
+                        <small style="color:gray;">Publicado el
+                            {{ \Carbon\Carbon::parse($post['created_at'])->format('d/m/Y H:i') }}</small>
                     </div>
                 @empty
                     <p>No hay publicaciones.</p>
@@ -28,11 +74,14 @@
                 @forelse($followingPosts ?? [] as $post)
                     <div class="card">
                         <div class="username">
-                            <a href="{{ url('/profile/' . $post['id_user']) }}" style="text-decoration:none; color:black;">
+                            <img src="{{ asset('images/image.png') }}" alt="">
+                            <a href="{{ url('/profile/' . $post['id_user']) }}" class="username-text">
                                 {{ $post['username'] }}
                             </a>
                         </div>
-                        <div>{{ $post['content'] }}</div>
+                        <div class="content">{{ $post['content'] }}</div>
+                        <small style="color:gray;">Publicado el
+                            {{ \Carbon\Carbon::parse($post['created_at'])->format('d/m/Y H:i') }}</small>
                     </div>
                 @empty
                     <p>No sigues a nadie.</p>

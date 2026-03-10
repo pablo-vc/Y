@@ -112,7 +112,9 @@ Esta organización sigue el principio de separación de responsabilidades, facil
 - Login, registro, feed, perfil, notificaciones, edición y borrado de usuarios completamente funcional con integración de la API.
 
 
-**Aplicación móvil completada.**
+## Resultado final
+
+El cliente móvil se completó con todas las funcionalidades principales integradas con la API del backend.
 
 
 ## Video Demo

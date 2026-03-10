@@ -74,7 +74,7 @@
         android:id="@+id/tvRegister"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="10dp"
+        android:layout_marginBottom="30dp"
         android:text="@string/Register_text"
         android:textColor="@color/twitterBlue"
         android:textSize="13sp"

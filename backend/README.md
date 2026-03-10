@@ -1,4 +1,4 @@
-# Y Backend API
+# Y - Backend API
 
 This proyect contains the API responsible of the data perssistance of the app.
 

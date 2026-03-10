@@ -1,4 +1,4 @@
-package com.example.y;
+package com.example.y.data.models;
 
 public class User {
     private int id;

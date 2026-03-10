@@ -12,6 +12,17 @@
             box-sizing: border-box;
         }
 
+        h1,
+        h2,
+        h3,
+        h4,
+        h5 {
+            color: #1da1f2
+        }
+        textarea{
+            resize: none;
+        }
+
         body {
             margin: 0;
             font-family: Arial, sans-serif;
@@ -22,8 +33,9 @@
             max-width: 1100px;
             margin: 0 auto;
             display: flex;
-            min-height: 100vh;
-            border: 1px solid rgb(191, 187, 187);
+            height: 100vh;
+            /* border: 1px solid rgb(191, 187, 187); */
+            border: 1px solid #1da0f25f;
             border-radius: 10px;
         }
 
@@ -33,7 +45,7 @@
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-
+            border-right: 1px solid #1da0f25f;
         }
 
         .sidebar h2 {
@@ -77,41 +89,46 @@
             border-right: 1px solid #e1e8ed;
             background: white;
             border-radius: 10px;
-
+            border-right: 1px solid #1da0f25f;
             height: 100vh;
             overflow: hidden;
             overflow-y: hidden;
-
         }
 
         .card {
-            padding: 15px;
             border-bottom: 1px solid #e1e8ed;
-        }
-
-        .tabs {
-            display: flex;
-            border-bottom: 1px solid #ddd;
-        }
-
-        .tab {
-            flex: 1;
-            text-align: center;
+            border-radius: 10px;
             padding: 15px;
-            cursor: pointer;
+            margin-bottom: 7px;
+            box-shadow: 0.5px 0.5px 0.5px 1px #1da0f23c;
+        }
+
+        .card>.username {
             font-weight: bold;
         }
 
-        .tab.active {
-            border-bottom: 3px solid #1da1f2;
-            color: #1da1f2;
+        .card>.content {
+            word-wrap: break-word;
         }
+
+        .card>small {
+            color: gray;
+            float: right;
+            font-size: 0.6em
+        }
+
 
 
         .fixed {
             height: 100%;
             display: flex;
             flex-direction: column;
+        }
+
+        .scrollable {
+            flex: 1;
+            overflow-y: auto;
+            padding: 5px;
         }
 
         *::-webkit-scrollbar {
@@ -123,12 +140,8 @@
             border-radius: 10px;
         }
 
-        .scrollable {
-            flex: 1;
-            overflow-y: auto;
-        }
 
-        @media (max-width: 900px) {
+        @media (max-width: 750px) {
             .app {
                 flex-direction: column;
             }
@@ -142,24 +155,24 @@
                 border-bottom: 1px solid #e1e8ed;
             }
 
-            .sidebar h2 {
-                display: none;
-            }
-
-            .sidebar-top {
+            .sidebar-top,
+            .sidebar-bottom {
                 flex-direction: row;
                 gap: 10px;
             }
 
             .sidebar-top .nav-link {
-                padding: 8px;
-                font-size: 14px;
+                padding-right: 8px;
+                font-size: 12px;
             }
 
             .sidebar-bottom {
-                flex-direction: row;
-                gap: 10px;
+                font-size: 12px;
                 align-items: center;
+            }
+
+            .sidebar-bottom>div {
+                display: none
             }
 
             .main {
@@ -169,39 +182,7 @@
 
         }
 
-        .modal {
-            display: none;
-            position: fixed;
-            inset: 0;
-            background: rgba(0, 0, 0, 0.4);
-            justify-content: center;
-            align-items: center;
-            z-index: 1000;
-        }
 
-        .modal-content {
-            background: white;
-            padding: 25px;
-            width: 400px;
-            max-width: 90%;
-            border-radius: 15px;
-            animation: fadeIn 0.2s ease-in-out;
-        }
-
-        .close {
-            float: right;
-            font-size: 22px;
-            cursor: pointer;
-        }
-
-        .modal input,
-        .modal textarea {
-            width: 100%;
-            padding: 8px;
-            margin: 8px 0 15px 0;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-        }
 
         .btn {
             padding: 8px 15px;
@@ -212,9 +193,6 @@
             border-radius: 20px;
         }
 
-        .btn.danger {
-            background: #e0245e;
-        }
 
         @keyframes fadeIn {
             from {

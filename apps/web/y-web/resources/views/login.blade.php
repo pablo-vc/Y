@@ -116,6 +116,20 @@
         button:hover {
             background: #18aaff;
         }
+
+        .bad-pass {
+            background: rgba(255, 0, 0, 0.258);
+
+        }
+
+        .not-visible{
+            display: none
+        }
+
+        .visible{
+            display: block
+        }
+
     </style>
 </head>
 
@@ -123,7 +137,8 @@
 
     <div class="container">
         <div class="card">
-            <h1><img src="{{ asset('YLogoAzul.ico') }}" alt="Y" style="width: 70px;height:70px;border-radius:10px"></h1>
+            <h1><img src="{{ asset('YLogoAzul.ico') }}" alt="Y"
+                    style="width: 70px;height:70px;border-radius:10px"></h1>
 
             <p class="subtitle">Comparte tus opiniones con el mundo</p>
 
@@ -153,12 +168,36 @@
                     <input type="email" name="email" placeholder="Email" required>
                     <input type="password" name="password" placeholder="Password" required>
                     <input type="password" name="password_confirmation" placeholder="Repeat password" required>
-                    <button type="submit">Create Account</button>
+                    <span id="msg" class="not-visible" style="color:red;font-size:12px">Passwords doesn't match</span>
+                    <br>
+                    <button type="submit" id="register-button" disabled>Create Account</button>
                 </form>
             </div>
-            
+
         </div>
     </div>
+
+    <script>
+        var pass1 = document.getElementsByName("password")[1];
+        var pass2 = document.getElementsByName("password_confirmation")[0];
+        var msg = document.getElementById("msg");
+        var btnReg = document.getElementById("register-button");
+        pass1.addEventListener("keyup", confirmPass);
+        pass2.addEventListener("keyup", confirmPass);
+
+        function confirmPass() {
+            msg.classList.toggle("visible",pass1.value != pass2.value)
+            if (pass1.value != pass2.value) {
+                btnReg.setAttribute("disabled", "true");
+                pass1.classList.add("bad-pass");
+                pass2.classList.add("bad-pass");
+            } else {
+                btnReg.removeAttribute("disabled");
+                pass1.classList.remove("bad-pass");
+                pass2.classList.remove("bad-pass");
+            }
+        }
+    </script>
 
 </body>
 

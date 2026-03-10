@@ -6,13 +6,9 @@ import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 
-import com.example.y.R;
-import com.example.y.Session;
-import com.example.y.User;
+import com.example.y.data.models.Session;
+import com.example.y.data.models.User;
 import com.example.y.data.Api;
 import com.example.y.databinding.ActivityRegisterBinding;
 import com.example.y.ui.MainActivity;
@@ -39,6 +35,9 @@ public class RegisterActivity extends AppCompatActivity {
         binding.btnRegister.setOnClickListener(v -> {
             handleRegister();
         });
+        binding.tvLogin.setOnClickListener(v -> {
+            finish();
+        });
     }
 
     private void handleRegister() {
@@ -47,7 +46,6 @@ public class RegisterActivity extends AppCompatActivity {
         password = binding.etPassword.getText().toString().trim();
         password2 = binding.etPassword2.getText().toString().trim();
 
-        // Validaciones simples
         if (username.isEmpty()) {
             binding.etUsername.setError("Username requerido");
             binding.etUsername.requestFocus();
@@ -69,7 +67,6 @@ public class RegisterActivity extends AppCompatActivity {
             return;
         }
 
-        // Ejecutar registro en hilo aparte
         new Thread(() -> {
             String result = Api.register(username, email, password);
 
