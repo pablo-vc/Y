@@ -24,6 +24,7 @@ El cliente web permite a los usuarios interactuar con la aplicación a través d
 - HTML
 - CSS
 - PHP
+- JavaScript
 - Laravel
 
 
@@ -77,3 +78,15 @@ Durante el desarrollo del proyecto se investigaron y utilizaron los siguientes r
 ## Resultado final
 
 El cliente web se completó con todas las funcionalidades principales integradas con la API del backend.
+
+
+## Avances después de la entrega
+- Mejoras en el diseño
+  - Look general de la aplicación mejorado
+    - Pequeños cambios en bordes, sombras, placeholders, margenes y paddings
+  - Scroll arreglado cuando hay muchas publicaciones/notificaciones, la sección principal de la página se mantiene fijada
+  - App responsiva a diferentes tamaños de pantalla
+  - Acceso a perfil de los seguidores desde la pestaña de notificaciones
+  - Fecha de publicación añadida a las publicaciones
+- Mejoras de código
+  - Reorganización y unificación de estilos, estilos generales definidos en `app.blade.php` con variaciones en cada pagina

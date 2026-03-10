@@ -10,10 +10,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.y.Notification;
-import com.example.y.Post;
-import com.example.y.R;
-import com.example.y.Session;
+import com.example.y.data.models.Notification;
+import com.example.y.data.models.Session;
 import com.example.y.adapters.NotificationAdapter;
 import com.example.y.data.Api;
 import com.example.y.databinding.FragmentNotificationsBinding;

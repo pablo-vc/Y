@@ -13,9 +13,10 @@ import android.widget.Toast;
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.y.Session;
+import com.example.y.data.models.Session;
 import com.example.y.data.Api;
 import com.example.y.databinding.ActivityCreatePostBinding;
+import com.example.y.ui.feed.FeedFragment;
 
 public class CreatePostActivity extends AppCompatActivity {
 
@@ -66,7 +67,8 @@ public class CreatePostActivity extends AppCompatActivity {
                     runOnUiThread(() -> {
                         if (success) {
                             Toast.makeText(this, "Publicado correctamente", Toast.LENGTH_SHORT).show();
-                            finish(); // vuelve al feed
+
+                            finish();
                         } else {
                             Toast.makeText(this, "Error al publicar", Toast.LENGTH_SHORT).show();
                         }

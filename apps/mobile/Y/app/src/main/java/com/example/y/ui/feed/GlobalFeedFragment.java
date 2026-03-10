@@ -10,8 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.y.Post;
-import com.example.y.R;
+import com.example.y.data.models.Post;
 import com.example.y.adapters.PostAdapter;
 import com.example.y.data.Api;
 import com.example.y.databinding.FragmentGlobalFeedBinding;

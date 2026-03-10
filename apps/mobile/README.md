@@ -108,7 +108,9 @@ This organization allows scalability, easier maintenance and better readability.
 - Account deletion implemented in profile edit.
 - Login, registration, feed, profile, notifications, user editing and deletion fully functional with API integration.
 
-**Mobile client completed.**
+### Final Result
+
+The mobile client was completed with all core functionalities integrated with the backend API.
 
 ## Demo Video
 
