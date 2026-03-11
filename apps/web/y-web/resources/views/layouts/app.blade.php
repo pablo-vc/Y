@@ -19,6 +19,20 @@
         h5 {
             color: #1da1f2
         }
+        form input,
+        form textarea {
+            margin-bottom: 12px;
+            padding: 12px;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+            font-size: 14px;
+        }
+
+        form input:focus,
+        form textarea:focus {
+            outline: none;
+            border-color: #18aaff;
+        }
         textarea{
             resize: none;
         }

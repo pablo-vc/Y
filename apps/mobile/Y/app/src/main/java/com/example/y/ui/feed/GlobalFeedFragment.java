@@ -42,10 +42,8 @@ public class GlobalFeedFragment extends Fragment {
         new Thread(() -> {
             try {
                 List<Post> posts = Api.getPosts();
-
                 postList.clear();
                 postList.addAll(posts);
-
                 getActivity().runOnUiThread(() -> adapter.notifyDataSetChanged());
             } catch (Exception e) {
                 e.printStackTrace();

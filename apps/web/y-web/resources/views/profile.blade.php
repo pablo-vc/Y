@@ -9,10 +9,15 @@
         border-bottom: 1px solid #1da1f2;
     }
 
-    .profile-header-content {
+    .username-and-btn {
         display: flex;
         justify-content: space-between;
         align-items: center;
+    }
+
+    .header-username {
+        margin: 0;
+        font-size: 24px;
     }
 
     .bio-text {
@@ -64,8 +69,8 @@
         cursor: pointer;
     }
 
-    .profile-posts{
-        margin-top:10px;
+    .profile-posts {
+        margin-top: 10px;
     }
 
     .profile-card {
@@ -119,8 +124,9 @@
         width: 100%;
         padding: 8px;
         margin: 8px 0 15px 0;
-        border: 1px solid #1da1f2;
-        border-radius: 8px;
+    }
+    .modal textarea{
+        height: 6em;
     }
 
     .post-content {
@@ -143,9 +149,9 @@
     <div class="fixed">
 
         <div class="profile-header">
-            <div class="profile-header-content">
+            <div class="username-and-btn">
                 <div>
-                    <h2 style="margin:0; font-size:24px;">{{ $profile['username'] }}</h2>
+                    <h2 class="header-username">{{ $profile['username'] }}</h2>
                     {{-- <p style="margin:2px 0; color:gray;">{{ $profile['email'] }}</p> --}}
                 </div>
                 <div>

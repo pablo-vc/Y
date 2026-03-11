@@ -2,11 +2,13 @@ package com.example.y.ui.login;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.widget.EditText;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.y.R;
 import com.example.y.data.models.Session;
 import com.example.y.data.models.User;
 import com.example.y.data.Api;
@@ -20,6 +22,7 @@ public class RegisterActivity extends AppCompatActivity {
     String email;
     String password;
     String password2;
+    EditText etUsername, etEmail, etPassword, etPassword2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,8 +30,15 @@ public class RegisterActivity extends AppCompatActivity {
         EdgeToEdge.enable(this);
         binding = ActivityRegisterBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-
+        initUI();
         setUpListeners();
+    }
+
+    private void initUI() {
+        etUsername = binding.etUsername;
+        etEmail = binding.etEmail;
+        etPassword = binding.etPassword;
+        etPassword2 = binding.etPassword2;
     }
 
     private void setUpListeners() {
@@ -41,29 +51,34 @@ public class RegisterActivity extends AppCompatActivity {
     }
 
     private void handleRegister() {
-        username = binding.etUsername.getText().toString().trim();
-        email = binding.etEmail.getText().toString().trim();
-        password = binding.etPassword.getText().toString().trim();
-        password2 = binding.etPassword2.getText().toString().trim();
+        username = etUsername.getText().toString().trim();
+        email = etEmail.getText().toString().trim();
+        password = etPassword.getText().toString().trim();
+        password2 = etPassword2.getText().toString().trim();
 
         if (username.isEmpty()) {
-            binding.etUsername.setError("Username requerido");
-            binding.etUsername.requestFocus();
+            etUsername.setError(getString(R.string.cannot_be_empty));
+            etUsername.requestFocus();
+            return;
+        }
+        if (!User.validateUsername(username)) {
+            etUsername.setError(getString(R.string.invalid_username));
+            etUsername.requestFocus();
             return;
         }
         if (email.isEmpty()) {
-            binding.etEmail.setError("Email requerido");
-            binding.etEmail.requestFocus();
+            etEmail.setError(getString(R.string.cannot_be_empty));
+            etEmail.requestFocus();
             return;
         }
         if (password.isEmpty()) {
-            binding.etPassword.setError("Contraseña requerida");
-            binding.etPassword.requestFocus();
+            etPassword.setError(getString(R.string.cannot_be_empty));
+            etPassword.requestFocus();
             return;
         }
         if (!password.equals(password2)) {
-            binding.etPassword2.setError("Las contraseñas no coinciden");
-            binding.etPassword2.requestFocus();
+            etPassword2.setError(getString(R.string.passwords_doesnt_match));
+            etPassword2.requestFocus();
             return;
         }
 
@@ -73,14 +88,14 @@ public class RegisterActivity extends AppCompatActivity {
             if (result.equals("success")) {
                 User user = Api.login(email, password);
                 runOnUiThread(() -> {
-                    Toast.makeText(this, "Registro exitoso", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this, getString(R.string.registered_succesfully), Toast.LENGTH_SHORT).show();
                     if (user != null) {
                         Session.getInstance().setUser(user);
                         Intent intent = new Intent(RegisterActivity.this, MainActivity.class);
                         startActivity(intent);
                         finish();
                     } else {
-                        Toast.makeText(RegisterActivity.this, "Email o contraseña incorrecta", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(RegisterActivity.this, "Unexpected error", Toast.LENGTH_SHORT).show();
                     }
                 });
             } else {

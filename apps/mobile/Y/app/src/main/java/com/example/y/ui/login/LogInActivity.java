@@ -10,6 +10,7 @@ import android.widget.Toast;
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.y.R;
 import com.example.y.data.models.Session;
 import com.example.y.data.models.User;
 import com.example.y.data.Api;
@@ -56,13 +57,12 @@ public class LogInActivity extends AppCompatActivity {
                 User user = Api.login(email, password);
                 runOnUiThread(() -> {
                     if (user != null) {
-                        // Guardamos usuario en Session singleton
                         Session.getInstance().setUser(user);
                         Intent intent = new Intent(LogInActivity.this, MainActivity.class);
                         startActivity(intent);
                         finish();
                     } else {
-                        Toast.makeText(LogInActivity.this, "Email o contraseña incorrecta", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(LogInActivity.this, getString(R.string.incorrect_credentials), Toast.LENGTH_SHORT).show();
                     }
                 });
             }).start();
@@ -74,13 +74,13 @@ public class LogInActivity extends AppCompatActivity {
         password = etPassword.getText() != null ? etPassword.getText().toString().trim() : "";
 
         if (email.isEmpty()) {
-            etEmail.setError("Email requerido");
+            etEmail.setError(getString(R.string.cannot_be_empty));
             etEmail.requestFocus();
             return false;
         }
 
         if (password.isEmpty()) {
-            etPassword.setError("Contraseña requerida");
+            etPassword.setError(getString(R.string.cannot_be_empty));
             etPassword.requestFocus();
             return false;
         }

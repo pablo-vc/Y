@@ -53,7 +53,7 @@ public class OtherProfileActivity extends AppCompatActivity {
             loadPosts();
             setUpListeners();
         } else {
-            Toast.makeText(this, "ID de usuario no encontrado", Toast.LENGTH_SHORT).show();
+            Log.e("Session error", "User id not found");
         }
     }
 
@@ -112,12 +112,9 @@ public class OtherProfileActivity extends AppCompatActivity {
 
     private void setUpListeners() {
         btnFollow.setOnClickListener(v -> {
-            Log.i("PRUEBA", "hola");
             if (isFollowing) {
-                Log.i("PRUEBA", "siiiiiiii");
                 unfollowUser(currentUserId, userId);
             } else {
-                Log.i("PRUEBA", "noooo");
                 followUser(currentUserId, userId);
             }
         });
@@ -128,11 +125,9 @@ public class OtherProfileActivity extends AppCompatActivity {
             isFollowing = Api.isFollowing(currentUserId, userId);
             runOnUiThread(() -> {
                 if (isFollowing) {
-                    Log.i("SIGUIENDO", "si");
-                    btnFollow.setText("Dejar de seguir");
+                    btnFollow.setText(getString(R.string.unfollow));
                 } else {
-                    Log.i("SIGUIENDO", "no");
-                    btnFollow.setText("Seguir");
+                    btnFollow.setText(getString(R.string.follow));
                 }
             });
         }).start();
@@ -142,9 +137,8 @@ public class OtherProfileActivity extends AppCompatActivity {
         new Thread(() -> {
             String result = Api.followUser(currentUserId, userId);
             runOnUiThread(() -> {
-                Toast.makeText(this, "Result: " + result, Toast.LENGTH_SHORT).show();
                 if ("success".equals(result)) {
-                    Toast.makeText(this, "Siguiendo", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this, getString(R.string.following), Toast.LENGTH_SHORT).show();
                     checkFollowStatus(userId);
                 }
             });
@@ -155,9 +149,8 @@ public class OtherProfileActivity extends AppCompatActivity {
         new Thread(() -> {
             String result = Api.unfollowUser(currentUserId, userId);
             runOnUiThread(() -> {
-                Toast.makeText(this, "Result: " + result, Toast.LENGTH_SHORT).show();
                 if ("success".equals(result)) {
-                    Toast.makeText(this, "Dejado de seguir", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this, getString(R.string.unfollowed), Toast.LENGTH_SHORT).show();
                     checkFollowStatus(userId);
                 }
             });

@@ -29,7 +29,6 @@ public class Api {
     // or derivatives
 
 
-
     //region  Path /users
     /**
      * This function makes a login request to the API SERVER

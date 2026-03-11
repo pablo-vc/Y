@@ -51,5 +51,8 @@ public class User {
         return created_at;
     }
 
+    public static boolean validateUsername(String username) {
+        return username.matches("^[a-zA-Z0-9_]{2,20}$");
+    }
 
 }

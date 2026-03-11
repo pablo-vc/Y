@@ -41,7 +41,7 @@ public class FeedFragment extends Fragment {
             if (position == 0) {
                 tab.setText("Global");
             } else {
-                tab.setText("Siguiendo");
+                tab.setText(getString(R.string.following));
             }
         }).attach();
     }
