@@ -37,7 +37,6 @@ public class FollowingFeedFragment extends Fragment {
     }
 
     private void loadPosts() {
-        // Obtener el ID del usuario logueado desde la clase Session
         int userId = Session.getInstance().getUserId();
 
         if (userId != -1) {

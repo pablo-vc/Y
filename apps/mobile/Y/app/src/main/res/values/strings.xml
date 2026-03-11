@@ -18,5 +18,28 @@
     <string name="Save">Save</string>
     <string name="following">"Following"</string>
     <string name="followers">"Followers"</string>
-
+    <string name="cannot_be_empty">This cannot be empty</string>
+    <string name="no_posts_available">No posts available</string>
+    <string name="invalid_username">Invalid username</string>
+    <string name="passwords_doesnt_match">Passwords doesn\'t match</string>
+    <string name="registered_succesfully">Registered susccesfully</string>
+    <string name="started_following">started following you</string>
+    <string name="post_deleted">Post deleted</string>
+    <string name="error_deleting_post">Couldn\'t delete the post</string>
+    <string name="delete_post">Delete post</string>
+    <string name="confirm_delete_post">Are you sure about deleting the post?</string>
+    <string name="incorrect_credentials">Incorrect credentials</string>
+    <string name="follow">Follow</string>
+    <string name="unfollow">Unfollow</string>
+    <string name="unfollowed">Unfollowed</string>
+    <string name="posted_correctly">Posted correctly</string>
+    <string name="error_posting">Error posting</string>
+    <string name="profile_updated">Profile updated</string>
+    <string name="error_updating">Error updating</string>
+    <string name="delete_account">Delete account</string>
+    <string name="delete">Delete</string>
+    <string name="cancel">Cancel</string>
+    <string name="confirm_delete_account">This action is permanent. Are you sure to delete this account?</string>
+    <string name="account_deleted">Account deleted</string>
+    <string name="error_deleting_account">Error while deleting the account</string>
 </resources>

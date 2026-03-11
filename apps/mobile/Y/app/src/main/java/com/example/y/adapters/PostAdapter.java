@@ -56,7 +56,7 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.PostViewHolder
             holder.btnDelete.setVisibility(View.VISIBLE);
 
             holder.btnDelete.setOnClickListener(v -> {
-                new AlertDialog.Builder(v.getContext()).setTitle("Eliminar post").setMessage("¿Seguro que quieres eliminar este post?").setCancelable(true).setPositiveButton("Eliminar", (dialog, which) -> {
+                new AlertDialog.Builder(v.getContext()).setTitle(R.string.delete_post).setMessage(R.string.confirm_delete_post).setCancelable(true).setPositiveButton("Eliminar", (dialog, which) -> {
 
 
                     new Thread(() -> {
@@ -65,9 +65,9 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.PostViewHolder
                             if (success) {
                                 postList.remove(position);
                                 notifyItemRemoved(position);
-                                Toast.makeText(context, "Post eliminado", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(context, R.string.post_deleted, Toast.LENGTH_SHORT).show();
                             } else {
-                                Toast.makeText(context, "Error al eliminar", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(context, R.string.error_deleting_post, Toast.LENGTH_SHORT).show();
                             }
                         });
                     }).start();

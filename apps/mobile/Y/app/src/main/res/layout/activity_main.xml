@@ -8,27 +8,6 @@
     android:fitsSystemWindows="true"
     tools:context=".ui.MainActivity">
 
-    <FrameLayout
-        android:id="@+id/toolbar"
-        android:layout_width="0dp"
-        android:layout_height="?attr/actionBarSize"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        >
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:text="Not Twitter"
-            android:textSize="32sp"
-            android:textStyle="bold"
-            android:layout_marginLeft="10dp"
-            />
-
-    </FrameLayout>
-
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/navHostFragment"
@@ -39,7 +18,7 @@
         app:layout_constraintBottom_toTopOf="@id/bottomNavView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/toolbar"
+        app:layout_constraintTop_toTopOf="parent"
         app:navGraph="@navigation/main_graph" />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView

@@ -2,16 +2,15 @@ package com.example.y.data.models;
 
 public class Notification {
     private int id;
-    private int fromUserId;
-    private int  toUserId;
+    private int id_user;
+    private int id_follower;
     private String fromUsername;
     private String createdAt;
 
-    public Notification(int id, int fromUserId, int toUserId, String fromUsername, String createdAt) {
+    public Notification(int id, int id_user, int id_follower, String fromUsername, String createdAt) {
         this.id = id;
-        this.fromUserId = fromUserId;
-        this.toUserId = toUserId;
-
+        this.id_user = id_user;
+        this.id_follower = id_follower;
         this.fromUsername = fromUsername;
         this.createdAt = createdAt;
 
@@ -42,19 +41,19 @@ public class Notification {
         this.fromUsername = fromUsername;
     }
 
-    public int getFromUserId() {
-        return fromUserId;
+    public int getId_user() {
+        return id_user;
     }
 
-    public void setFromUserId(int fromUserId) {
-        this.fromUserId = fromUserId;
+    public void setId_user(int id_user) {
+        this.id_user = id_user;
     }
 
-    public int getToUserId() {
-        return toUserId;
+    public int getId_follower() {
+        return id_follower;
     }
 
-    public void setToUserId(int toUserId) {
-        this.toUserId = toUserId;
+    public void setId_follower(int id_follower) {
+        this.id_follower = id_follower;
     }
 }

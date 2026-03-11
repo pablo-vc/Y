@@ -34,6 +34,7 @@
                 android:layout_height="wrap_content"
                 android:inputType="textPersonName"
                 android:maxLines="1"
+                android:maxLength="20"
                 app:boxStrokeColor="@color/twitterBlue" />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -50,6 +51,7 @@
                 android:layout_height="wrap_content"
                 android:inputType="textMultiLine"
                 android:maxLines="5"
+                android:maxLength="150"
                 android:minLines="3"
                 app:boxStrokeColor="@color/twitterBlue" />
         </com.google.android.material.textfield.TextInputLayout>

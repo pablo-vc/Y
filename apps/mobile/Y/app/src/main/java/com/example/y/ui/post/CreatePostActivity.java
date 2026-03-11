@@ -13,6 +13,7 @@ import android.widget.Toast;
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.y.R;
 import com.example.y.data.models.Session;
 import com.example.y.data.Api;
 import com.example.y.databinding.ActivityCreatePostBinding;
@@ -66,11 +67,11 @@ public class CreatePostActivity extends AppCompatActivity {
 
                     runOnUiThread(() -> {
                         if (success) {
-                            Toast.makeText(this, "Publicado correctamente", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(this, getString(R.string.posted_correctly), Toast.LENGTH_SHORT).show();
 
                             finish();
                         } else {
-                            Toast.makeText(this, "Error al publicar", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(this, getString(R.string.error_posting), Toast.LENGTH_SHORT).show();
                         }
                     });
                     finish();
@@ -96,7 +97,7 @@ public class CreatePostActivity extends AppCompatActivity {
     private Boolean validation() {
         content = etPostContent.getText() != null ? etPostContent.getText().toString().trim() : "";
         if (content.isEmpty()) {
-            etPostContent.setError("Text cannot be empty");
+            etPostContent.setError(getString(R.string.cannot_be_empty));
             etPostContent.requestFocus();
             return false;
         }

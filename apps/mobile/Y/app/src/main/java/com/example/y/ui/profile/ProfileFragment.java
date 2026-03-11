@@ -137,8 +137,11 @@ public class ProfileFragment extends Fragment {
             String bio = etBio.getText().toString().trim();
 
             if (username.isEmpty()) {
-                etUsername.setError("No puede estar vacío");
+                etUsername.setError(getString(R.string.cannot_be_empty));
                 return;
+            }
+            if (User.validateUsername(username)) {
+                etUsername.setError(getString(R.string.invalid_username));
             }
 
             if (username.equals(tvUsername.getText().toString()) && bio.equals(tvBio.getText().toString())) {
@@ -157,9 +160,9 @@ public class ProfileFragment extends Fragment {
                     if (success) {
                         tvUsername.setText(username);
                         tvBio.setText(bio);
-                        Toast.makeText(getContext(), "Perfil actualizado", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getContext(), getString(R.string.profile_updated), Toast.LENGTH_SHORT).show();
                     } else {
-                        Toast.makeText(getContext(), "Error al actualizar", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getContext(), getString(R.string.error_updating), Toast.LENGTH_SHORT).show();
                     }
 
                     dialog.dismiss();
@@ -171,15 +174,18 @@ public class ProfileFragment extends Fragment {
         btnCancel.setOnClickListener(v -> dialog.dismiss());
 
         dialog.show();
-        dialog.getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+        dialog.getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT,
+                ViewGroup.LayoutParams.WRAP_CONTENT);
         dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
 
 
         btnDeleteAccount.setOnClickListener(v -> {
 
-            new AlertDialog.Builder(getContext()).setTitle("Eliminar cuenta").setMessage("Esta acción es permanente. ¿Seguro que quieres eliminar tu cuenta?").setPositiveButton("Eliminar", (dialog2, which) -> {
+            new AlertDialog.Builder(getContext()).setTitle(getString(R.string.delete_account)).
+                    setMessage(getString(R.string.confirm_delete_account)).
+                    setPositiveButton(getString(R.string.delete), (dialog2, which) -> {
                 deleteAccount();
-            }).setNegativeButton("Cancelar", null).show();
+            }).setNegativeButton(getString(R.string.cancel), null).show();
         });
 
 
@@ -196,9 +202,8 @@ public class ProfileFragment extends Fragment {
 
                 if (success) {
 
-                    Toast.makeText(getContext(), "Cuenta eliminada", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getContext(), getString(R.string.account_deleted), Toast.LENGTH_SHORT).show();
 
-                    // Limpiar sesión
                     Session.getInstance().logout();
 
                     Intent intent = new Intent(requireActivity(), LogInActivity.class);
@@ -206,7 +211,7 @@ public class ProfileFragment extends Fragment {
                     startActivity(intent);
 
                 } else {
-                    Toast.makeText(getContext(), "Error al eliminar cuenta", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getContext(), getString(R.string.error_deleting_account), Toast.LENGTH_SHORT).show();
                 }
 
             });
