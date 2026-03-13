@@ -122,14 +122,13 @@
 
         }
 
-        .not-visible{
+        .not-visible {
             display: none
         }
 
-        .visible{
+        .visible {
             display: block
         }
-
     </style>
 </head>
 
@@ -164,11 +163,13 @@
                 @endif
                 <form class="form register-form" method="POST" action="/register">
                     @csrf
-                    <input type="text" name="username" placeholder="Username" required>
+                    <input type="text" name="username" placeholder="Username" pattern="^[a-zA-Z0-9_]{2,20}$"
+                        minlength="2" maxlength="20" required>
                     <input type="email" name="email" placeholder="Email" required>
                     <input type="password" name="password" placeholder="Password" required>
                     <input type="password" name="password_confirmation" placeholder="Repeat password" required>
-                    <span id="msg" class="not-visible" style="color:red;font-size:12px">Passwords doesn't match</span>
+                    <span id="msg" class="not-visible" style="color:red;font-size:12px">Passwords doesn't
+                        match</span>
                     <br>
                     <button type="submit" id="register-button" disabled>Create Account</button>
                 </form>
@@ -186,7 +187,7 @@
         pass2.addEventListener("keyup", confirmPass);
 
         function confirmPass() {
-            msg.classList.toggle("visible",pass1.value != pass2.value)
+            msg.classList.toggle("visible", pass1.value != pass2.value)
             if (pass1.value != pass2.value) {
                 btnReg.setAttribute("disabled", "true");
                 pass1.classList.add("bad-pass");
@@ -197,6 +198,7 @@
                 pass2.classList.remove("bad-pass");
             }
         }
+
     </script>
 
 </body>

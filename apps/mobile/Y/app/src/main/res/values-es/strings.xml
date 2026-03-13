@@ -41,4 +41,5 @@
     <string name="confirm_delete_account">Esta acción es permanente. ¿Seguro que quieres eliminar tu cuenta?</string>
     <string name="account_deleted">Cuenta eliminada</string>
     <string name="error_deleting_account">Error eliminando la cuenta</string>
+    <string name="logout">Cerrar sesión</string>
 </resources>

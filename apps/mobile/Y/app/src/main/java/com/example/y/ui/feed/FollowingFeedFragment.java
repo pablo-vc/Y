@@ -60,4 +60,10 @@ public class FollowingFeedFragment extends Fragment {
         adapter = new PostAdapter(getContext(), postList, false);
         rv.setAdapter(adapter);
     }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        loadPosts();
+    }
 }

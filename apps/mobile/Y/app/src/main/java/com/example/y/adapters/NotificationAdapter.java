@@ -43,7 +43,7 @@ public class NotificationAdapter extends RecyclerView.Adapter<NotificationAdapte
         Notification notification = notificationList.get(position);
         holder.setNotification(notification);
 
-        holder.textMessage.setText(String.format("%s%s", notification.getFromUsername(), R.string.started_following));
+        holder.textMessage.setText(String.format("%s%s", notification.getFromUsername(), context.getString(R.string.started_following)));
 
         holder.textDate.setText(notification.getCreatedAt());
 

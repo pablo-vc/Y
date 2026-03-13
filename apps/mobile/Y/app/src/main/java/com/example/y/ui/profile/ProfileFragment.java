@@ -12,6 +12,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
+import android.widget.PopupMenu;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -41,7 +43,8 @@ public class ProfileFragment extends Fragment {
     private List<Post> postList = new ArrayList<>();
     private TabLayout tabLayout;
     private Button btnEditProfile;
-    TextView tvUsername, tvBio, tvFollowers, tvFollowing;
+    private ImageButton btnOptinos;
+    protected TextView tvUsername, tvBio, tvFollowers, tvFollowing;
     Boolean update;
     int currentUserId = Session.getInstance().getUserId();
 
@@ -70,11 +73,30 @@ public class ProfileFragment extends Fragment {
         tvBio = binding.tvBio;
         tvFollowers = binding.tvFollowers;
         tvFollowing = binding.tvFollowing;
+        btnOptinos = binding.btnOptions;
     }
 
     private void setUpListeners() {
         btnEditProfile.setOnClickListener(v -> {
             showEditProfileDialog();
+        });
+        btnOptinos.setOnClickListener(v -> {
+            PopupMenu popup = new PopupMenu(getContext(), btnOptinos);
+            popup.getMenuInflater().inflate(R.menu.menu_logout, popup.getMenu());
+
+            popup.setOnMenuItemClickListener(item -> {
+                if (item.getItemId() == R.id.menu_logout) {
+
+                    Session.getInstance().logout();
+                    Intent intent = new Intent(getContext(), LogInActivity.class);
+                    getContext().startActivity(intent);
+                    getActivity().finish();
+                    return true;
+                }
+                return false;
+            });
+
+            popup.show();
         });
     }
 
@@ -115,6 +137,12 @@ public class ProfileFragment extends Fragment {
         }).start();
     }
 
+    @Override
+    public void onResume() {
+        super.onResume();
+        loadPosts();
+    }
+
     private void showEditProfileDialog() {
 
         Dialog dialog = new Dialog(requireContext());
@@ -140,8 +168,9 @@ public class ProfileFragment extends Fragment {
                 etUsername.setError(getString(R.string.cannot_be_empty));
                 return;
             }
-            if (User.validateUsername(username)) {
+            if (!User.validateUsername(username)) {
                 etUsername.setError(getString(R.string.invalid_username));
+                return;
             }
 
             if (username.equals(tvUsername.getText().toString()) && bio.equals(tvBio.getText().toString())) {
@@ -174,16 +203,13 @@ public class ProfileFragment extends Fragment {
         btnCancel.setOnClickListener(v -> dialog.dismiss());
 
         dialog.show();
-        dialog.getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT,
-                ViewGroup.LayoutParams.WRAP_CONTENT);
+        dialog.getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
         dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
 
 
         btnDeleteAccount.setOnClickListener(v -> {
 
-            new AlertDialog.Builder(getContext()).setTitle(getString(R.string.delete_account)).
-                    setMessage(getString(R.string.confirm_delete_account)).
-                    setPositiveButton(getString(R.string.delete), (dialog2, which) -> {
+            new AlertDialog.Builder(getContext()).setTitle(getString(R.string.delete_account)).setMessage(getString(R.string.confirm_delete_account)).setPositiveButton(getString(R.string.delete), (dialog2, which) -> {
                 deleteAccount();
             }).setNegativeButton(getString(R.string.cancel), null).show();
         });
