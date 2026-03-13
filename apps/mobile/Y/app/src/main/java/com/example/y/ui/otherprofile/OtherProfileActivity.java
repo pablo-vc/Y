@@ -35,7 +35,9 @@ public class OtherProfileActivity extends AppCompatActivity {
     private Button btnFollow;
     TextView tvUsername, tvBio, tvFollowers, tvFollowing;
     private int userId;
-    private boolean isFollowing = false;
+    private boolean isFollowing;
+    int following;
+    int followers;
     int currentUserId = Session.getInstance().getUserId();
 
 
@@ -74,13 +76,17 @@ public class OtherProfileActivity extends AppCompatActivity {
 
     private void loadNumbers() {
         new Thread(() -> {
-            int Following = Api.getFollowingCount(userId);
-            int Followers = Api.getFollowerCount(userId);
+            following = Api.getFollowingCount(userId);
+            followers = Api.getFollowerCount(userId);
             runOnUiThread(() -> {
-                tvFollowing.setText(Html.fromHtml("<b>" + getString(R.string.following) + ": </b>" + Following));
-                tvFollowers.setText(Html.fromHtml("<b>" + getString(R.string.followers) + ": </b>" + Followers));
+                refreshNumbers();
             });
         }).start();
+    }
+
+    private void refreshNumbers() {
+        tvFollowing.setText(Html.fromHtml("<b>" + getString(R.string.following) + ": </b>" + following));
+        tvFollowers.setText(Html.fromHtml("<b>" + getString(R.string.followers) + ": </b>" + followers));
     }
 
     private void loadPosts() {
@@ -124,13 +130,17 @@ public class OtherProfileActivity extends AppCompatActivity {
         new Thread(() -> {
             isFollowing = Api.isFollowing(currentUserId, userId);
             runOnUiThread(() -> {
-                if (isFollowing) {
-                    btnFollow.setText(getString(R.string.unfollow));
-                } else {
-                    btnFollow.setText(getString(R.string.follow));
-                }
+                refreshFollowStatus();
             });
         }).start();
+    }
+
+    private void refreshFollowStatus(){
+        if (isFollowing) {
+            btnFollow.setText(getString(R.string.unfollow));
+        } else {
+            btnFollow.setText(getString(R.string.follow));
+        }
     }
 
     private void followUser(int currentUserId, int userId) {
@@ -139,7 +149,9 @@ public class OtherProfileActivity extends AppCompatActivity {
             runOnUiThread(() -> {
                 if ("success".equals(result)) {
                     Toast.makeText(this, getString(R.string.following), Toast.LENGTH_SHORT).show();
-                    checkFollowStatus(userId);
+                    followers++;
+                    refreshNumbers();
+                    refreshFollowStatus();
                 }
             });
         }).start();
@@ -151,9 +163,13 @@ public class OtherProfileActivity extends AppCompatActivity {
             runOnUiThread(() -> {
                 if ("success".equals(result)) {
                     Toast.makeText(this, getString(R.string.unfollowed), Toast.LENGTH_SHORT).show();
-                    checkFollowStatus(userId);
+                    followers--;
+                    refreshNumbers();
+                    refreshFollowStatus();
                 }
             });
         }).start();
     }
+
+
 }
