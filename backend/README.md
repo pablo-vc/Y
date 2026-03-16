@@ -23,7 +23,30 @@ This readme contains all the information about it.
 - Apache Tomcat Server
 - MySQL (database)
 
-
+## Architecture
+```
+apirest/                ← Project root
+ ├ config/              ← Global configuration and utilities
+ │    ├ RestConfig      ← Basic url configuration
+ │    └ ConnectionManager.java     ← Open and close connection statements
+ │
+ ├ resources/                   ← REST classes (HTTP endpoints)
+ │    ├ Users.java
+ │    ├ Posts.java
+ │    ├ Followers.java
+ │    └ Notifications.java
+ │
+ ├ models/                      ← Table entities
+ │    ├ User.java
+ │    ├ Post.java
+ │    ├ Follower.java
+ │    └ Notification.java
+ │
+ └ dto/                         ← Data transfer objects(DTO)
+      ├ LoginRequest.java
+      ├ RegisterRequest.java
+      └ UserUpdate.java
+```
 ## Main Endpoints
 
 ### Users
