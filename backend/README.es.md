@@ -23,6 +23,31 @@ Este readme contiene toda la información en relación a la misma.
 - Apache Tomcat Server
 - MySQL (database)
 
+## Arquitectura
+```
+apirest/                ← Raiz del proyecto
+ ├ config/              ← Configuración globar y utilidades
+ │    ├ RestConfig      ← Configuración de la url base de la API
+ │    └ ConnectionManager.java     ← Apertura y cierre de la conexión con la base de datos
+ │
+ ├ resources/                   ←  clases REST (endpoints HTTP)
+ │    ├ Users.java
+ │    ├ Posts.java
+ │    ├ Followers.java
+ │    └ Notifications.java
+ │
+ ├ models/                      ← Entidades de las tablas
+ │    ├ User.java
+ │    ├ Post.java
+ │    ├ Follower.java
+ │    └ Notification.java
+ │
+ └ dto/                         ← Objetos de transferencia de datos(DTO)
+      ├ LoginRequest.java
+      ├ RegisterRequest.java
+      └ UserUpdate.java
+```
+
 ## Endpoints principales
 
 ### Usuarios
