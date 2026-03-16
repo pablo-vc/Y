@@ -2,7 +2,7 @@
 
 Este proyecto contiene la API encargada de la persistencia de datos en la app.
 
-Este readme contiene toda la información en relación a la misma.
+Este README contiene toda la información en relación a la misma.
 
 ## Idiomas
 
@@ -54,7 +54,7 @@ apirest/                ← Raiz del proyecto
 | Método | Endpoint | Descripción |
 |--------|----------|-------------|
 | POST   | /users/register | Registrar un nuevo usuario |
-| POST   | /users/login    | Inicio de sesión |
+| POST   | /users/login    | Autenticación de usuario |
 | GET    | /users/{id}     | Obtener información de un usuario |
 | PUT    | /users/update/{id} | Actualizar información de usuario |
 | DELETE | /users/delete/{id} | Eliminar un usuario |
@@ -84,14 +84,14 @@ apirest/                ← Raiz del proyecto
 |--------|----------|-------------|
 | POST   | /followers/{id_follower}/follow/{id_following}   | Seguir a un usuario |
 | DELETE | /followers/{id_follower}/unfollow/{id_following} | Dejar de seguir a un usuario |
-| GET    | /followers/isFollowing/{id_follower}/{id_following} | Verificar si sigue |
+| GET    | /followers/isFollowing/{id_follower}/{id_following} | Verificar seguimiento entre dos usuarios |
 | GET    | /followers/{id}/followersCount | Número de seguidores |
 | GET    | /followers/{id}/followingCount | Número de usuarios seguidos |
 
 
 ## Clases auxiliares
 
-Para facilitar la gestión de los datos enviados a la API y no enviar y recibir datos innecesarios, se crearon las siguientes clases:
+Para facilitar la gestión de los datos enviados a la API y no enviar y recibir datos innecesarios, se crearon las siguientes clases(DTOs):
 
 ### LoginRequest
 Representa los datos necesarios para el inicio de sesión de un usuario.
