@@ -1,4 +1,4 @@
-package apirest;
+package apirest.resources;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -6,6 +6,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 
+import apirest.models.Notification;
 import jakarta.ws.rs.GET;
 import jakarta.ws.rs.Path;
 import jakarta.ws.rs.PathParam;
@@ -13,12 +14,36 @@ import jakarta.ws.rs.Produces;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
 
+/**
+ * Notification REST resource.
+ *
+ * Base endpoint: /notifications
+ *
+ * Provides API operations related to user notifications.
+ * Currently supports retrieving notifications generated
+ * when other users follow a specific user.
+ */
 @Path("/notifications")
 public class Notifications {
     private static final String URL = "jdbc:mariadb://localhost:3306/y_db";
     private static final String user = "root";
     private static final String pass = "";
 
+    /**
+     * Endpoint: GET /notifications/{id_user}
+     *
+     * Retrieves the list of notifications for a specific user.
+     *
+     * The results are ordered by creation date in descending order
+     * (most recent notifications first).
+     *
+     * @param id_user Unique identifier of the user whose notifications are
+     *                requested.
+     *
+     * @return
+     *         200 OK – List of notifications
+     *         500 INTERNAL SERVER ERROR – Database or server failure
+     */
     @GET
     @Path("/{id_user}")
     @Produces(MediaType.APPLICATION_JSON)

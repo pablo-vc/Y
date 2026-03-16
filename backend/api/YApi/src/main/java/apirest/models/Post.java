@@ -1,4 +1,4 @@
-package apirest;
+package apirest.models;
 
 import jakarta.xml.bind.annotation.XmlRootElement;
 

@@ -1,4 +1,4 @@
-package apirest;
+package apirest.dto;
 
 public class UserUpdate {
     private String username;

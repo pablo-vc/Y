@@ -1,8 +1,14 @@
-package apirest;
+package apirest.config;
 
 import jakarta.ws.rs.ApplicationPath;
 import jakarta.ws.rs.core.Application;
 import org.glassfish.jersey.jackson.JacksonFeature;
+
+import apirest.resources.Followers;
+import apirest.resources.Notifications;
+import apirest.resources.Posts;
+import apirest.resources.Users;
+
 import java.util.HashSet;
 import java.util.Set;
 

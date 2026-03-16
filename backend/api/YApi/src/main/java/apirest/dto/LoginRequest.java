@@ -1,4 +1,4 @@
-package apirest;
+package apirest.dto;
 
 public class LoginRequest {
     private String email;
