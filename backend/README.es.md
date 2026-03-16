@@ -11,9 +11,9 @@ Este readme contiene toda la información en relación a la misma.
 
 ## Responsibilities
 
-- Autentificación (log-in/registro)
+- Autenticación (log-in/registro)
 - Gestión de posts (crear/borrar)
-- Generación del Feed (globar/siguiendo)
+- Generación del Feed (global/siguiendo)
 - Notificaciones 
 - Gestión de seguidores
 
