@@ -102,7 +102,7 @@ Each subproject has its own documentation and development log:
 ```
              Clients
  ┌─────────┬─────────┬─────────┐
- │  Web    │ Mobile  │ Desktop │
+ │   Web   │  Mobile │ Desktop │
  └─────────┴─────────┴─────────┘
                 │
                 ▼
