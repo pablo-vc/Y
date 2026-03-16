@@ -1,8 +1,8 @@
 # Y - Backend API
 
-This proyect contains the API responsible of the data perssistance of the app.
+This project contains the API responsible for the data persistence of the app.
 
-This readme contains all the information about it.
+This README contains all the information about it.
 
 ## Languages
 
@@ -13,22 +13,24 @@ This readme contains all the information about it.
 
 - Authentication (log-in/register)
 - Post management (create/delete)
-- Feed generation (filtered/unfiltered)
+- Feed generation (global feed / following feed)
 - Notifications 
 - Following management
 
 ## Technologies
 
 - Java
-- Apache Tomcat Server
-- MySQL (database)
+- Jakarta REST (JAX-RS)
+- Apache Tomcat
+- MariaDB / MySQL
+- JDBC
 
 ## Architecture
 ```
 apirest/                ← Project root
  ├ config/              ← Global configuration and utilities
  │    ├ RestConfig      ← Basic url configuration
- │    └ ConnectionManager.java     ← Open and close connection statements
+ │    └ ConnectionManager.java     ← Handles database connection management
  │
  ├ resources/                   ← REST classes (HTTP endpoints)
  │    ├ Users.java
@@ -36,7 +38,7 @@ apirest/                ← Project root
  │    ├ Followers.java
  │    └ Notifications.java
  │
- ├ models/                      ← Table entities
+ ├ models/                      ← Database entities
  │    ├ User.java
  │    ├ Post.java
  │    ├ Follower.java
@@ -53,7 +55,7 @@ apirest/                ← Project root
 | Method | Endpoint | Description |
 |--------|----------|-------------|
 | POST   | /users/register | Register a new user |
-| POST   | /users/login    | User login |
+| POST   | /users/login    | Authenticate a user |
 | GET    | /users/{id}     | Retrieve user information |
 | PUT    | /users/update/{id} | Update user information |
 | DELETE | /users/delete/{id} | Delete a user |
@@ -83,14 +85,14 @@ apirest/                ← Project root
 |--------|----------|-------------|
 | POST   | /followers/{id_follower}/follow/{id_following}   | Follow a user |
 | DELETE | /followers/{id_follower}/unfollow/{id_following} | Unfollow a user |
-| GET    | /followers/isFollowing/{id_follower}/{id_following} | Check if following |
+| GET    | /followers/isFollowing/{id_follower}/{id_following} | Check if a user follows another user |
 | GET    | /followers/{id}/followersCount | Count of followers |
 | GET    | /followers/{id}/followingCount | Count of users followed |
 
 
 ## Auxiliary Classes
 
-To facilitate the handling of data sent to the API and minimize the unneeded data sent and received, the following classes were created:
+To simplify data handling and avoid sending unnecessary information to the API, the following DTO classes are used:
 
 ### LoginRequest
 Represents the data required for user login.
