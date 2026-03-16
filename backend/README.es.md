@@ -20,8 +20,10 @@ Este README contiene toda la información en relación a la misma.
 ## Tecnologias
 
 - Java
-- Apache Tomcat Server
-- MySQL (database)
+- Jakarta REST (JAX-RS)
+- Apache Tomcat
+- MariaDB / MySQL
+- JDBC
 
 ## Arquitectura
 ```
