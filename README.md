@@ -12,8 +12,8 @@ The app focuses on text-based posts and minimalistic interaction, providing a sp
 ## Features
 
 - Global feed with posts from all users
-- Personalized feed with posts from followed users
-- Possibility to follow other users
+- Following feed with posts from followed users
+- Users can follow other users
 - User profiles with editable information
 - Post management (create and delete posts)
 - Notification system for new followers
@@ -61,15 +61,15 @@ All clients communicate with the same backend service.
 ├ apps
 │  ├ web             
 │  │   ├ readme
-│  │   └ app         Web Client 
+│  │   └ app         Web Client app
 │  │
 │  ├ mobile          
 │  │   ├ readme
-│  │   └ app        Mobile Client
+│  │   └ app        Mobile Client app
 │  │ 
 │  └ desktop        
 │      ├ readme
-│      └ app        Desktop Client
+│      └ app        Desktop Client app
 │
 ├ backend           
 │   ├ readme 
@@ -79,8 +79,8 @@ All clients communicate with the same backend service.
    ├resources       
    │
    ├ en 
-   │  ├ proyect memory
-   │  └ technical documetation
+   │  ├ project memory
+   │  └ technical documentation
    │
    └ es
       ├ memoria de proyecto
@@ -94,22 +94,21 @@ All clients communicate with the same backend service.
 Each subproject has its own documentation and development log:
 
 - [Web](apps/web/README.md)
-- [Mbile](apps/mobile/README.md)
+- [Mobile](apps/mobile/README.md)
 - [Desktop](apps/desktop/README.md)
 - [API](backend/README.md)
 
 ## System Architecture
 ```
-Clients
- ├ Web
- ├ Mobile
- └ Desktop
-        │
-        │ 
-        ▼
-     API REST
-        │
-        ▼
-    Database
+             Clients
+ ┌─────────┬─────────┬─────────┐
+ │  Web    │ Mobile  │ Desktop │
+ └─────────┴─────────┴─────────┘
+                │
+                ▼
+             REST API
+                │
+                ▼
+             Database
 ```
 All clients communicate with the same backend service.
