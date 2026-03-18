@@ -47,6 +47,13 @@ public class ProfileFragment extends Fragment {
     protected TextView tvUsername, tvBio, tvFollowers, tvFollowing;
     Boolean update;
     int currentUserId = Session.getInstance().getUserId();
+    Dialog dialog;
+    EditText etUsername;
+    EditText etBio;
+    EditText etEmail;
+    Button btnSave;
+    Button btnCancel;
+    Button btnDeleteAccount;
 
 
     @Override
@@ -74,6 +81,8 @@ public class ProfileFragment extends Fragment {
         tvFollowers = binding.tvFollowers;
         tvFollowing = binding.tvFollowing;
         btnOptinos = binding.btnOptions;
+        dialog = new Dialog(requireContext());
+        dialog.setContentView(R.layout.dialog_edit_profile);
     }
 
     private void setUpListeners() {
@@ -143,78 +152,102 @@ public class ProfileFragment extends Fragment {
         loadPosts();
     }
 
+    private void initDialogUI() {
+        etUsername = dialog.findViewById(R.id.etUsername);
+        etBio = dialog.findViewById(R.id.etBio);
+        etEmail = dialog.findViewById(R.id.etEmail);
+        btnSave = dialog.findViewById(R.id.btnSave);
+        btnCancel = dialog.findViewById(R.id.btnCancel);
+        btnDeleteAccount = dialog.findViewById(R.id.btnDeleteAccount);
+
+    }
+
     private void showEditProfileDialog() {
 
-        Dialog dialog = new Dialog(requireContext());
-        dialog.setContentView(R.layout.dialog_edit_profile);
+        initDialogUI();
+        setUpDialogListeners();
 
-        EditText etUsername = dialog.findViewById(R.id.etUsername);
-        EditText etBio = dialog.findViewById(R.id.etBio);
-        Button btnSave = dialog.findViewById(R.id.btnSave);
-        Button btnCancel = dialog.findViewById(R.id.btnCancel);
-        Button btnDeleteAccount = dialog.findViewById(R.id.btnDeleteAccount);
         String oldUsername = tvUsername.getText().toString();
         String oldBio = tvBio.getText().toString();
         update = true;
         etUsername.setText(oldUsername);
+        etEmail.setText(Session.getInstance().getUser().getEmail());
         etBio.setText(oldBio);
-
-        btnSave.setOnClickListener(v -> {
-
-            String username = etUsername.getText().toString().trim();
-            String bio = etBio.getText().toString().trim();
-
-            if (username.isEmpty()) {
-                etUsername.setError(getString(R.string.cannot_be_empty));
-                return;
-            }
-            if (!User.validateUsername(username)) {
-                etUsername.setError(getString(R.string.invalid_username));
-                return;
-            }
-
-            if (username.equals(tvUsername.getText().toString()) && bio.equals(tvBio.getText().toString())) {
-                dialog.dismiss();
-                return;
-            }
-
-            new Thread(() -> {
-
-                boolean success = Api.updateUser(currentUserId, username, bio);
-
-                requireActivity().runOnUiThread(() -> {
-
-                    if (!isAdded()) return;
-
-                    if (success) {
-                        tvUsername.setText(username);
-                        tvBio.setText(bio);
-                        Toast.makeText(getContext(), getString(R.string.profile_updated), Toast.LENGTH_SHORT).show();
-                    } else {
-                        Toast.makeText(getContext(), getString(R.string.error_updating), Toast.LENGTH_SHORT).show();
-                    }
-
-                    dialog.dismiss();
-                });
-
-            }).start();
-        });
-
-        btnCancel.setOnClickListener(v -> dialog.dismiss());
 
         dialog.show();
         dialog.getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
         dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
 
 
+    }
+
+    private void setUpDialogListeners() {
+        btnSave.setOnClickListener(v -> {
+
+            String username = etUsername.getText().toString().trim();
+            String email = etEmail.getText().toString().trim();
+            String bio = etBio.getText().toString().trim();
+            if (dialogValidation(username, email, bio)) {
+
+
+                new Thread(() -> {
+
+                    boolean success = Api.updateUser(currentUserId, username, email, bio);
+
+                    requireActivity().runOnUiThread(() -> {
+
+                        if (!isAdded()) return;
+
+                        if (success) {
+                            tvUsername.setText(username);
+                            Session.getInstance().getUser().setUsername(username);
+                            Session.getInstance().getUser().setEmail(email);
+                            tvBio.setText(bio);
+                            Toast.makeText(getContext(), getString(R.string.profile_updated), Toast.LENGTH_SHORT).show();
+                        } else {
+                            Toast.makeText(getContext(), getString(R.string.error_updating), Toast.LENGTH_SHORT).show();
+                        }
+
+                        dialog.dismiss();
+                    });
+
+                }).start();
+            }
+        });
+
+        btnCancel.setOnClickListener(v -> dialog.dismiss());
         btnDeleteAccount.setOnClickListener(v -> {
 
             new AlertDialog.Builder(getContext()).setTitle(getString(R.string.delete_account)).setMessage(getString(R.string.confirm_delete_account)).setPositiveButton(getString(R.string.delete), (dialog2, which) -> {
                 deleteAccount();
             }).setNegativeButton(getString(R.string.cancel), null).show();
         });
+    }
 
+    private boolean dialogValidation(String username, String email, String bio) {
 
+        if (username.isEmpty()) {
+            etUsername.setError(getString(R.string.cannot_be_empty));
+            return false;
+        }
+        if (!User.validateUsername(username)) {
+            etUsername.setError(getString(R.string.invalid_username));
+            return false;
+        }
+        if (email.isEmpty()) {
+            etEmail.setError(getString(R.string.cannot_be_empty));
+            return false;
+        }
+        if (!User.validateEmail(email)) {
+            etEmail.setError(getString(R.string.invalid_email));
+            return false;
+        }
+
+        if (username.equals(tvUsername.getText().toString()) && email.equals(Session.getInstance().getUser().getEmail()) && bio.equals(tvBio.getText().toString())) {
+            dialog.dismiss();
+            return false;
+        }
+        return true;
     }
 
     private void deleteAccount() {

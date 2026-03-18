@@ -1,8 +1,14 @@
 package apirest.dto;
 
+import jakarta.xml.bind.annotation.XmlRootElement;
+
+@XmlRootElement
 public class LoginRequest {
     private String email;
     private String password;
+
+    public LoginRequest() {
+    }
 
     public String getPassword() {
         return password;

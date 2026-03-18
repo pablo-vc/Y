@@ -16,9 +16,9 @@ public class Session {
 
     public int getUserId() {
         if (currentUser != null) {
-            return currentUser.getId();  // Asumiendo que User tiene un método getId()
+            return currentUser.getId();
         }
-        return -1;  // -1 indica que no hay un usuario logueado
+        return -1;
     }
 
     public void logout() {

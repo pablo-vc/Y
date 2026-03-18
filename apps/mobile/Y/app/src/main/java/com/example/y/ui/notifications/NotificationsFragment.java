@@ -54,7 +54,6 @@ public class NotificationsFragment extends Fragment {
 
         notificationList = new ArrayList<>();
 
-
         adapter = new NotificationAdapter(getContext(), notificationList);
         rv.setAdapter(adapter);
     }

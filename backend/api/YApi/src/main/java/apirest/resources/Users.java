@@ -252,7 +252,8 @@ public class Users {
                 }
             } catch (SQLException e) {
                 return Response.status(Response.Status.INTERNAL_SERVER_ERROR)
-                        .entity("Error").build();
+                        .entity("Database error").build();
+
             }
         } catch (ClassNotFoundException e) {
             return Response.status(Response.Status.INTERNAL_SERVER_ERROR)
@@ -287,7 +288,8 @@ public class Users {
             } catch (SQLException e) {
 
                 return Response.status(Response.Status.INTERNAL_SERVER_ERROR)
-                        .entity("Error").build();
+                        .entity("Database error").build();
+
             }
         } catch (ClassNotFoundException e) {
             return Response.status(Response.Status.INTERNAL_SERVER_ERROR)
@@ -313,39 +315,61 @@ public class Users {
      */
     @PUT
     @Path("/update/{id}")
+    @Consumes(MediaType.APPLICATION_JSON)
     public Response updateUser(@PathParam("id") int id, UserUpdate update) {
         try {
             Class.forName("org.mariadb.jdbc.Driver");
             try (Connection conexion = ConnectionManager.getConnection()) {
-                PreparedStatement check2 = conexion.prepareStatement(
-                        "SELECT id FROM users WHERE username=? and id!=?");
-                check2.setString(1, update.getUsername());
-                check2.setInt(2, id);
-                ResultSet rs2 = check2.executeQuery();
 
-                if (rs2.next()) {
+                if (usernameInUse(conexion, update.getUsername(), id)) {
                     return Response.status(Response.Status.CONFLICT)
                             .entity("Username already in use")
                             .build();
                 }
+                if (emailInUse(conexion, update.getEmail(), id)) {
+                    return Response.status(Response.Status.CONFLICT)
+                            .entity("Email already in use")
+                            .build();
+                }
+
                 PreparedStatement ps = conexion.prepareStatement(
-                        "UPDATE users set username=?,bio=? where id=?");
+                        "UPDATE users set username=?,email=?,bio=? where id=?");
                 ps.setString(1, update.getUsername());
-                ps.setString(2, update.getBio());
-                ps.setInt(3, id);
+                ps.setString(2, update.getEmail());
+                ps.setString(3, update.getBio());
+                ps.setInt(4, id);
                 int rs = ps.executeUpdate();
+                System.out.println("Filas actualizadas: " + rs);
                 if (rs > 0) {
                     return Response.ok().build();
                 }
-                return Response.status(Response.Status.NOT_FOUND).entity("Couldn't update").build();
-            } catch (Exception e) {
+                return Response.status(Response.Status.NOT_FOUND).entity("User not found").build();
+            } catch (SQLException e) {
                 return Response.status(Response.Status.INTERNAL_SERVER_ERROR)
-                        .entity("Error").build();
+                        .entity("Database error").build();
             }
         } catch (ClassNotFoundException e) {
             return Response.status(Response.Status.INTERNAL_SERVER_ERROR)
                     .entity("No encuentra el driver").build();
         }
+    }
+
+    private Boolean usernameInUse(Connection conexion, String username, int id) throws SQLException {
+        PreparedStatement ps = conexion.prepareStatement(
+                "SELECT id FROM users WHERE username=? and id!=?");
+        ps.setString(1, username);
+        ps.setInt(2, id);
+        ResultSet rs = ps.executeQuery();
+        return rs.next();
+    }
+
+    private Boolean emailInUse(Connection conexion, String email, int id) throws SQLException {
+        PreparedStatement ps = conexion.prepareStatement(
+                "SELECT id FROM users WHERE email=? and id!=?");
+        ps.setString(1, email);
+        ps.setInt(2, id);
+        ResultSet rs = ps.executeQuery();
+        return rs.next();
     }
 
 }

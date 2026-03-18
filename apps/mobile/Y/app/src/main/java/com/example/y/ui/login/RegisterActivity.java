@@ -43,14 +43,14 @@ public class RegisterActivity extends AppCompatActivity {
 
     private void setUpListeners() {
         binding.btnRegister.setOnClickListener(v -> {
-            handleRegister();
+            validateRegister();
         });
         binding.tvLogin.setOnClickListener(v -> {
             finish();
         });
     }
 
-    private void handleRegister() {
+    private void validateRegister() {
         username = etUsername.getText().toString().trim();
         email = etEmail.getText().toString().trim();
         password = etPassword.getText().toString().trim();
@@ -71,6 +71,11 @@ public class RegisterActivity extends AppCompatActivity {
             etEmail.requestFocus();
             return;
         }
+        if (!User.validateEmail(email)){
+            etEmail.setError(getString(R.string.invalid_email));
+            etEmail.requestFocus();
+            return;
+        }
         if (password.isEmpty()) {
             etPassword.setError(getString(R.string.cannot_be_empty));
             etPassword.requestFocus();
@@ -82,6 +87,11 @@ public class RegisterActivity extends AppCompatActivity {
             return;
         }
 
+        handleRegister();
+
+    }
+
+    private void handleRegister() {
         new Thread(() -> {
             String result = Api.register(username, email, password);
 

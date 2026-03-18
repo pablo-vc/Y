@@ -30,6 +30,8 @@ public class Api {
 
 
     //region  Path /users
+
+
     /**
      * This function makes a login request to the API SERVER
      * @param email User email
@@ -191,7 +193,7 @@ public class Api {
     }
 
 
-    public static boolean updateUser(int userId, String username, String bio) {
+    public static boolean updateUser(int userId, String username,String email, String bio) {
         try {
             URL url = new URL(BASE_URL + "users/update/" + userId);
             HttpURLConnection connection = (HttpURLConnection) url.openConnection();
@@ -202,6 +204,7 @@ public class Api {
 
             JSONObject json = new JSONObject();
             json.put("username", username);
+            json.put("email", email);
             json.put("bio", bio);
 
             OutputStream os = connection.getOutputStream();

@@ -62,7 +62,7 @@
                             </a>
                         </div>
                         <div class="content">{{ $post['content'] }}</div>
-                        <small style="color:gray;">Publicado el
+                        <small>Publicado el
                             {{ \Carbon\Carbon::parse($post['created_at'])->format('d/m/Y H:i') }}</small>
                     </div>
                 @empty
@@ -80,7 +80,7 @@
                             </a>
                         </div>
                         <div class="content">{{ $post['content'] }}</div>
-                        <small style="color:gray;">Publicado el
+                        <small>Publicado el
                             {{ \Carbon\Carbon::parse($post['created_at'])->format('d/m/Y H:i') }}</small>
                     </div>
                 @empty

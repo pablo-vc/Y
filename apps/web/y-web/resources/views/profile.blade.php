@@ -208,36 +208,76 @@
         </div>
     </div>
 
-    <div id="editModal" class="modal">
+    <div id="editModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
         <div class="modal-content">
+            
             <span class="close" onclick="closeModal()">&times;</span>
 
-            <h3>Editar perfil</h3>
-
-            <form method="POST" action="{{ url('/profile/update') }}">
+    
+            <h3 id="modalTitle">Editar perfil</h3>
+    
+            <form method="POST" action="{{ url('/profile/update') }}" class="form">
                 @csrf
                 @method('PUT')
-
-                <label>Username</label>
-                <input type="text" name="username" value="{{ $profile['username'] }}" required maxlength="20">
-
-                <label>Biografía</label>
-                <textarea name="bio" rows="3" maxlength="150">{{ $profile['bio'] ?? '' }}</textarea>
-
-                <button type="submit" class="btn">Guardar cambios</button>
+    
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input 
+                        id="username"
+                        type="text" 
+                        name="username" 
+                        value="{{ $profile['username'] }}" 
+                        required 
+                        maxlength="20"
+                        placeholder="Tu nombre de usuario"
+                        autocomplete="username"
+                    >
+                </div>
+    
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input 
+                        id="email"
+                        type="email" 
+                        name="email" 
+                        value="{{ $profile['email'] ?? '' }}" 
+                        required
+                        placeholder="tu@email.com"
+                        autocomplete="email"
+                    >
+                </div>
+    
+                <div class="form-group">
+                    <label for="bio">Biografía</label>
+                    <textarea 
+                        id="bio"
+                        name="bio" 
+                        rows="3" 
+                        maxlength="150"
+                        placeholder="Cuéntanos algo sobre ti..."
+                    >{{ $profile['bio'] ?? '' }}</textarea>
+                </div>
+    
+                <button type="submit" class="btn">
+                    Guardar cambios
+                </button>
             </form>
-
-            <hr style="margin:20px 0;">
-
-            <form method="POST" action="{{ url('/profile/delete') }}"
-                onsubmit="return confirm('¿Seguro que quieres eliminar tu cuenta? Esta acción no se puede deshacer.')">
+    
+            <hr class="divider">
+    
+            <form 
+                method="POST" 
+                action="{{ url('/profile/delete') }}"
+                onsubmit="return confirm('¿Seguro que quieres eliminar tu cuenta? Esta acción no se puede deshacer.')"
+            >
                 @csrf
                 @method('DELETE')
-
+    
                 <button type="submit" class="btn-delete">
                     Eliminar cuenta
                 </button>
             </form>
+    
         </div>
     </div>
 
