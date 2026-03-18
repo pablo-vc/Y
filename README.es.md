@@ -79,8 +79,8 @@ Todos los clientes se comunican con el mismo servicio de backend.
    ├resources       
    │
    ├ en 
-   │  ├ proyect memory
-   │  └ technical documetation
+   │  ├ project memory
+   │  └ technical documentation
    │
    └ es
       ├ memoria de proyecto
@@ -89,7 +89,7 @@ Todos los clientes se comunican con el mismo servicio de backend.
 
 ```
 
-## Platformas y Backend
+## Plataformas y Backend
 
 Cada subproyecto tiene su propia documentation junto con su registro de desarrollo:
 
@@ -100,16 +100,15 @@ Cada subproyecto tiene su propia documentation junto con su registro de desarrol
 
 ## Arquitectura de la aplicación
 ```
-Clientes
- ├ Web
- ├ Móvil
- └ Escritorio
-        │
-        │ 
-        ▼
-     API REST
-        │
-        ▼
-   Base de datos
+             Clients
+ ┌─────────┬─────────┬──────────┐
+ │   Web   │  Móvil  │Escritorio│
+ └─────────┴─────────┴──────────┘
+                │
+                ▼
+             REST API
+                │
+                ▼
+             Database
 ```
 Los clientes se comunican independientemente con la misma API.
