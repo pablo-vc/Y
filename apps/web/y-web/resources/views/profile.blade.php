@@ -242,7 +242,7 @@
                         name="email" 
                         value="{{ $profile['email'] ?? '' }}" 
                         required
-                        placeholder="tu@email.com"
+                        placeholder="{{ $profile['email'] ?? 'tu@email.com' }}"
                         autocomplete="email"
                     >
                 </div>

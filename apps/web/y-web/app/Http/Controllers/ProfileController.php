@@ -39,6 +39,7 @@ class ProfileController extends Controller
 
         $this->api->updateProfile($userId, [
             'username' => $request->username,
+            'email'=> $request->email,
             'bio' => $request->bio,
         ]);
 

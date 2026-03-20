@@ -57,7 +57,7 @@ public class Posts {
             try (Connection conexion = ConnectionManager.getConnection()) {
                 Statement st = conexion.createStatement();
                 ResultSet rs = st.executeQuery(
-                        "SELECT p.*, u.username FROM posts p JOIN users u ON p.id_user = u.id" +
+                        "SELECT p.*, u.username FROM posts p JOIN users u ON p.id_user = u.id " + 
                                 "ORDER BY p.created_at DESC LIMIT 100");
                 while (rs.next()) {
                     postsList.add(new Post(rs.getInt("id"), 
@@ -102,7 +102,7 @@ public class Posts {
             try (Connection conexion = ConnectionManager.getConnection()) {
                 PreparedStatement ps = conexion
                         .prepareStatement(
-                                "Select p.*, u.username from posts p JOIN users u" +
+                                "Select p.*, u.username from posts p JOIN users u " + 
                                         "ON p.id_user=u.id where p.id_user=? order by p.created_at desc");
                 ps.setInt(1, id_user);
                 ResultSet rs = ps.executeQuery();
@@ -150,8 +150,8 @@ public class Posts {
             Class.forName("org.mariadb.jdbc.Driver");
             try (Connection conexion = ConnectionManager.getConnection()) {
                 PreparedStatement ps = conexion.prepareStatement(
-                        "SELECT p.*, u.username FROM posts p JOIN users u" +
-                                "ON p.id_user = u.id JOIN followers f ON p.id_user = f.id_following" +
+                        "SELECT p.*, u.username FROM posts p JOIN users u " + 
+                                "ON p.id_user = u.id JOIN followers f ON p.id_user = f.id_following " + 
                                 "WHERE f.id_follower = ? ORDER BY p.created_at DESC limit 100");
                 ps.setInt(1, userId);
                 ResultSet rs = ps.executeQuery();
@@ -197,7 +197,7 @@ public class Posts {
             Class.forName("org.mariadb.jdbc.Driver");
             try (Connection conexion = ConnectionManager.getConnection()) {
                 PreparedStatement ps = conexion
-                        .prepareStatement("INSERT INTO posts (id_user, content, created_at)" +
+                        .prepareStatement("INSERT INTO posts (id_user, content, created_at) " + 
                                 "VALUES (?, ?, NOW())");
                 ps.setInt(1, p.getId_user());
                 ps.setString(2, p.getContent());
