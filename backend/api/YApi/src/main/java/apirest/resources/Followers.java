@@ -67,29 +67,30 @@ public class Followers {
             try (Connection conexion = ConnectionManager.getConnection()) {
 
                 PreparedStatement validate = conexion.prepareStatement(
-                        "SELECT 1 FROM followers WHERE id_follower=?" +
+                        "SELECT 1 FROM followers WHERE id_follower=? " +
                                 "AND id_following=?");
                 validate.setInt(1, id_follower);
                 validate.setInt(2, id_following);
                 ResultSet rs = validate.executeQuery();
                 if (rs.next()) {
-                    return Response.status(409).entity("Following relationship already exists").build();
+                    return Response.status(409)
+                    .entity("Following relationship already exists").build();
                 }
 
                 PreparedStatement ps = conexion.prepareStatement(
-                        "INSERT INTO followers (id_follower,id_following,created_at)" +
+                        "INSERT INTO followers (id_follower,id_following,created_at) " +
                                 "VALUES (?,?,NOW())");
                 ps.setInt(1, id_follower);
                 ps.setInt(2, id_following);
                 ps.executeUpdate();
-                PreparedStatement notif = conexion.prepareStatement(
-                        "INSERT INTO notifications (id_user,id_follower,created_at)" +
+                PreparedStatement notify = conexion.prepareStatement(
+                        "INSERT INTO notifications (id_user,id_follower,created_at) " +
                                 "VALUES (?,?,NOW())");
 
-                notif.setInt(1, id_following);
-                notif.setInt(2, id_follower);
+                notify.setInt(1, id_following);
+                notify.setInt(2, id_follower);
 
-                notif.executeUpdate();
+                notify.executeUpdate();
                 return Response.ok().build();
             } catch (SQLException e) {
                 return Response.status(Response.Status.INTERNAL_SERVER_ERROR)
@@ -122,7 +123,7 @@ public class Followers {
             Class.forName("org.mariadb.jdbc.Driver");
             try (Connection conexion = ConnectionManager.getConnection()) {
                 PreparedStatement ps = conexion.prepareStatement(
-                        "DELETE from followers where id_follower=?" +
+                        "DELETE from followers where id_follower=? " +
                                 "AND id_following=?");
                 ps.setInt(1, id_follower);
                 ps.setInt(2, id_following);

@@ -242,6 +242,7 @@
                         name="email" 
                         value="{{ $profile['email'] ?? '' }}" 
                         required
+                        maxlength="40"
                         placeholder="{{ $profile['email'] ?? 'tu@email.com' }}"
                         autocomplete="email"
                     >
