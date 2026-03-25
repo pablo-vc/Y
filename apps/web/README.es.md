@@ -14,9 +14,9 @@ El cliente web permite a los usuarios interactuar con la aplicación a través d
 ## Características
 
 - Feed global con publicaciones de todos los usuarios
-- Feed personalizado con publicaciones de usuarios seguidos
+- Feed con publicaciones de usuarios seguidos
 - Posibilidad de crear y eliminar publicaciones
-- Gestión del perfil de usuario
+- Gestión del perfil e información de usuario
 - Sistema de notificaciones de seguimiento
 
 ## Tecnologías utilizadas
