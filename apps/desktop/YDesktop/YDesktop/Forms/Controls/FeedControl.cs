@@ -58,7 +58,7 @@ namespace YDesktop.Forms.Controls
             btnGlobal.Dock = DockStyle.Fill;
             btnGlobal.Text = "Global";
             ConfigTabButton(btnGlobal);
-            btnGlobal.ForeColor = Color.Black;
+            btnGlobal.ForeColor = Color.FromArgb(29, 161, 242);
 
             btnFollowing.Dock = DockStyle.Fill;
             btnFollowing.Text = "Following";
@@ -80,6 +80,7 @@ namespace YDesktop.Forms.Controls
             flowLayoutPanel1.AutoScroll = true;
             flowLayoutPanel1.Padding = new Padding(0, 10, 0, 10);
             flowLayoutPanel1.BackColor = Color.Transparent;
+            flowLayoutPanel1.ForeColor = Color.FromArgb(29, 161, 242);
 
             // Evento scroll (para lazy load)
             //flowLayoutPanel1.Scroll += FlowLayoutPanel1_Scroll;
@@ -97,7 +98,7 @@ namespace YDesktop.Forms.Controls
 
             btn.Click += async (s, e) =>
             {
-                showFollowing = true;
+                showFollowing = !showFollowing;
                 UpdateTabs();
                 await ReloadFeed();
             };
@@ -156,12 +157,12 @@ namespace YDesktop.Forms.Controls
         {
             if (showFollowing)
             {
-                btnFollowing.ForeColor = Color.Black;
+                btnFollowing.ForeColor = Color.FromArgb(29, 161, 242);
                 btnGlobal.ForeColor = Color.Gray;
             }
             else
             {
-                btnGlobal.ForeColor = Color.Black;
+                btnGlobal.ForeColor = Color.FromArgb(29, 161, 242);
                 btnFollowing.ForeColor = Color.Gray;
             }
         }
