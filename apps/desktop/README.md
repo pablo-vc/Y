@@ -11,6 +11,20 @@ The desktop client allows users to interact with the application from their comp
 - 🇬🇧 English 
 - 🇪🇸 Español → [README.es.md](README.es.md)
 
+## Features
+
+- Global feed with posts from all users
+- Custom feed from followed users
+- Create and delete posts
+- User profile management
+- Follow notifications
+
+## Technologies
+
+- C#
+- .NET
+- Windows Forms
+
 ## Proyect Structure
 
 ```
