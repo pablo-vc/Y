@@ -39,9 +39,9 @@ La aplicación se centra en publicaciones de texto e interacción minimalistas, 
 ### Aplicación de Escritorio
 
 <p align="center">
-  <img src="docs/screenshots/desktop/feed.png" width="30%">
-  <img src="docs/screenshots/desktop/profile.png" width="30%">
-  <img src="docs/screenshots/desktop/notifications.png" width="30%">
+  <img src="https://github.com/pablo-vc/Y/blob/main/docs/resources/desktop/Feed.JPG" width="30%">
+  <img src="https://github.com/pablo-vc/Y/blob/main/docs/resources/desktop/Profile.JPG" width="30%">
+  <img src="https://github.com/pablo-vc/Y/blob/main/docs/resources/desktop/Notifications.JPG" width="30%">
 </p>
 
 ## Arquitectura
