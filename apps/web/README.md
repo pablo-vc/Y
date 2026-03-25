@@ -14,7 +14,7 @@ The web client allows users to interact with the app through a browser.
 ## Features
 
 - Global feed with posts from all users
-- Personalized feed from followed users
+- Custom feed from followed users
 - Create and delete posts
 - User profile management
 - Follow notifications
