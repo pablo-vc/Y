@@ -11,6 +11,20 @@ El cliente de escritorio permite a los usuarios interactuar conla aplicación de
 - 🇬🇧 English → [README.md](README.es.md)
 - 🇪🇸 Español 
 
+## Características
+
+- Feed global con publicaciones de todos los usuarios
+- Feed con publicaciones de usuarios seguidos
+- Posibilidad de crear y eliminar publicaciones
+- Gestión del perfil e información de usuario
+- Sistema de notificaciones de seguimiento
+
+## Tecnologías utilizadas
+
+- C#
+- .NET
+- Windows Forms
+
 ## Estructura
 
 ```
