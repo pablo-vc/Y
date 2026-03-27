@@ -27,7 +27,7 @@ Puedes ejecutar la aplicación desde:
 
 ## Requisitos del sistema
 - Windows 10 o superior  
-- .NET Framework 4.8 (o la versión requerida por la aplicación)  
+- .NET Framework 4.7.2 o superior  
 - No se requiere conexión a internet para su uso  
 
 ## Consejos
