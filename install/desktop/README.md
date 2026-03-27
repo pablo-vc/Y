@@ -1,35 +1,35 @@
-# Instalación y Ejecución 
+# Installation and Execution
 
-Esta guía explica cómo instalar y ejecutar la aplicación de manera sencilla en Windows.
+This guide explains how to install and run the application on Windows.
 
-## Idiomas
-- 🇬🇧 English → [README.md](README.md)
-- 🇪🇸 Español 
+## Languages
+- 🇬🇧 English   
+- 🇪🇸 Spanish → [README.es.md](README.es.md)
 
-## Descargar el instalador
-Descarga el archivo setup.exe.
+## Download the installer
+Download the `setup.exe` file.
 
-## Instalar la aplicación
-- Abre la carpeta donde descargaste setup.exe.
-- Haz doble clic en el archivo para iniciar la instalación.
-- Si Windows muestra un mensaje de seguridad ("¿Quieres permitir que esta aplicación haga cambios en tu dispositivo?"), selecciona Sí.
-- Sigue los pasos del instalador:
-- Selecciona la carpeta de instalación (por defecto está bien)
-- Haz clic en Siguiente / Instalar hasta finalizar la instalación
-- Opcional: marca "Iniciar aplicación" si quieres abrirla inmediatamente.
+## Install the application
+- Open the folder where you downloaded `setup.exe`.
+- Double-click the file to start the installation.
+- If Windows shows a security prompt ("Do you want to allow this app to make changes to your device?"), select **Yes**.
+- Follow the installer steps:
+  - Choose the installation folder (the default option is usually fine).
+  - Click **Next** or **Install** until the process is complete.
+  - Optional: check "Launch application" if you want to open it immediately.
 
-## Ejecutar la aplicación
+## Run the application
 
-Puedes ejecutar la aplicación desde:
-- El acceso directo en el escritorio (si se creó)
-- El Menú Inicio → Nombre de la aplicación
-- La carpeta de instalación (C:\Program Files\Y por defecto)
+You can run the application from:
+- The desktop shortcut (if created).
+- The Start Menu → Application Name.
+- The installation folder (by default in `C:\Program Files\Y`).
 
-## Requisitos del sistema
-- Windows 10 o superior
-- .NET Framework 4.8 (o la versión que tu aplicación requiere)
-- No se necesita conexión a internet ni actualizaciones posteriores
+## System requirements
+- Windows 10 or later  
+- .NET Framework 4.8 (or the version required by the application)  
+- No internet connection is required to use the application  
 
-## Consejos
-- Para un acceso más rápido, crea un acceso directo en la barra de tareas.
-- Guarda el instalador setup.exe por si necesitas reinstalar la aplicación.
+## Tips
+- For quicker access, you can pin the application to the taskbar.
+- Keep the `setup.exe` installer in case you need to reinstall the application.
