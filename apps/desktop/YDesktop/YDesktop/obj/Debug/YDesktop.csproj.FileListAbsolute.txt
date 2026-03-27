@@ -76,3 +76,7 @@ C:\Users\User\Desktop\Y\apps\desktop\YDesktop\YDesktop\obj\Debug\YDesktop.csproj
 C:\Users\User\Desktop\Y\apps\desktop\YDesktop\YDesktop\obj\Debug\YDesktop.csproj.Up2Date
 C:\Users\User\Desktop\Y\apps\desktop\YDesktop\YDesktop\obj\Debug\YDesktop.exe
 C:\Users\User\Desktop\Y\apps\desktop\YDesktop\YDesktop\obj\Debug\YDesktop.pdb
+C:\Users\User\Desktop\Y\apps\desktop\YDesktop\YDesktop\bin\Debug\YDesktop.exe.manifest
+C:\Users\User\Desktop\Y\apps\desktop\YDesktop\YDesktop\bin\Debug\YDesktop.application
+C:\Users\User\Desktop\Y\apps\desktop\YDesktop\YDesktop\obj\Debug\YDesktop.exe.manifest
+C:\Users\User\Desktop\Y\apps\desktop\YDesktop\YDesktop\obj\Debug\YDesktop.application
