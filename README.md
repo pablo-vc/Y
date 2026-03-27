@@ -89,9 +89,6 @@ All clients communicate with the same backend service.
 │   └ api           REST API server
 │
 ├ install           Installable versions of the app
-│   ├ desktop 
-│   ├ mobile 
-│   └ web           
 │
 └ docs              Documentation and resources
    ├resources       
