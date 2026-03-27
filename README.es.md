@@ -52,6 +52,19 @@ El proyecto consiste en un backend con una API Rest y tres aplicaciones de clien
 - Aplicación móvil 
 - Aplicación de escritorio
 
+```
+             Clients
+ ┌─────────┬─────────┬──────────┐
+ │   Web   │  Móvil  │Escritorio│
+ └─────────┴─────────┴──────────┘
+                │
+                ▼
+             REST API
+                │
+                ▼
+             Database
+```
+
 Todos los clientes se comunican con el mismo servicio de backend.
 
 ## Estructura del proyecto
@@ -97,18 +110,3 @@ Cada subproyecto tiene su propia documentation junto con su registro de desarrol
 - [Móvil](apps/mobile/README.es.md)
 - [Escritorio](apps/desktop/README.es.md)
 - [API](backend/README.es.md)
-
-## Arquitectura de la aplicación
-```
-             Clients
- ┌─────────┬─────────┬──────────┐
- │   Web   │  Móvil  │Escritorio│
- └─────────┴─────────┴──────────┘
-                │
-                ▼
-             REST API
-                │
-                ▼
-             Database
-```
-Los clientes se comunican independientemente con la misma API.

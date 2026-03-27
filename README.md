@@ -52,7 +52,20 @@ The project consists of a backend REST API and three client applications:
 - Mobile application
 - Desktop application
 
+```
+             Clients
+ ┌─────────┬─────────┬─────────┐
+ │   Web   │  Mobile │ Desktop │
+ └─────────┴─────────┴─────────┘
+                │
+                ▼
+             REST API
+                │
+                ▼
+             Database
+```
 All clients communicate with the same backend service.
+
 
 ## Project Structure
 
@@ -97,18 +110,3 @@ Each subproject has its own documentation and development log:
 - [Mobile](apps/mobile/README.md)
 - [Desktop](apps/desktop/README.md)
 - [API](backend/README.md)
-
-## System Architecture
-```
-             Clients
- ┌─────────┬─────────┬─────────┐
- │   Web   │  Mobile │ Desktop │
- └─────────┴─────────┴─────────┘
-                │
-                ▼
-             REST API
-                │
-                ▼
-             Database
-```
-All clients communicate with the same backend service.
