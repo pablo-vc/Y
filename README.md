@@ -72,21 +72,26 @@ All clients communicate with the same backend service.
 ```
 .
 ├ apps
-│  ├ web             
+│  ├ desktop             
 │  │   ├ readme
-│  │   └ app         Web Client app
+│  │   └ app        Desktop Client app
 │  │
 │  ├ mobile          
 │  │   ├ readme
 │  │   └ app        Mobile Client app
 │  │ 
-│  └ desktop        
+│  └ web        
 │      ├ readme
-│      └ app        Desktop Client app
+│      └ app        Web Client app
 │
 ├ backend           
 │   ├ readme 
 │   └ api           REST API server
+│
+├ install           Installable versions of the app
+│   ├ desktop 
+│   ├ mobile 
+│   └ web           
 │
 └ docs              Documentation and resources
    ├resources       
