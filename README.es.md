@@ -88,6 +88,8 @@ Todos los clientes se comunican con el mismo servicio de backend.
 │   ├ readme 
 │   └ api           Servidor API REST  
 │
+├ install           Versiones instalables de la aplicación
+│
 └ docs              Documentación y recursos
    ├resources       
    │
