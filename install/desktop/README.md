@@ -2,6 +2,10 @@
 
 Esta guía explica cómo instalar y ejecutar la aplicación de manera sencilla en Windows.
 
+## Idiomas
+- 🇬🇧 English → [README.md](README.md)
+- 🇪🇸 Español 
+
 ## Descargar el instalador
 Descarga el archivo setup.exe.
 
