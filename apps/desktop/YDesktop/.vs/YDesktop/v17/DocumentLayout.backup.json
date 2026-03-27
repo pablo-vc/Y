@@ -7,15 +7,15 @@
       "RelativeMoniker": "D:0:0:{1D49E236-4FD2-41C4-98A2-8A097D3D73A2}|YDesktop\\YDesktop.csproj|solutionrelative:ydesktop\\forms\\controls\\feedcontrol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{1D49E236-4FD2-41C4-98A2-8A097D3D73A2}|YDesktop\\YDesktop.csproj|c:\\users\\user\\desktop\\y\\apps\\desktop\\ydesktop\\ydesktop\\forms\\controls\\profilecontrol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{1D49E236-4FD2-41C4-98A2-8A097D3D73A2}|YDesktop\\YDesktop.csproj|C:\\Users\\User\\Desktop\\Y\\apps\\desktop\\YDesktop\\ydesktop\\forms\\controls\\profilecontrol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{1D49E236-4FD2-41C4-98A2-8A097D3D73A2}|YDesktop\\YDesktop.csproj|solutionrelative:ydesktop\\forms\\controls\\profilecontrol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{1D49E236-4FD2-41C4-98A2-8A097D3D73A2}|YDesktop\\YDesktop.csproj|c:\\users\\user\\desktop\\y\\apps\\desktop\\ydesktop\\ydesktop\\forms\\controls\\profilecontrol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{1D49E236-4FD2-41C4-98A2-8A097D3D73A2}|YDesktop\\YDesktop.csproj|C:\\Users\\User\\Desktop\\Y\\apps\\desktop\\YDesktop\\ydesktop\\forms\\controls\\profilecontrol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{1D49E236-4FD2-41C4-98A2-8A097D3D73A2}|YDesktop\\YDesktop.csproj|solutionrelative:ydesktop\\forms\\controls\\profilecontrol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{1D49E236-4FD2-41C4-98A2-8A097D3D73A2}|YDesktop\\YDesktop.csproj|c:\\users\\user\\desktop\\y\\apps\\desktop\\ydesktop\\ydesktop\\forms\\controls\\feedcontrol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{1D49E236-4FD2-41C4-98A2-8A097D3D73A2}|YDesktop\\YDesktop.csproj|C:\\Users\\User\\Desktop\\Y\\apps\\desktop\\YDesktop\\ydesktop\\forms\\controls\\feedcontrol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{1D49E236-4FD2-41C4-98A2-8A097D3D73A2}|YDesktop\\YDesktop.csproj|solutionrelative:ydesktop\\forms\\controls\\feedcontrol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     }
   ],
@@ -38,8 +38,7 @@
               "RelativeToolTip": "YDesktop\\Forms\\Controls\\ProfileControl.cs",
               "ViewState": "AgIAAD8AAAAAAAAAAAD4v0wAAABHAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-25T14:10:53.049Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-03-25T14:10:53.049Z"
             },
             {
               "$type": "Document",
@@ -50,8 +49,7 @@
               "ToolTip": "C:\\Users\\User\\Desktop\\Y\\apps\\desktop\\YDesktop\\YDesktop\\Forms\\Controls\\ProfileControl.cs [Dise\u00F1o]",
               "RelativeToolTip": "YDesktop\\Forms\\Controls\\ProfileControl.cs [Dise\u00F1o]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-25T14:10:44.641Z",
-              "EditorCaption": " [Dise\u00F1o]"
+              "WhenOpened": "2026-03-25T14:10:44.641Z"
             },
             {
               "$type": "Document",
@@ -59,8 +57,8 @@
               "Title": "FeedControl.cs",
               "DocumentMoniker": "C:\\Users\\User\\Desktop\\Y\\apps\\desktop\\YDesktop\\YDesktop\\Forms\\Controls\\FeedControl.cs",
               "RelativeDocumentMoniker": "YDesktop\\Forms\\Controls\\FeedControl.cs",
-              "ToolTip": "C:\\Users\\User\\Desktop\\Y\\apps\\desktop\\YDesktop\\YDesktop\\Forms\\Controls\\FeedControl.cs*",
-              "RelativeToolTip": "YDesktop\\Forms\\Controls\\FeedControl.cs*",
+              "ToolTip": "C:\\Users\\User\\Desktop\\Y\\apps\\desktop\\YDesktop\\YDesktop\\Forms\\Controls\\FeedControl.cs",
+              "RelativeToolTip": "YDesktop\\Forms\\Controls\\FeedControl.cs",
               "ViewState": "AgIAAEgAAAAAAAAAAAD4v1IAAABGAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-03-25T14:08:10.026Z",
@@ -72,11 +70,10 @@
               "Title": "FeedControl.cs [Dise\u00F1o]",
               "DocumentMoniker": "C:\\Users\\User\\Desktop\\Y\\apps\\desktop\\YDesktop\\YDesktop\\Forms\\Controls\\FeedControl.cs",
               "RelativeDocumentMoniker": "YDesktop\\Forms\\Controls\\FeedControl.cs",
-              "ToolTip": "C:\\Users\\User\\Desktop\\Y\\apps\\desktop\\YDesktop\\YDesktop\\Forms\\Controls\\FeedControl.cs [Dise\u00F1o]*",
-              "RelativeToolTip": "YDesktop\\Forms\\Controls\\FeedControl.cs [Dise\u00F1o]*",
+              "ToolTip": "C:\\Users\\User\\Desktop\\Y\\apps\\desktop\\YDesktop\\YDesktop\\Forms\\Controls\\FeedControl.cs [Dise\u00F1o]",
+              "RelativeToolTip": "YDesktop\\Forms\\Controls\\FeedControl.cs [Dise\u00F1o]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-25T14:08:07.116Z",
-              "EditorCaption": " [Dise\u00F1o]"
+              "WhenOpened": "2026-03-25T14:08:07.116Z"
             }
           ]
         }
