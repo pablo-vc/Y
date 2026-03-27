@@ -1,112 +1,30 @@
-# Y - Aplicación Multiplataforma de Microblogging
+# Instalación y ejecución (Android)
 
-Este repositorio contiene la línea de desarrollo, documentación técnica y recursos de **Y**, una aplicación multiplataforma de microblogging inspirada en Twitter.
-
-La aplicación se centra en publicaciones de texto e interacción minimalistas, brindando un espacio donde los usuarios puedan compartir sus inquietudes e intereses.
+Esta guía explica cómo instalar y ejecutar la aplicación en dispositivos Android mediante un archivo APK.
 
 ## Idiomas
+- 🇬🇧 English → [README.md](README.md)  
+- 🇪🇸 Español  
 
-- 🇬🇧 English → [README.md](README.md)
-- 🇪🇸 Español 
+## Descargar el APK
+Descarga el archivo `.apk` desde desde el repositorio.
 
-## Características
+## Instalar la aplicación
+- Abre el archivo `.apk` en tu dispositivo Android.
+- Si es la primera vez que instalas aplicaciones desde fuera de Google Play, el sistema te pedirá habilitar **orígenes desconocidos**:
+  - Ve a **Configuración** → **Seguridad**.
+  - Activa la opción para permitir instalaciones desde fuentes desconocidas (puede variar según el dispositivo).
+- Confirma la instalación cuando se te solicite.
+- Espera a que el proceso finalice.
 
-- Feed global con publicaciones de todos los usuarios
-- Feed personalizado con publicaciones de los usuarios que sigues
-- Posibilidad de seguir a otros usuarios
-- Perfil de usuario con información editable
-- Gestión de publicaciones (publicar y borrar)
-- Sistema de notificaciones para nuevos seguidores
+## Ejecutar la aplicación
+Puedes abrir la aplicación desde:
+- El icono en el menú de aplicaciones.
+- El acceso directo en la pantalla de inicio (si lo has añadido).
 
-## Imágenes
+## Requisitos del sistema
+- Android 8.0 o superior.
+- Espacio de almacenamiento suficiente.
 
-### Aplicación Web
-
-<p align="center">
-  <img src="https://github.com/pablo-vc/Y/blob/main/docs/resources/web/notifications.JPG" width="30%">
-  <img src="https://github.com/pablo-vc/Y/blob/main/docs/resources/web/feed.JPG" width="30%">
-  <img src="https://github.com/pablo-vc/Y/blob/main/docs/resources/web/profile.JPG" width="30%">
-</p>
-
-### Aplicación Móvil
-
-<p align="center">
-  <img src="docs/screenshots/mobile/feed.png" width="30%">
-  <img src="docs/screenshots/mobile/profile.png" width="30%">
-  <img src="docs/screenshots/mobile/notifications.png" width="30%">
-</p>
-
-### Aplicación de Escritorio
-
-<p align="center">
-  <img src="https://github.com/pablo-vc/Y/blob/main/docs/resources/desktop/Feed.JPG" width="30%">
-  <img src="https://github.com/pablo-vc/Y/blob/main/docs/resources/desktop/Profile.JPG" width="30%">
-  <img src="https://github.com/pablo-vc/Y/blob/main/docs/resources/desktop/Notifications.JPG" width="30%">
-</p>
-
-## Arquitectura
-
-El proyecto consiste en un backend con una API Rest y tres aplicaciones de cliente:
-
-- Aplicación web 
-- Aplicación móvil 
-- Aplicación de escritorio
-
-```
-             Clients
- ┌─────────┬─────────┬──────────┐
- │   Web   │  Móvil  │Escritorio│
- └─────────┴─────────┴──────────┘
-                │
-                ▼
-             REST API
-                │
-                ▼
-             Database
-```
-
-Todos los clientes se comunican con el mismo servicio de backend.
-
-## Estructura del proyecto
-
-```
-.
-├ apps
-│  ├ web             
-│  │   ├ readme
-│  │   └ app         Cliente Web 
-│  │
-│  ├ mobile          
-│  │   ├ readme
-│  │   └ app        Cliente Móvil
-│  │ 
-│  └ desktop        
-│      ├ readme
-│      └ app        Cliente Escritorio
-│
-├ backend           
-│   ├ readme 
-│   └ api           Servidor API REST  
-│
-└ docs              Documentación y recursos
-   ├resources       
-   │
-   ├ en 
-   │  ├ project memory
-   │  └ technical documentation
-   │
-   └ es
-      ├ memoria de proyecto
-      └ documentación técnica
-
-
-```
-
-## Plataformas y Backend
-
-Cada subproyecto tiene su propia documentation junto con su registro de desarrollo:
-
-- [Web](apps/web/README.es.md)
-- [Móvil](apps/mobile/README.es.md)
-- [Escritorio](apps/desktop/README.es.md)
-- [API](backend/README.es.md)
+## Consejos
+- Mantén el archivo APK por si necesitas reinstalar la aplicación.
