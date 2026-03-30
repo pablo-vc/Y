@@ -44,6 +44,9 @@ The app focuses on text-based posts and minimalistic interaction, providing a sp
   <img src="https://github.com/pablo-vc/Y/blob/main/docs/resources/desktop/Notifications.JPG" width="30%">
 </p>
 
+
+[Demo videos and images](./docs/resources)
+
 ## Architecture
 
 The project consists of a backend REST API and three client applications:
