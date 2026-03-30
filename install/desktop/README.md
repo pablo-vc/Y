@@ -27,7 +27,7 @@ You can run the application from:
 
 ## System requirements
 - Windows 10 or later  
-- .NET Framework 4.7.3 o superior  
+- .NET Framework 4.7.3 or higher  
 - No internet connection is required to use the application  
 
 ## Tips
