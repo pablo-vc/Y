@@ -189,7 +189,6 @@ public class ProfileFragment extends Fragment {
             String bio = etBio.getText().toString().trim();
             if (dialogValidation(username, email, bio)) {
 
-
                 new Thread(() -> {
 
                     boolean success = Api.updateUser(currentUserId, username, email, bio);
@@ -202,6 +201,7 @@ public class ProfileFragment extends Fragment {
                             tvUsername.setText(username);
                             Session.getInstance().getUser().setUsername(username);
                             Session.getInstance().getUser().setEmail(email);
+                            Session.getInstance().getUser().setBio(bio);
                             tvBio.setText(bio);
                             Toast.makeText(getContext(), getString(R.string.profile_updated), Toast.LENGTH_SHORT).show();
                         } else {
@@ -238,12 +238,15 @@ public class ProfileFragment extends Fragment {
             etEmail.setError(getString(R.string.cannot_be_empty));
             return false;
         }
-        if (!User.validateEmail(email)) {
+        if (!email.equals(Session.getInstance().getUser().getEmail())
+                && !User.validateEmail(email)) {
             etEmail.setError(getString(R.string.invalid_email));
             return false;
         }
 
-        if (username.equals(tvUsername.getText().toString()) && email.equals(Session.getInstance().getUser().getEmail()) && bio.equals(tvBio.getText().toString())) {
+        if (username.equals(tvUsername.getText().toString())
+                && email.equals(Session.getInstance().getUser().getEmail())
+                && bio.equals(tvBio.getText().toString())) {
             dialog.dismiss();
             return false;
         }
