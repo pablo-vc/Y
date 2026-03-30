@@ -11,7 +11,7 @@
     <string name="Register_text">¿No tienes cuenta? Regístrate</string>
     <string name="Register">Registrarse</string>
     <string name="Post">Publicar</string>
-    <string name="New_post_text">¿Qué estás pensando?</string>
+    <string name="New_post_text">¿En qué estás pensando?</string>
     <string name="edit_profile">Editar perfil</string>
     <string name="Cancel">Cancelar</string>
     <string name="Save">Guardar</string>
@@ -23,9 +23,9 @@
     <string name="passwords_doesnt_match">Las contraseñas no coinciden</string>
     <string name="registered_succesfully">Registrado correctamente</string>
     <string name="started_following">" ha comenzado a seguirte"</string>
-    <string name="post_deleted">Post eliminado</string>
+    <string name="post_deleted">Publicación eliminada</string>
     <string name="error_deleting_post">No se ha podido eliminar</string>
-    <string name="delete_post">Eliminar post</string>
+    <string name="delete_post">Eliminar publicación</string>
     <string name="confirm_delete_post">¿Seguro que quieres eliminar este post?</string>
     <string name="incorrect_credentials">Credenciales incorrectas</string>
     <string name="follow">Seguir</string>

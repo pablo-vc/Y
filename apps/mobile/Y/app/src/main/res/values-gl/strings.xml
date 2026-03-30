@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="notifications">Notificacións</string>
+    <string name="feed">Muro</string>
+    <string name="profile">Perfil</string>
+    <string name="Username">Nome de usuario</string>
+    <string name="Password">Contrasinal</string>
+    <string name="Repeat_password">Repetir contrasinal</string>
+    <string name="LogIn">Iniciar sesión</string>
+    <string name="forgot_password">Esqueciches o teu contrasinal?</string>
+    <string name="Register_text">Todavía non tes unha conta?</string>
+    <string name="Register">Rexistrarse</string>
+    <string name="Post">Publicar</string>
+    <string name="New_post_text">Que estás a pensar?</string>
+    <string name="edit_profile">Editar pefil</string>
+    <string name="Cancel">Cancelar</string>
+    <string name="Save">Gardar</string>
+    <string name="following">Seguindo</string>
+    <string name="followers">Seguidores</string>
+    <string name="cannot_be_empty">Non pode estar valeiro</string>
+    <string name="no_posts_available">Non hay publicaciones disponibles</string>
+    <string name="invalid_username">O nombre de usuario non é válido</string>
+    <string name="passwords_doesnt_match">Os contrasinais non coinciden</string>
+    <string name="registered_succesfully">Rexistrado correctamente</string>
+    <string name="started_following">" comezou a seguirte"</string>
+    <string name="post_deleted">Publicación eliminada</string>
+    <string name="error_deleting_post">Non foi posible eliminar a publicación</string>
+    <string name="delete_post">Eliminar publicación</string>
+    <string name="confirm_delete_post">Seguro que queres eliminar a publicación</string>
+    <string name="incorrect_credentials">Credenciais incorrectas</string>
+    <string name="follow">Seguir</string>
+    <string name="unfollow">Deixar de seguir</string>
+    <string name="unfollowed">Deixado de seguir</string>
+    <string name="posted_correctly">Publicado correctamente</string>
+    <string name="error_posting">Error ao publicar</string>
+    <string name="profile_updated">Perfil actualizado</string>
+    <string name="error_updating">Error actualizando</string>
+    <string name="delete_account">Eliminar cuenta</string>
+    <string name="delete">Eliminar</string>
+    <string name="cancel">Cancelar</string>
+    <string name="confirm_delete_account">Esta acción é permanente. Seguro que queres eliminar a túa conta?</string>
+    <string name="account_deleted">Conta eliminada</string>
+    <string name="error_deleting_account">Error eliminando a conta</string>
+    <string name="logout">Pechar sesión</string>
+    <string name="invalid_email">Email non válido</string>
+</resources>
