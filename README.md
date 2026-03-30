@@ -31,9 +31,9 @@ The app focuses on text-based posts and minimalistic interaction, providing a sp
 ### Mobile Application
 
 <p align="center">
-  <img src="https://github.com/pablo-vc/Y/blob/main/docs/resources/mobile/feed.jpg" width="30%">
-  <img src="https://github.com/pablo-vc/Y/blob/main/docs/resources/mobile/profile.jpg" width="30%">
-  <img src="https://github.com/pablo-vc/Y/blob/main/docs/resources/mobile/notifications.jpg" width="30%">
+  <img src="https://github.com/pablo-vc/Y/blob/main/docs/resources/mobile/feed.jpeg" width="30%">
+  <img src="https://github.com/pablo-vc/Y/blob/main/docs/resources/mobile/profile.jpeg" width="30%">
+  <img src="https://github.com/pablo-vc/Y/blob/main/docs/resources/mobile/notifications.jpeg" width="30%">
 </p>
 
 ### Desktop Application
