@@ -114,4 +114,4 @@ The mobile client was completed with all core functionalities integrated with th
 
 ## Demo Video
 
-[View demo video](https://github.com/user-attachments/assets/0213fc2f-cde1-42af-82cd-a3a2b6ca468d)
+[Watch](https://drive.google.com/file/d/10z0-qfVdepgBj-o2TFCdCBlAs4GhfpPl/view?usp=sharing)
