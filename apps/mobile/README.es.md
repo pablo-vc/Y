@@ -119,10 +119,5 @@ El cliente móvil se completó con todas las funcionalidades principales integra
 
 ## Video Demo
 
-
-
-
-https://github.com/user-attachments/assets/0213fc2f-cde1-42af-82cd-a3a2b6ca468d
-
-
+[Ver](https://drive.google.com/file/d/10z0-qfVdepgBj-o2TFCdCBlAs4GhfpPl/view?usp=sharing)
 
