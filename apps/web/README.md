@@ -88,3 +88,8 @@ The web client was completed with all core functionalities integrated with the b
   - Publish date added to posts
 - Code improvements
   - Style re-organization and unification, general styles defined in `app.blade.php` with derivatives in each page files
+
+
+## Demo Video
+
+[Watch](https://drive.google.com/file/d/1_GS0YerNjF6QLwMy5gS570bnW3FQjaRb/view?usp=sharing)
