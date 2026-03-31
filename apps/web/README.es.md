@@ -90,3 +90,8 @@ El cliente web se completó con todas las funcionalidades principales integradas
   - Fecha de publicación añadida a las publicaciones
 - Mejoras de código
   - Reorganización y unificación de estilos, estilos generales definidos en `app.blade.php` con variaciones en cada pagina
+
+
+## Video Demo
+
+[Ver](https://drive.google.com/file/d/1_GS0YerNjF6QLwMy5gS570bnW3FQjaRb/view?usp=sharing)
