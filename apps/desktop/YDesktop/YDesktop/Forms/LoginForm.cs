@@ -85,7 +85,7 @@ namespace YDesktop.Forms
                         "Confirm your password");
                     txt.Enter += (s, e) =>
                     {
-                        if (txt.Text == fieldName)
+                        if (txt.Text.ToLower() == fieldName.ToLower() || txt.Text == "Confirm your password")
                         {
                             txt.Text = "";
                             if (fieldName.Contains("Password"))
@@ -98,7 +98,7 @@ namespace YDesktop.Forms
                     {
                         if (string.IsNullOrEmpty(txt.Text.Trim()))
                         {
-                            txt.Text = fieldName != "ConfirmPassword" ? fieldName.ToLower() :
+                            txt.Text = fieldName != "ConfirmPassword" ? fieldName :
                             "Confirm your password";
                             if (fieldName.Contains("Password"))
                             {

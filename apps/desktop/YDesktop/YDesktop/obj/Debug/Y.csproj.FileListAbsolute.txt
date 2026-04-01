@@ -40,3 +40,4 @@ C:\Users\User\Desktop\Y\apps\desktop\YDesktop\YDesktop\obj\Debug\Y.exe.manifest
 C:\Users\User\Desktop\Y\apps\desktop\YDesktop\YDesktop\obj\Debug\Y.application
 C:\Users\User\Desktop\Y\apps\desktop\YDesktop\YDesktop\obj\Debug\Y.exe
 C:\Users\User\Desktop\Y\apps\desktop\YDesktop\YDesktop\obj\Debug\Y.pdb
+C:\Users\User\Desktop\Y\apps\desktop\YDesktop\YDesktop\obj\Debug\Y.exe.config

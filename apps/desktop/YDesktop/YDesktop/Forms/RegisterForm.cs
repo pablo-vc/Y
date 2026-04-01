@@ -69,7 +69,7 @@ namespace YDesktop.Forms
             btnRegister.Text = "Create Account";
             btnRegister.Width = 250;
             btnRegister.Height = 40;
-            btnRegister.Location = new Point(50, 320);
+            btnRegister.Location = new Point(50, 330);
             btnRegister.BackColor = Color.FromArgb(29, 161, 242);
             btnRegister.ForeColor = Color.White;
             btnRegister.FlatStyle = FlatStyle.Flat;
@@ -78,7 +78,7 @@ namespace YDesktop.Forms
 
             linkLogin.Text = "Already have an account? Login";
             linkLogin.AutoSize = true;
-            linkLogin.Location = new Point(70, 370);
+            linkLogin.Location = new Point(85, 410);
         }
 
         private void setupEvents()
@@ -94,7 +94,7 @@ namespace YDesktop.Forms
                         "Confirm your password");
                     txt.Enter += (s, e) =>
                     {
-                        if (txt.Text == fieldName)
+                        if (txt.Text.ToLower() == fieldName.ToLower()|| txt.Text == "Confirm your password")
                         {
                             txt.Text = "";
                             if (fieldName.Contains("Password"))
@@ -107,7 +107,7 @@ namespace YDesktop.Forms
                     {
                         if (string.IsNullOrEmpty(txt.Text.Trim()))
                         {
-                            txt.Text = fieldName != "ConfirmPassword" ? fieldName.ToLower() :
+                            txt.Text = fieldName != "ConfirmPassword" ? fieldName :
                             "Confirm your password";
                             if (fieldName.Contains("Password"))
                             {
