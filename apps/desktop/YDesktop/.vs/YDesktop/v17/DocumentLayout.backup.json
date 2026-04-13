@@ -3,12 +3,12 @@
   "WorkspaceRootPath": "C:\\Users\\User\\Desktop\\Y\\apps\\desktop\\YDesktop\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{1D49E236-4FD2-41C4-98A2-8A097D3D73A2}|YDesktop\\Y.csproj|c:\\users\\user\\desktop\\y\\apps\\desktop\\ydesktop\\ydesktop\\forms\\loginform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1D49E236-4FD2-41C4-98A2-8A097D3D73A2}|YDesktop\\Y.csproj|solutionrelative:ydesktop\\forms\\loginform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{1D49E236-4FD2-41C4-98A2-8A097D3D73A2}|YDesktop\\Y.csproj|c:\\users\\user\\desktop\\y\\apps\\desktop\\ydesktop\\ydesktop\\forms\\controls\\feedcontrol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1D49E236-4FD2-41C4-98A2-8A097D3D73A2}|YDesktop\\Y.csproj|solutionrelative:ydesktop\\forms\\controls\\feedcontrol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{1D49E236-4FD2-41C4-98A2-8A097D3D73A2}|YDesktop\\Y.csproj|c:\\users\\user\\desktop\\y\\apps\\desktop\\ydesktop\\ydesktop\\forms\\registerform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1D49E236-4FD2-41C4-98A2-8A097D3D73A2}|YDesktop\\Y.csproj|solutionrelative:ydesktop\\forms\\registerform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{1D49E236-4FD2-41C4-98A2-8A097D3D73A2}|YDesktop\\Y.csproj|C:\\Users\\User\\Desktop\\Y\\apps\\desktop\\YDesktop\\ydesktop\\forms\\controls\\feedcontrol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{1D49E236-4FD2-41C4-98A2-8A097D3D73A2}|YDesktop\\Y.csproj|solutionrelative:ydesktop\\forms\\controls\\feedcontrol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     }
   ],
   "DocumentGroupContainers": [
@@ -18,33 +18,31 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "RegisterForm.cs",
-              "DocumentMoniker": "C:\\Users\\User\\Desktop\\Y\\apps\\desktop\\YDesktop\\YDesktop\\Forms\\RegisterForm.cs",
-              "RelativeDocumentMoniker": "YDesktop\\Forms\\RegisterForm.cs",
-              "ToolTip": "C:\\Users\\User\\Desktop\\Y\\apps\\desktop\\YDesktop\\YDesktop\\Forms\\RegisterForm.cs",
-              "RelativeToolTip": "YDesktop\\Forms\\RegisterForm.cs",
-              "ViewState": "AgIAAFkAAAAAAAAAAAAgwHEAAABCAAAAAAAAAA==",
+              "DocumentIndex": 0,
+              "Title": "FeedControl.cs",
+              "DocumentMoniker": "C:\\Users\\User\\Desktop\\Y\\apps\\desktop\\YDesktop\\YDesktop\\Forms\\Controls\\FeedControl.cs",
+              "RelativeDocumentMoniker": "YDesktop\\Forms\\Controls\\FeedControl.cs",
+              "ToolTip": "C:\\Users\\User\\Desktop\\Y\\apps\\desktop\\YDesktop\\YDesktop\\Forms\\Controls\\FeedControl.cs",
+              "RelativeToolTip": "YDesktop\\Forms\\Controls\\FeedControl.cs",
+              "ViewState": "AgIAAG0AAAAAAAAAAAAkwHYAAAAlAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-01T10:37:53.618Z",
+              "WhenOpened": "2026-04-07T14:23:13.147Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "LoginForm.cs",
-              "DocumentMoniker": "C:\\Users\\User\\Desktop\\Y\\apps\\desktop\\YDesktop\\YDesktop\\Forms\\LoginForm.cs",
-              "RelativeDocumentMoniker": "YDesktop\\Forms\\LoginForm.cs",
-              "ToolTip": "C:\\Users\\User\\Desktop\\Y\\apps\\desktop\\YDesktop\\YDesktop\\Forms\\LoginForm.cs*",
-              "RelativeToolTip": "YDesktop\\Forms\\LoginForm.cs*",
-              "ViewState": "AgIAAFAAAAAAAAAAAAAgwFsAAAAdAAAAAAAAAA==",
+              "DocumentIndex": 1,
+              "Title": "FeedControl.cs [Dise\u00F1o]",
+              "DocumentMoniker": "C:\\Users\\User\\Desktop\\Y\\apps\\desktop\\YDesktop\\YDesktop\\Forms\\Controls\\FeedControl.cs",
+              "RelativeDocumentMoniker": "YDesktop\\Forms\\Controls\\FeedControl.cs",
+              "ToolTip": "C:\\Users\\User\\Desktop\\Y\\apps\\desktop\\YDesktop\\YDesktop\\Forms\\Controls\\FeedControl.cs [Dise\u00F1o]",
+              "RelativeToolTip": "YDesktop\\Forms\\Controls\\FeedControl.cs [Dise\u00F1o]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-01T10:37:44.635Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-04-07T14:23:11.389Z"
             }
           ]
         }
