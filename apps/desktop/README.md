@@ -1,8 +1,8 @@
 # Y – Desktop Client
 
-This project contains the desktop client of Y, a cross-platform microblogging application.
+This folder contains the desktop client of **Y**, a cross-platform microblogging application.
 
-This README gathers all the information related to the desktop version, including the development timeline and the relevant research areas for the overall evolution of the project.
+This README gathers all the information related to the desktop version, including a development timeline.
 
 The desktop client allows users to interact with the application from their computer in an intuitive and efficient way.
 
