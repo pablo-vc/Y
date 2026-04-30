@@ -1,10 +1,10 @@
 #  Y – Escritorio
 
-Este proyecto contiene el cliente de escritorio de **Y**, una aplicación multiplataforma de microblogging.
+Esta carpeta contiene el cliente de escritorio de **Y**, una aplicación multiplataforma de microblogging.
 
-Este README contiene toda la información relacionada con la versión de escritorio de la aplicación, incluyendo la cronología del desarrollo y las areas de investigación relevantes para la evolución completa del proyecto.
+Este README contiene toda la información relacionada con la versión de escritorio de la aplicación, incluyendo una cronología del desarrollo.
 
-El cliente de escritorio permite a los usuarios interactuar conla aplicación desde su ordenador de forma intuitiva y eficiente.
+El cliente de escritorio permite a los usuarios interactuar con la aplicación desde su ordenador de forma intuitiva y eficiente.
 
 ## Idiomas
 
