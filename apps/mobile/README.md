@@ -1,8 +1,8 @@
 # Y – Mobile Client
 
-This project contains the mobile client of **Y**, a cross-platform microblogging app.
+This folder contains the mobile client of **Y**, a cross-platform microblogging app.
 
-This readme contains all the information related to the mobile client, including a timeline and the relevant research areas that had impact on the development of the project.
+In this readme you will find all the information related to the mobile client, including a timeline and the relevant research areas that had impact on the development of the project.
 
 The mobile app allows users to interact with the app via Android devices.
 
