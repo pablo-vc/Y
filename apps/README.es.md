@@ -1,6 +1,6 @@
 # Y - Aplicaciones/Plataformas
 
-Esta carpeta se divide en tres, una por plataforma, en cada una se encuentra un archivo README explicativo y los proyectos completos de cada aplicación.
+Esta carpeta se divide en tres, una por plataforma, en cada una se encuentra un archivo README explicativo junto con el proyecto completo de cada aplicación.
 
 ## Idiomas
 
