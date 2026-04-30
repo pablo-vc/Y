@@ -9,7 +9,7 @@ Al final de este documento también encontrarás las sentencias de creación de 
 - 🇬🇧 English → [README.md](README.md)
 - 🇪🇸 Español 
 
-## Responsibilities
+## Responsabilidades
 
 - Autenticación (log-in/registro)
 - Gestión de posts (crear/borrar)
