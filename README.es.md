@@ -31,9 +31,9 @@ La aplicación se centra en publicaciones de texto e interacción minimalistas, 
 ### Aplicación Móvil
 
 <p align="center">
-  <img src="docs/screenshots/mobile/feed.png" width="30%">
-  <img src="docs/screenshots/mobile/profile.png" width="30%">
-  <img src="docs/screenshots/mobile/notifications.png" width="30%">
+  <img src="https://github.com/pablo-vc/Y/blob/main/docs/resources/mobile/feed.jpeg" width="30%">
+  <img src="https://github.com/pablo-vc/Y/blob/main/docs/resources/mobile/profile.jpeg" width="30%">
+  <img src="https://github.com/pablo-vc/Y/blob/main/docs/resources/mobile/notifications.jpeg" width="30%">
 </p>
 
 ### Aplicación de Escritorio
