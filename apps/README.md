@@ -1,6 +1,6 @@
 # Y - Apps/Platforms
 
-This folder is divided into three, each subdirectorie contains the complete project of the different platform apps and an explanatory readme.
+This folder is divided into three, each subdirectory contains the complete project of the different platform apps and an explanatory readme.
 
 ## Languages
 
