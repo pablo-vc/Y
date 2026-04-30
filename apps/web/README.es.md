@@ -1,8 +1,8 @@
 # Y – Cliente Web
 
-Este proyecto contiene el cliente web de **Y**, una aplicación multiplataforma de microblogging.
+Esta carpeta contiene el cliente web de **Y**, una aplicación multiplataforma de microblogging.
 
-Este readme contiene toda la información relacionada con la parte web de la aplicación, incluyendo la cronología del desarrollo y las areas de investigación relevantes para el desarrollo copmleto del proyecto.
+En este readme podrás encontrar toda la información relacionada con la parte web de la aplicación, incluyendo la cronología del desarrollo y las areas de investigación relevantes para el desarrollo completo del proyecto.
 
 El cliente web permite a los usuarios interactuar con la aplicación a través de un navegador.
 
